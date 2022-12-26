@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-substack-widget+.success, .custom-substack-widget+.error {
+  font-family: var(--font-inter), sans-serif !important;
+  color: #cb3364 !important;
+  font-size: 0.875rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #2e3f5c;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffec70;
+  border-radius: 2px;
+}
+
+.active-pill {
+  @apply border-yellow font-semibold text-yellow;
+}
+
+.active-pill > span {
+  @apply text-yellow;
+}
+
+#bmc-iframe {
+  min-height: 750px !important;
+  max-height: 750px !important;
+}
+
