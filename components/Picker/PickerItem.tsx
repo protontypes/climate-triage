@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Tag } from "../../types";
+import { Tag } from "@/types/types";
 
 type PickerItemLinkProps = {
   className: string;

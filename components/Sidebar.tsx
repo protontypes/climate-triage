@@ -8,12 +8,8 @@ import { useEffect, useState } from "react";
 import { useAppData } from "../hooks/useAppData";
 import { AboutSection } from "./AboutSection";
 import { LinkButton } from "./Button/LinkButton";
-import { NewsletterForm } from "./NewsletterForm";
 import { LanguagePicker } from "./Picker/LanguagePicker";
-import { TagPicker } from "./Picker/TagPicker";
 import ScrollToTop from "./ScrollToTop";
-import { SectionTitle } from "./SectionTitle";
-import { SponsorSection } from "./Sponsor/SponsorSection";
 
 export const Sidebar = () => {
   const currentPage = usePathname();
@@ -47,14 +43,17 @@ export const Sidebar = () => {
   }, [pageType]);
 
   // Function to scroll to the top of the page
-  const handleScrollToTop = () =>
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const handleScrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <section className="w-full flex-none px-6 font-sans text-silver-500 md:relative md:max-w-sm">
       <AboutSection />
       <div className="pt-4">
-        <LinkButton title="Star it on GitHub" href="https://github.com/lucavallin/verto" secondary>
+        <LinkButton
+          title="Star it on GitHub"
+          href="https://github.com/protontypes/open-sustainable-technology"
+          secondary
+        >
           <FontAwesomeIcon icon={faGithub} className="mr-2" />
           Star it on GitHub 🌟
         </LinkButton>
@@ -62,23 +61,11 @@ export const Sidebar = () => {
       <div className="pt-2">
         <LinkButton
           title="Add your project"
-          href="https://github.com/lucavallin/verto#adding-a-new-project"
+          href="https://github.com/protontypes/open-sustainable-technology"
         >
           Add your project
         </LinkButton>
       </div>
-      <SponsorSection />
-
-      <div className="pt-6">
-        <SectionTitle className="mb-2" text="Join the Newsletter" />
-        <p className="text-sm text-silver-500">
-          Join &quot;The lucavallin Newsletter&quot; to receive curated issues
-          from <strong>verto.sh</strong> and other articles in your inbox every
-          other week.
-        </p>
-        <NewsletterForm />
-      </div>
-
       <div
         className={` z-50 bg-black-400 transition-all duration-300 md:sticky md:top-4 ${
           scrollHeightReached ? "fixed top-0 " : "sticky top-0"
@@ -89,11 +76,7 @@ export const Sidebar = () => {
           activeTagId={activeLanguageId}
           onLanguagePage={pageType == "language"}
         />
-        <TagPicker
-          tags={tags}
-          activeTagId={activeTagId}
-          onTagPage={pageType == "tag"}
-        />
+        {/* <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageType == "tag"} /> */}
       </div>
       {showUpArrow && <ScrollToTop handleOnClick={handleScrollToTop} />}
     </section>

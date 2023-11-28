@@ -1,4 +1,4 @@
-import { Repository } from "../../types";
+import { Repository } from "@/types/types";
 
 export const dummyRepositories: Repository[] = [
   {

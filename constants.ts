@@ -1,4 +1,4 @@
-import { RepositorySortOrder } from "./types";
+import { RepositorySortOrder } from "./types/types";
 
 export const REPOSITORY_SORT_OPTIONS = [
   RepositorySortOrder.NEW_ISSUES,

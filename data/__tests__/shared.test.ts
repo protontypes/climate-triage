@@ -1,4 +1,4 @@
-import { Repository, Source } from "../../types";
+import { Repository, Source } from "@/types/types";
 import { getGitHubRepositories } from "../github";
 import { getFilteredLanguages, getFilteredTags, processSource } from "../shared";
 import { dummyRepositories } from "./test-data";
