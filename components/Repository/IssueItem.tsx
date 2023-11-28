@@ -32,7 +32,7 @@ export const IssueItem = ({ issue }: IssueItemProps) => {
       </span>
       <div className="flex flex-auto flex-row items-start">
         <Link
-          className={`block flex-auto leading-snug transition-all hover:text-yellow ${
+          className={`block flex-auto leading-snug transition-all hover:text-primary ${
             issue.comments_count > 0 ? "mr-4" : "mr-12"
           }`}
           href={issue.url}
