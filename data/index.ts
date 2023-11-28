@@ -19,11 +19,12 @@ const main = async () => {
   );
   try {
     const repositories = (await GetAllProjects()).map(
-      ({ id, owner, name, url, language, repository, issues }) => {
-        const { description, stargazers_count, license, last_synced_at, topics } = repository;
+      ({ id, name, url, language, repository, issues }) => {
+        const { description, owner, stargazers_count, license, last_synced_at, topics } =
+          repository;
         return {
           id: id.toString(),
-          owner: owner?.login ?? name, // TODO: Verify this is correct
+          owner,
           name,
           description,
           url,
