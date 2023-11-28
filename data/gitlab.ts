@@ -96,7 +96,7 @@ export const getGitLabRepositories = async (
       stars: project.starCount,
       stars_display: millify(project.starCount),
       url: project.webUrl,
-      category: "",
+      category: { id: "", display: "" },
       tags: project.topics.map((topic) => ({
         id: topic,
         display: topic
