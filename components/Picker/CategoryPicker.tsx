@@ -57,7 +57,7 @@ export const CategoryPicker = ({
               className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
                 onCategoryPage && category.id === activeTagId
                   ? "active-pill"
-                  : "border-silver-100 transition-all hover:border-yellow hover:text-yellow"
+                  : "border-silver-100 transition-all hover:border-primary hover:text-primary"
               }`}
               href={`/category/${category.id}`}
               key={category.id}
