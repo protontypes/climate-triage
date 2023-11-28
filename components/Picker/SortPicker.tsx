@@ -1,4 +1,4 @@
-import { RepositorySortOrder } from "../../types";
+import { RepositorySortOrder } from "@/types/types";
 import { SectionTitle } from "../SectionTitle";
 
 type SortPickerProps = {

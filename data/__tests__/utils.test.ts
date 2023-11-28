@@ -1,5 +1,5 @@
 import fs from "fs/promises";
-import { Data } from "../../types";
+import { Data } from "@/types/types";
 import { chunkArray, extendedSlugify, sleep, writeDataFile } from "../utils";
 
 describe("utils", () => {

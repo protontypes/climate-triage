@@ -1,14 +1,14 @@
 // AppDataContext.tsx
-import { getData } from "app/data-loader";
-import React, { createContext, useEffect, useState } from "react";
 import {
   AppData,
   CountableLanguage,
   CountableTag,
-  Repository,
   Issue,
+  Repository,
   RepositorySortOrder
-} from "../types";
+} from "@/types/types";
+import { getData } from "app/data-loader";
+import React, { createContext, useEffect, useState } from "react";
 
 type AppDataContextType = AppData & {
   filterRepositoriesByTag: (tag: string) => Repository[];
@@ -69,15 +69,17 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
         const sortedIssues = [...repository.issues].sort((a, b) => {
           const dateA = new Date(a.created_at).getTime();
           const dateB = new Date(b.created_at).getTime();
-          return dateB - dateA; 
+          return dateB - dateA;
         });
-        return sortedIssues[0]; 
+        return sortedIssues[0];
       }
       //Compare current repo's newest issue to next repo's newest issue, sort by newest issue first
       updatedRepositories = [...allRepositories].sort((currentRepository, nextRepository) => {
         const currentNewestIssue = getNewestIssue(currentRepository);
         const nextNewestIssue = getNewestIssue(nextRepository);
-        const timestampDiff = new Date(nextNewestIssue.created_at).getTime() - new Date(currentNewestIssue.created_at).getTime();
+        const timestampDiff =
+          new Date(nextNewestIssue.created_at).getTime() -
+          new Date(currentNewestIssue.created_at).getTime();
 
         return timestampDiff;
       });

@@ -1,5 +1,5 @@
+import { Issue as IssueModel, Repository as RepositoryModel } from "@/types/types";
 import dayjs from "dayjs";
-import { Issue as IssueModel, Repository as RepositoryModel } from "../types";
 
 import { Octokit } from "@octokit/core";
 import {

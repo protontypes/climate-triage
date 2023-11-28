@@ -1,22 +1,52 @@
-import config from "../config.json";
-import { Data, Repository as RepositoryModel, Source as SourceModel } from "../types";
-import { getFilteredLanguages, getFilteredTags, processSource } from "./shared";
+import { Data, Repository } from "@/types/types";
+import { GetAllProjects } from "./ecosystems";
+import { getFilteredLanguages, getFilteredTags } from "./shared";
 import { writeDataFile } from "./utils";
+
+function formatStars(stars: number): string {
+  if (stars < 1000) {
+    return stars.toString();
+  } else if (stars < 1000000) {
+    return (stars / 1000).toFixed(1) + "K";
+  } else {
+    return (stars / 1000000).toFixed(1) + "M";
+  }
+}
 
 const main = async () => {
   console.log(
-    "⚠️ This command must be run from the root of the project directory with `npm run prebuild`"
+    "⚠️ This command must be run from the root of the project directory with `pnpm prebuild`"
   );
   try {
-    // Get data from all sources defined in config.json
-    const repositories = await (config as SourceModel[]).reduce<Promise<RepositoryModel[]>>(
-      async (repoData, source) => {
-        return repoData.then(async (repos) => {
-          const repositories = await processSource(source);
-          return [...repos, ...repositories];
-        });
-      },
-      Promise.resolve([])
+    const repositories = (await GetAllProjects()).map(
+      ({ id, owner, name, url, language, repository, issues }) => {
+        const { description, stargazers_count, license, last_synced_at } = repository;
+        return {
+          id: id.toString(),
+          owner: owner?.login ?? name, // TODO: Verify this is correct
+          name,
+          description,
+          url,
+          stars: stargazers_count,
+          stars_display: formatStars(stargazers_count),
+          license,
+          last_modified: last_synced_at.toString(),
+          language: { id: language, display: language },
+          has_new_issues: false, // TODO: Keep this as is unless there's a way to determine the value
+          issues: issues.map(
+            ({ uuid, comments_count, created_at, number, title, labels, html_url }) => ({
+              id: uuid,
+              comments_count,
+              created_at: created_at.toString(),
+              number,
+              title,
+              labels: labels.map((label) => ({ id: label, display: label })),
+              url: html_url
+            })
+          ),
+          tags: repository.tags
+        } as Repository;
+      }
     );
 
     // Get a list of distinct languages with counts for use with filtering in the UI

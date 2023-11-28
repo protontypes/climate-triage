@@ -1,6 +1,6 @@
+import { Data } from "@/types/types";
 import fs from "fs/promises";
 import slugify from "slugify";
-import { Data } from "../types";
 
 export const extendedSlugify = (text: string): string => {
   // symbols to replace with slugify

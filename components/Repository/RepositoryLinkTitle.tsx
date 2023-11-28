@@ -1,5 +1,5 @@
+import { Repository } from "@/types/types";
 import Link from "next/link";
-import { Repository } from "../../types";
 
 type RepositoryLinkTitleProps = {
   isIssueOpen: boolean;
