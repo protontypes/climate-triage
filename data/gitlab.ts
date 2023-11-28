@@ -1,7 +1,7 @@
+import { GitLabRepository, Repository as RepositoryModel, Tag as TagModel } from "@/types/types";
 import dayjs from "dayjs";
 import millify from "millify";
 import slugify from "slugify";
-import { GitLabRepository, Repository as RepositoryModel, Tag as TagModel } from "../types";
 import { extendedSlugify } from "./utils";
 
 /**
@@ -30,8 +30,8 @@ export const getGitLabRepositories = async (
       query {
         projects(
           ids: [${repositories
-            .map((repoId) => `"gid://gitlab/Project/${repoId.split("|")[1]}"`)
-            .join(",")}],
+          .map((repoId) => `"gid://gitlab/Project/${repoId.split("|")[1]}"`)
+          .join(",")}],
           withMergeRequestsEnabled:true
           withIssuesEnabled:true
           sort: "stars_desc"

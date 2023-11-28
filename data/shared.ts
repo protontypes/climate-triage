@@ -1,4 +1,4 @@
-import { CountableLanguage, CountableTag, Repository, Source, Tag } from "../types";
+import { CountableLanguage, CountableTag, Repository, Source, Tag } from "@/types/types";
 import { getGitHubRepositories } from "./github";
 import { getGitLabRepositories } from "./gitlab";
 import { chunkArray, sleep } from "./utils";
@@ -37,8 +37,7 @@ export const processSource = async (source: Source): Promise<Repository[]> => {
     const chunk = chunks[i];
 
     console.log(
-      `Getting ${source.name} repositories - chunk ${i + 1} of ${chunks.length} (size: ${
-        chunk.length
+      `Getting ${source.name} repositories - chunk ${i + 1} of ${chunks.length} (size: ${chunk.length
       })`
     );
     const repos = await providerSettings.getterFunction(

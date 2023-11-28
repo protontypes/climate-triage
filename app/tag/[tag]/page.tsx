@@ -14,7 +14,7 @@ export async function generateMetadata({
 
   return {
     title: `Tag ${tag?.display} (${tag?.count})`,
-    description: `There are ${tag?.count} repositories tagged ${tag?.display} on verto. Take the first step into collaborative coding, and be part of something bigger. Your code today could be the start of something amazing in the open-source community.`
+    description: `There are ${tag?.count} repositories tagged ${tag?.display} on OST. Take the first step into collaborative coding, and be part of something bigger. Your code today could be the start of something amazing in the open-source community.`
   };
 }
 

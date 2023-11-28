@@ -1,7 +1,7 @@
+import { CountableLanguage } from "@/types/types";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import { CountableLanguage } from "../../types";
 import { SectionTitle } from "../SectionTitle";
 import ActiveTagButton from "./ActiveTagButton";
 import { PickerItem } from "./PickerItem";

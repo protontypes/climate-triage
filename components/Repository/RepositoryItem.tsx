@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { useEffect, useState } from "react";
 
-import { Repository } from "../../types";
+import { Repository } from "@/types/types";
 import { IssuesList } from "./IssueList";
 import { RepositoryDescription } from "./RepositoryDescription";
 import { RepositoryItemTopBar } from "./RepositoryItemTopBar";
