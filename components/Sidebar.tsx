@@ -8,16 +8,16 @@ import { useEffect, useState } from "react";
 import { useAppData } from "../hooks/useAppData";
 import { AboutSection } from "./AboutSection";
 import { LinkButton } from "./Button/LinkButton";
+import { CategoryPicker } from "./Picker/CategoryPicker";
 import { LanguagePicker } from "./Picker/LanguagePicker";
-import { TagPicker } from "./Picker/TagPicker";
 import ScrollToTop from "./ScrollToTop";
 
 export const Sidebar = () => {
   const currentPage = usePathname();
   const pageType = currentPage.split("/")[1];
-  const { tag: activeTagId, language: activeLanguageId } = useParams();
+  const { tag: activeTagId, language: activeLanguageId, category: activeCategoryId } = useParams();
 
-  const { languages, tags } = useAppData();
+  const { languages, categories, tags } = useAppData();
 
   // State variable to track whether the user has scrolled to a minimum height of 702 pixels vertically.
   const [scrollHeightReached, setScrollHeightReached] = useState(false);
@@ -77,7 +77,12 @@ export const Sidebar = () => {
           activeTagId={activeLanguageId}
           onLanguagePage={pageType == "language"}
         />
-        <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageType == "tag"} />
+        <CategoryPicker
+          categories={categories}
+          activeTagId={activeCategoryId}
+          onCategoryPage={pageType == "category"}
+        />
+        {/* <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageType == "tag"} /> */}
       </div>
       {showUpArrow && <ScrollToTop handleOnClick={handleScrollToTop} />}
     </section>

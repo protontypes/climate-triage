@@ -14,6 +14,7 @@ import { SearchBar } from "./SearchBar";
 
 type RepositoryListProps = {
   languageId?: string;
+  categoryId?: string;
   tagId?: string;
 };
 
@@ -25,7 +26,7 @@ const Loader = () => (
   </div>
 );
 
-export const RepositoryList = ({ languageId, tagId }: RepositoryListProps) => {
+export const RepositoryList = ({ languageId, categoryId, tagId }: RepositoryListProps) => {
   const itemsPerScroll = 15;
   const [items, setItems] = useState(itemsPerScroll);
   const {
@@ -33,12 +34,17 @@ export const RepositoryList = ({ languageId, tagId }: RepositoryListProps) => {
     repositorySortOrder,
     updateRepositorySortOrder,
     filterRepositoriesByTag,
-    filterRepositoriesByLanguage
+    filterRepositoriesByLanguage,
+    filterRepositoriesByCategory
   } = useAppData();
   let repos: Repository[] = repositories;
 
   if (languageId) {
     repos = filterRepositoriesByLanguage(languageId);
+  }
+
+  if (categoryId) {
+    repos = filterRepositoriesByCategory(categoryId);
   }
 
   if (tagId) {

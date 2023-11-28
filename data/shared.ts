@@ -1,4 +1,11 @@
-import { CountableLanguage, CountableTag, Repository, Source, Tag } from "@/types/types";
+import {
+  CountableCategory,
+  CountableLanguage,
+  CountableTag,
+  Repository,
+  Source,
+  Tag
+} from "@/types/types";
 import { getGitHubRepositories } from "./github";
 import { getGitLabRepositories } from "./gitlab";
 import { chunkArray, sleep } from "./utils";
@@ -54,7 +61,7 @@ export const processSource = async (source: Source): Promise<Repository[]> => {
 
 /**
  * Returns an array of languages with a count of how many repositories use them.
- * Filters out languages with less than 3 repositories and sorts the remaining languages alphabetically.
+ * Filters out languages with less than 1 repositories and sorts the remaining languages alphabetically.
  * @param repositories An array of Repository objects.
  * @returns An array of CountableLanguage objects representing the filtered and sorted languages.
  */
@@ -71,11 +78,11 @@ export const getFilteredLanguages = (repositories: Repository[]) =>
       {} as { [key: string]: CountableLanguage }
     )
   )
-    // Ignore language with less than 3 repositories
+    // Ignore language with less than 1 repositories
     .filter((language) => {
-      if (language.count >= 3) return true;
+      if (language.count >= 1) return true;
       console.log(
-        `Ignoring language "${language.display}" because it has less than 3 repositories.`
+        `Ignoring language "${language.display}" because it has less than 1 repositories.`
       );
       return false;
     })
@@ -83,7 +90,7 @@ export const getFilteredLanguages = (repositories: Repository[]) =>
     .sort((a, b) => a.display.localeCompare(b.display));
 
 /**
- * Returns an array of tags that are associated with at least 3 repositories.
+ * Returns an array of tags that are associated with at least 1 repositories.
  * @param repositories An array of Repository objects.
  * @returns An array of CountableTag objects.
  */
@@ -103,11 +110,40 @@ export const getFilteredTags = (repositories: Repository[]) =>
         {} as { [key: string]: CountableTag }
       )
   )
-    // Ignore tags with less than 3 repositories
+    // Ignore tags with less than 1 repositories
     .filter((tag) => {
-      if (tag.count >= 3) return true;
-      console.log(`Ignoring tag "${tag.display}" because it has less than 3 repositories.`);
+      if (tag.count >= 1) return true;
+      console.log(`Ignoring tag "${tag.display}" because it has less than 1 repositories.`);
       return false;
     })
     // Sort by count desc
     .sort((a, b) => b.count - a.count);
+
+/**
+ * Returns an array of languages with a count of how many repositories use them.
+ * Filters out categories with less than 1 repositories and sorts the remaining languages alphabetically.
+ * @param repositories An array of Repository objects.
+ * @returns An array of CountableCategory objects representing the filtered and sorted languages.
+ */
+export const getFilteredCategories = (repositories: Repository[]) =>
+  Object.values(
+    repositories.reduce(
+      (arr: { [key: string]: CountableCategory }, repo: Repository) => {
+        // group categories by name and count them
+        const category = repo.category;
+        if (arr[category] === undefined)
+          arr[category] = { id: category, display: category, count: 1 };
+        else arr[category].count++;
+        return arr;
+      },
+      {} as { [key: string]: CountableCategory }
+    )
+  )
+    // Ignore categories with less than 1 repositories
+    .filter((category) => {
+      if (category.count >= 3) return true;
+      console.log(`Ignoring category "${category.id}" because it has less than 1 repositories.`);
+      return false;
+    })
+    // Sort alphabetically
+    .sort((a, b) => a.id.localeCompare(b.id));

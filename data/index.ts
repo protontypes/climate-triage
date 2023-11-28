@@ -1,6 +1,6 @@
 import { Data, Repository } from "@/types/types";
 import { GetAllProjects } from "./ecosystems";
-import { getFilteredLanguages, getFilteredTags } from "./shared";
+import { getFilteredCategories, getFilteredLanguages, getFilteredTags } from "./shared";
 import { writeDataFile } from "./utils";
 
 function formatStars(stars: number): string {
@@ -19,7 +19,7 @@ const main = async () => {
   );
   try {
     const repositories = (await GetAllProjects()).map(
-      ({ id, name, url, language, repository, issues }) => {
+      ({ id, name, url, language, category, repository, issues }) => {
         const { description, owner, stargazers_count, license, last_synced_at, topics } =
           repository;
         return {
@@ -34,6 +34,7 @@ const main = async () => {
           last_modified: last_synced_at.toString(),
           language: { id: language ?? "N/A", display: language ?? "N/A" }, // TODO: Handle null better here
           has_new_issues: false, // TODO: Keep this as is unless there's a way to determine the value
+          category,
           issues: issues.map(
             ({ uuid, comments_count, created_at, number, title, labels, html_url }) => ({
               id: uuid,
@@ -59,11 +60,15 @@ const main = async () => {
     // Get a list of distinct tags with counts for use with filtering in the UI
     const filteredTags = getFilteredTags(repositories);
 
+    // Get a list of distinct categories with counts for use with filtering in the UI
+    const filteredCategories = getFilteredCategories(repositories);
+
     const data: Data = {
       // Sort the repositories randomly so that the list isn't always the same
       repositories: repositories.sort(() => Math.random() - 0.5),
       languages: filteredLanguages,
-      tags: filteredTags
+      tags: filteredTags,
+      categories: filteredCategories
     };
 
     await Promise.all([writeDataFile(data)]);

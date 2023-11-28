@@ -182,6 +182,7 @@ export const getGitHubRepositories = async (
           stars_display: millify(repo.stargazerCount),
           license: repo.licenseInfo?.name,
           last_modified: repo.pushedAt,
+          category: "",
           language: {
             id: slugify((repo.primaryLanguage as Language).name, {
               lower: true

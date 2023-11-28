@@ -1,6 +1,7 @@
 // AppDataContext.tsx
 import {
   AppData,
+  CountableCategory,
   CountableLanguage,
   CountableTag,
   Issue,
@@ -14,10 +15,12 @@ type AppDataContextType = AppData & {
   filterRepositoriesByTag: (tag: string) => Repository[];
   filterRepositoriesByQuery: (query: string) => void;
   filterRepositoriesByLanguage: (languageId: string) => Repository[];
+  filterRepositoriesByCategory: (categoryId: string) => Repository[];
 };
 
 const DEFAULT_VALUE: AppDataContextType = {
   languages: [],
+  categories: [],
   repositories: [],
   repositorySortOrder: RepositorySortOrder.NONE,
   tags: [],
@@ -25,7 +28,8 @@ const DEFAULT_VALUE: AppDataContextType = {
   updateRepositorySortOrder: () => {},
   filterRepositoriesByTag: () => [],
   filterRepositoriesByQuery: () => {},
-  filterRepositoriesByLanguage: () => []
+  filterRepositoriesByLanguage: () => [],
+  filterRepositoriesByCategory: () => []
 };
 
 const AppDataContext = createContext<AppDataContextType>(DEFAULT_VALUE);
@@ -38,6 +42,7 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   }: {
     repositories: Repository[];
     languages: CountableLanguage[];
+    categories: CountableCategory[];
     tags: CountableTag[];
   } = data;
   const [repositories, setRepositories] = useState<Repository[]>(allRepositories);
@@ -127,8 +132,13 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     return repositories.filter((repository) => repository.language.id === languageId);
   };
 
+  const filterRepositoriesByCategory = (categoryId: string) => {
+    return repositories.filter((repository) => repository.category === categoryId);
+  };
+
   const value = {
     languages: data.languages,
+    categories: data.categories,
     repositories,
     repositorySortOrder,
     tags: data.tags,
@@ -136,7 +146,8 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     updateRepositorySortOrder,
     filterRepositoriesByTag,
     filterRepositoriesByQuery,
-    filterRepositoriesByLanguage
+    filterRepositoriesByLanguage,
+    filterRepositoriesByCategory
   };
 
   return <AppDataContext.Provider value={value}>{children}</AppDataContext.Provider>;
