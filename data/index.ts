@@ -21,8 +21,7 @@ const main = async () => {
   try {
     const repositories = (await GetAllProjects()).map(
       ({ id, name, url, language, category, repository, issues }) => {
-        const { description, owner, stargazers_count, license, last_synced_at, topics } =
-          repository;
+        const { description, owner, stargazers_count, license, pushed_at, topics } = repository;
         return {
           id: id.toString(),
           owner,
@@ -32,7 +31,7 @@ const main = async () => {
           stars: stargazers_count,
           stars_display: formatStars(stargazers_count),
           license: license ?? undefined, // TODO: Handle null better here
-          last_modified: last_synced_at.toString(),
+          last_modified: pushed_at.toString(),
           language: {
             id: language ? slugify(language, { lower: true }) : "na", // TODO: Handle null better here
             display: language ?? "N/A"
