@@ -133,7 +133,7 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const filterRepositoriesByCategory = (categoryId: string) => {
-    return repositories.filter((repository) => repository.category === categoryId);
+    return repositories.filter((repository) => repository.category.id === categoryId);
   };
 
   const value = {

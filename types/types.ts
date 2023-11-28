@@ -43,7 +43,7 @@ export interface Repository {
   stars_display: string;
   url: string;
   tags?: Tag[];
-  category: string;
+  category: Tag;
 }
 
 // Describes an Issue, which is a GitHub issue linked to a repository

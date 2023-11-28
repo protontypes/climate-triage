@@ -1,4 +1,5 @@
 import { Data, Repository } from "@/types/types";
+import slugify from "slugify";
 import { GetAllProjects } from "./ecosystems";
 import { getFilteredCategories, getFilteredLanguages, getFilteredTags } from "./shared";
 import { writeDataFile } from "./utils";
@@ -32,9 +33,15 @@ const main = async () => {
           stars_display: formatStars(stargazers_count),
           license: license ?? undefined, // TODO: Handle null better here
           last_modified: last_synced_at.toString(),
-          language: { id: language ?? "N/A", display: language ?? "N/A" }, // TODO: Handle null better here
+          language: {
+            id: language ? slugify(language, { lower: true }) : "na", // TODO: Handle null better here
+            display: language ?? "N/A"
+          },
           has_new_issues: false, // TODO: Keep this as is unless there's a way to determine the value
-          category,
+          category: {
+            id: slugify(category, { lower: true }),
+            display: category
+          },
           issues: issues.map(
             ({ uuid, comments_count, created_at, number, title, labels, html_url }) => ({
               id: uuid,
@@ -47,7 +54,7 @@ const main = async () => {
             })
           ),
           tags: topics.map((t) => ({
-            display: t,
+            display: slugify(t, { lower: true }),
             id: t
           }))
         } as Repository;
