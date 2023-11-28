@@ -130,10 +130,9 @@ export const getFilteredCategories = (repositories: Repository[]) =>
     repositories.reduce(
       (arr: { [key: string]: CountableCategory }, repo: Repository) => {
         // group categories by name and count them
-        const category = repo.category;
-        if (arr[category] === undefined)
-          arr[category] = { id: category, display: category, count: 1 };
-        else arr[category].count++;
+        const { id, display } = repo.category;
+        if (arr[id] === undefined) arr[id] = { id, display, count: 1 };
+        else arr[id].count++;
         return arr;
       },
       {} as { [key: string]: CountableCategory }
