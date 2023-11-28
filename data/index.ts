@@ -20,7 +20,7 @@ const main = async () => {
   try {
     const repositories = (await GetAllProjects()).map(
       ({ id, owner, name, url, language, repository, issues }) => {
-        const { description, stargazers_count, license, last_synced_at } = repository;
+        const { description, stargazers_count, license, last_synced_at, topics } = repository;
         return {
           id: id.toString(),
           owner: owner?.login ?? name, // TODO: Verify this is correct
@@ -29,9 +29,9 @@ const main = async () => {
           url,
           stars: stargazers_count,
           stars_display: formatStars(stargazers_count),
-          license,
+          license: license ?? undefined, // TODO: Handle null better here
           last_modified: last_synced_at.toString(),
-          language: { id: language, display: language },
+          language: { id: language ?? "N/A", display: language ?? "N/A" }, // TODO: Handle null better here
           has_new_issues: false, // TODO: Keep this as is unless there's a way to determine the value
           issues: issues.map(
             ({ uuid, comments_count, created_at, number, title, labels, html_url }) => ({
@@ -44,7 +44,10 @@ const main = async () => {
               url: html_url
             })
           ),
-          tags: repository.tags
+          tags: topics.map((t) => ({
+            display: t,
+            id: t
+          }))
         } as Repository;
       }
     );
