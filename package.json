@@ -1,5 +1,5 @@
 {
-  "name": "verto",
+  "name": "open-climate-impact",
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
