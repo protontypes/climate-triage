@@ -9,7 +9,7 @@ export interface Project {
   updated_at: Date;
   avatar_url: string;
   language: null | string;
-  category: string;
+  category: null | string;
   sub_category: string;
   issues: Issue[];
 }

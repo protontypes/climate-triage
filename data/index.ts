@@ -25,7 +25,7 @@ const main = async () => {
         return {
           id: id.toString(),
           owner,
-          name,
+          name: name ?? "N/A",
           description,
           url,
           stars: stargazers_count,
@@ -38,8 +38,8 @@ const main = async () => {
           },
           has_new_issues: false, // TODO: Keep this as is unless there's a way to determine the value
           category: {
-            id: slugify(category, { lower: true }),
-            display: category
+            id: slugify(category ?? "", { lower: true }),
+            display: category ?? ""
           },
           issues: issues.map(
             ({ uuid, comments_count, created_at, number, title, labels, html_url }) => ({
