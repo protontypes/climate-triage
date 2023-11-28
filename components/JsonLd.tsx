@@ -16,35 +16,35 @@ const jsonLdGraph: Graph = {
         "@id": "person"
       }
     },
-    {
-      "@type": "Person",
-      "@id": "person",
-      name: "Luca Cavallin",
-      url: config.author.website,
-      image: `${config.meta.siteUrl}/images/luca_cavallin.png`,
-      sameAs: [
-        config.author.xtwitter,
-        config.author.linkedin,
-        config.author.youtube,
-        config.author.github,
-        config.author.mastodon,
-        config.author.reddit,
-        config.author.medium,
-        config.author.devto,
-        config.author.hashnode,
-        config.author.stackoverflow,
-        config.author.producthunt,
-        config.author.discord,
-        config.author.calendly,
-        config.author.newsletter,
-        config.meta.siteUrl
-      ],
-      jobTitle: "Software Engineer",
-      worksFor: {
-        "@type": "Organization",
-        name: "GitHub, Inc."
-      }
-    },
+    // {
+    //   "@type": "Person",
+    //   "@id": "person",
+    //   name: "Luca Cavallin",
+    //   url: config.author.website,
+    //   image: `${config.meta.siteUrl}/images/luca_cavallin.png`,
+    //   sameAs: [
+    //     config.author.xtwitter,
+    //     config.author.linkedin,
+    //     config.author.youtube,
+    //     config.author.github,
+    //     config.author.mastodon,
+    //     config.author.reddit,
+    //     config.author.medium,
+    //     config.author.devto,
+    //     config.author.hashnode,
+    //     config.author.stackoverflow,
+    //     config.author.producthunt,
+    //     config.author.discord,
+    //     config.author.calendly,
+    //     config.author.newsletter,
+    //     config.meta.siteUrl
+    //   ],
+    //   jobTitle: "Software Engineer",
+    //   worksFor: {
+    //     "@type": "Organization",
+    //     name: "GitHub, Inc."
+    //   }
+    // },
     {
       "@type": "WebPage",
       "@id": config.meta.siteUrl,
