@@ -9,6 +9,7 @@ import { useAppData } from "../hooks/useAppData";
 import { AboutSection } from "./AboutSection";
 import { LinkButton } from "./Button/LinkButton";
 import { LanguagePicker } from "./Picker/LanguagePicker";
+import { TagPicker } from "./Picker/TagPicker";
 import ScrollToTop from "./ScrollToTop";
 
 export const Sidebar = () => {
@@ -76,7 +77,7 @@ export const Sidebar = () => {
           activeTagId={activeLanguageId}
           onLanguagePage={pageType == "language"}
         />
-        {/* <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageType == "tag"} /> */}
+        <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageType == "tag"} />
       </div>
       {showUpArrow && <ScrollToTop handleOnClick={handleScrollToTop} />}
     </section>
