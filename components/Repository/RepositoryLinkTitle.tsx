@@ -12,7 +12,7 @@ export const RepositoryLinkTitle = ({
   isIssueOpen,
   repositoryName,
   repositoryOwner,
-  repositoryUrl,
+  repositoryUrl
 }: RepositoryLinkTitleProps) => {
   return (
     <Link

@@ -8,23 +8,10 @@ export const TopBar = () => (
     <div className="flex items-center justify-between gap-5">
       <SectionTitle text="Sponsored by" />
       <Link href="https://lucavall.in" className="grayscale hover:grayscale-0">
-        <Image
-          src="/sponsors/lucavallin.png"
-          alt="lucavallin"
-          width={25}
-          height={25}
-        />
+        <Image src="/sponsors/lucavallin.png" alt="lucavallin" width={25} height={25} />
       </Link>
-      <Link
-        href="https://chat.collectivai.com/"
-        className="grayscale hover:grayscale-0"
-      >
-        <Image
-          src="/sponsors/collectiv.png"
-          alt="collectiv"
-          width={26}
-          height={26}
-        />
+      <Link href="https://chat.collectivai.com/" className="grayscale hover:grayscale-0">
+        <Image src="/sponsors/collectiv.png" alt="collectiv" width={26} height={26} />
       </Link>
     </div>
     <Socials />
