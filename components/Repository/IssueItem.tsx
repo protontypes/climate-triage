@@ -23,13 +23,8 @@ const IssueCommentNum = ({ numIssues }: IssueCommentNumProps) => {
 
 export const IssueItem = ({ issue }: IssueItemProps) => {
   return (
-    <li
-      key={issue.url}
-      className="flex flex-row items-start justify-start py-1"
-    >
-      <span className="min-w-[74px] pr-2 text-right leading-snug text-gray">
-        #{issue.number}
-      </span>
+    <li key={issue.url} className="flex flex-row items-start justify-start py-1">
+      <span className="min-w-[74px] pr-2 text-right leading-snug text-gray">#{issue.number}</span>
       <div className="flex flex-auto flex-row items-start">
         <Link
           className={`block flex-auto leading-snug transition-all hover:text-primary ${
@@ -48,9 +43,7 @@ export const IssueItem = ({ issue }: IssueItemProps) => {
             }
           })}
         </Link>
-        {issue.comments_count > 0 && (
-          <IssueCommentNum numIssues={issue.comments_count} />
-        )}
+        {issue.comments_count > 0 && <IssueCommentNum numIssues={issue.comments_count} />}
       </div>
     </li>
   );
