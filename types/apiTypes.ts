@@ -12,6 +12,7 @@ export interface Project {
   category: null | string;
   sub_category: string;
   issues: Issue[];
+  has_new_issues: boolean;
 }
 
 export interface Issue {
