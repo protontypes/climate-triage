@@ -20,7 +20,7 @@ const main = async () => {
   );
   try {
     const repositories = (await GetAllProjects()).map(
-      ({ id, name, url, language, category, repository, issues }) => {
+      ({ id, name, url, language, category, has_new_issues, repository, issues }) => {
         const { description, owner, stargazers_count, license, pushed_at, topics } = repository;
         return {
           id: id.toString(),
@@ -36,7 +36,7 @@ const main = async () => {
             id: language ? slugify(language, { lower: true }) : "na", // TODO: Handle null better here
             display: language ?? "N/A"
           },
-          has_new_issues: false, // TODO: Keep this as is unless there's a way to determine the value
+          has_new_issues: has_new_issues,
           category: {
             id: slugify(category ?? "", { lower: true }),
             display: category ?? ""
