@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "serve": "npx serve@latest out",
     "lint": "next lint",
     "prepare": "husky install",
     "prebuild": "ts-node data/index.ts",
