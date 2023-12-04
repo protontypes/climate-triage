@@ -90,7 +90,7 @@ export const getFilteredLanguages = (repositories: Repository[]) =>
     .sort((a, b) => a.display.localeCompare(b.display));
 
 /**
- * Returns an array of tags that are associated with at least 1 repositories.
+ * Returns an array of tags that are associated with at least 3 repositories.
  * @param repositories An array of Repository objects.
  * @returns An array of CountableTag objects.
  */
@@ -110,10 +110,10 @@ export const getFilteredTags = (repositories: Repository[]) =>
         {} as { [key: string]: CountableTag }
       )
   )
-    // Ignore tags with less than 1 repositories
+    // Ignore tags with less than 3 repositories
     .filter((tag) => {
-      if (tag.count >= 1) return true;
-      console.log(`Ignoring tag "${tag.display}" because it has less than 1 repositories.`);
+      if (tag.count >= 3) return true;
+      console.log(`Ignoring tag "${tag.display}" because it has less than 3 repositories.`);
       return false;
     })
     // Sort by count desc
