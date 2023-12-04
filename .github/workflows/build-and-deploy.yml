@@ -52,6 +52,8 @@ jobs:
         run: pnpm prebuild
 
       - name: Build the Project
+        env:
+          NODE_ENV: "production"
         run: pnpm build
       # 👆 Build steps
       # 👇 Deploy steps
