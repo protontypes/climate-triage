@@ -1,8 +1,6 @@
-name: Build Next.js Application
+name: Build
 
 on:
-  push:
-    branches: [main] # Replace 'main' with your default branch if different
   pull_request:
     branches: [main] # Trigger on pull requests to the main branch
 
