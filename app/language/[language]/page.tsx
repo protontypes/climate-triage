@@ -13,8 +13,8 @@ export async function generateMetadata({
   const language = data.languages.find((l) => l.id === slug);
 
   return {
-    title: `Language ${language?.display} (${language?.count})`,
-    description: `There are ${language?.count} repositories in the ${language?.display} language on verto. Take the first step into collaborative coding, and be part of something bigger. Your code today could be the start of something amazing in the open-source community.`
+    title: `Language: ${language?.display} (${language?.count})`,
+    description: `There are ${language?.count} repositories in the ${language?.display} language.`
   };
 }
 
