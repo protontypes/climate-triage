@@ -6,6 +6,15 @@ on:
   pull_request:
     branches: [main] # Trigger on pull requests to the main branch
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Allow only one concurrent build, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production builds to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,18 +23,16 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
         with:
-          node-version: "latest"
+          version: 8
 
-      - name: Cache PNPM modules
-        uses: actions/cache@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
+          node-version: 18.x
+          cache: "pnpm"
 
       - name: Install Dependencies
         run: pnpm install
