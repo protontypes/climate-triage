@@ -11,6 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date().toISOString().split("T")[0]
   }));
 
+  const categoryRoutes = data.languages.map((c) => ({
+    url: `${siteUrl}/category/${c.id}`,
+    lastModified: new Date().toISOString().split("T")[0]
+  }));
+
   const tagRoutes = data.tags.map((t) => ({
     url: `${siteUrl}/tag/${t.id}`,
     lastModified: new Date().toISOString().split("T")[0]
@@ -21,5 +26,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date().toISOString().split("T")[0]
   }));
 
-  return [...routes, ...languageRoutes, ...tagRoutes];
+  return [...routes, ...languageRoutes, ...categoryRoutes, ...tagRoutes];
 }
