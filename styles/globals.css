@@ -29,8 +29,20 @@
   @apply text-primary;
 }
 
-#bmc-iframe {
-  min-height: 750px !important;
-  max-height: 750px !important;
+#sidebar {
+  @apply w-full flex-none font-sans;
 }
 
+@media screen(md) {
+  #sidebar {
+    @apply relative;
+    max-width:24rem;
+  }
+}
+
+@media screen(lg) {
+  #sidebar {
+    @apply relative;
+    max-width:28rem;
+  }
+}
