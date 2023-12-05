@@ -72,18 +72,6 @@ module.exports = {
           800: "#849ac1",
           900: "#c1cde0"
         },
-        gray: {
-          DEFAULT: "#787a82",
-          100: "#18181a",
-          200: "#303134",
-          300: "#48494e",
-          400: "#606268",
-          500: "#787a82",
-          600: "#93949b",
-          700: "#aeafb4",
-          800: "#c9cacd",
-          900: "#e4e4e6"
-        },
         silver: {
           DEFAULT: "#e6edf3",
           100: "#1f3140",
@@ -95,18 +83,6 @@ module.exports = {
           700: "#f1f5f8",
           800: "#f5f8fa",
           900: "#fafcfd"
-        },
-        white: {
-          DEFAULT: "#ffffff",
-          100: "#333333",
-          200: "#666666",
-          300: "#999999",
-          400: "#cccccc",
-          500: "#ffffff",
-          600: "#ffffff",
-          700: "#ffffff",
-          800: "#ffffff",
-          900: "#ffffff"
         }
       },
       typography: ({ theme }) => ({

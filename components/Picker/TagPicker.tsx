@@ -57,7 +57,7 @@ export const TagPicker = ({
         <FontAwesomeIcon
           icon={faChevronDown}
           className={classNames(
-            "mx-2 mt-[3px] text-silver-500 transition-transform duration-300 ease-in-out",
+            "mx-2 mt-[3px] text-gray-900 transition-transform duration-300 ease-in-out dark:text-silver-500",
             {
               ["rotate-0"]: isCollapsed,
               ["rotate-180"]: !isCollapsed
