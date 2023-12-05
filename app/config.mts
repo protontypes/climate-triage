@@ -8,9 +8,9 @@ const config = {
     website: "https://opensustain.tech"
   },
   meta: {
-    title: "OpenClimateImpact",
+    title: "Climate Triage",
     description: ``, // TODO
-    siteUrl: "https://open-climate-impact.vercel.app",
+    siteUrl: "https://protontypes.github.io/climate-triage",
     socialBanner: "", // TODO
     locale: "en-US"
   }
