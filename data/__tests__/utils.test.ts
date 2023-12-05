@@ -1,5 +1,5 @@
-import fs from "fs/promises";
 import { Data } from "@/types/types";
+import fs from "fs/promises";
 import { chunkArray, extendedSlugify, sleep, writeDataFile } from "../utils";
 
 describe("utils", () => {
@@ -44,6 +44,13 @@ describe("utils", () => {
             count: 1,
             display: "UI",
             id: "ui"
+          }
+        ],
+        categories: [
+          {
+            count: 1,
+            display: "Climate Change",
+            id: "climatechange"
           }
         ],
         repositories: []

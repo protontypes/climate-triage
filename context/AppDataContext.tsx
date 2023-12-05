@@ -32,6 +32,15 @@ const DEFAULT_VALUE: AppDataContextType = {
   filterRepositoriesByCategory: () => []
 };
 
+function getNewestIssue(repository: Repository): Issue {
+  const sortedIssues = [...repository.issues].sort((a, b) => {
+    const dateA = new Date(a.created_at).getTime();
+    const dateB = new Date(b.created_at).getTime();
+    return dateB - dateA;
+  });
+  return sortedIssues[0];
+}
+
 const AppDataContext = createContext<AppDataContextType>(DEFAULT_VALUE);
 
 const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
@@ -70,14 +79,6 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
 
     //Find and return the newest issue in a given repository
     if (sortOrder === RepositorySortOrder.NEW_ISSUES) {
-      function getNewestIssue(repository: Repository): Issue {
-        const sortedIssues = [...repository.issues].sort((a, b) => {
-          const dateA = new Date(a.created_at).getTime();
-          const dateB = new Date(b.created_at).getTime();
-          return dateB - dateA;
-        });
-        return sortedIssues[0];
-      }
       //Compare current repo's newest issue to next repo's newest issue, sort by newest issue first
       updatedRepositories = [...allRepositories].sort((currentRepository, nextRepository) => {
         const currentNewestIssue = getNewestIssue(currentRepository);
