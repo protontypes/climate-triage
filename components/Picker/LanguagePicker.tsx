@@ -1,6 +1,7 @@
 import { CountableLanguage } from "@/types/types";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import classNames from "classnames";
 import { useEffect, useState } from "react";
 import { SectionTitle } from "../SectionTitle";
 import ActiveTagButton from "./ActiveTagButton";
@@ -34,18 +35,23 @@ export const LanguagePicker = ({ activeTagId, languages, onLanguagePage }: Langu
         <SectionTitle className="mb-2" text="Browse by Language" />
         <FontAwesomeIcon
           icon={faChevronDown}
-          className={`mx-2 mt-[3px] text-silver-500 transition-transform ${
-            isCollapsed ? "rotate-0" : "rotate-180"
-          } duration-300 ease-in-out md:hidden`}
+          className={classNames(
+            "mx-2 mt-[3px] text-silver-500 transition-transform duration-300 ease-in-out",
+            {
+              ["rotate-0"]: isCollapsed,
+              ["rotate-180"]: !isCollapsed
+            }
+          )}
         />
 
         {/* Display the active tag button when a language is selected, and the language picker is collapsed. */}
         {activeTagId && isCollapsed ? <ActiveTagButton data={activeTagId} /> : null}
       </div>
       <div
-        className={`-mx-1 overflow-hidden duration-300 ease-in-out ${
-          isCollapsed ? "max-h-0" : "max-h-96"
-        } ${isCollapsed ? "sm:max-h-full" : ""}`}
+        className={classNames("-mx-1 overflow-hidden duration-300 ease-in-out", {
+          ["max-h-0 sm:max-h-20"]: isCollapsed,
+          ["max-h-full"]: !isCollapsed
+        })}
       >
         {languages.map((language) => {
           return (
