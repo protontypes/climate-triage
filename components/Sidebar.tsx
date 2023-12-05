@@ -3,6 +3,7 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import useWindowSize from "@/hooks/useWindowSize";
 import { useParams, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useAppData } from "../hooks/useAppData";
@@ -16,6 +17,8 @@ export const Sidebar = () => {
   const currentPage = usePathname();
   const pageType = currentPage.split("/")[1];
   const { tag: activeTagId, language: activeLanguageId, category: activeCategoryId } = useParams();
+
+  const { width } = useWindowSize();
 
   const { languages, categories, tags } = useAppData();
 
@@ -81,7 +84,7 @@ export const Sidebar = () => {
           categories={categories}
           activeTagId={activeCategoryId}
           onCategoryPage={pageType == "category"}
-          isCollapsedDefault={false}
+          isCollapsedDefault={width < 768} // Collapse for mobile, not for desktop
         />
         {/* <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageType == "tag"} /> */}
       </div>

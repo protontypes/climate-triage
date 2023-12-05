@@ -7,7 +7,7 @@ type ScrollToTopProps = {
 
 const ScrollToTop = ({ handleOnClick }: ScrollToTopProps) => {
   return (
-    <div className="z-50">
+    <div className="z-50 hidden sm:visible">
       <button
         onClick={handleOnClick}
         className="fixed bottom-4 right-4 flex h-[64px] w-[64px] items-center justify-center rounded-full border border-primary bg-transparent hover:bg-primary hover:text-black md:bottom-7 md:right-4"
