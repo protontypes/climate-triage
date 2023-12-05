@@ -2,8 +2,6 @@ import { Repository } from "@/types/types";
 import { getFilteredLanguages, getFilteredTags } from "../shared";
 import { dummyRepositories } from "./test-data";
 
-jest.mock("../github");
-
 describe("shared", () => {
   describe("getFilteredLanguages", () => {
     it("returns an empty array when given an empty array of repositories", () => {
@@ -13,7 +11,29 @@ describe("shared", () => {
 
     it("returns an array of CountableLanguage objects when given an array of repositories", () => {
       const result = getFilteredLanguages(dummyRepositories);
-      expect(result).toEqual([{ id: "python", display: "Python", count: 3 }]);
+      expect(result).toEqual([
+        { id: "javascript", display: "JavaScript", count: 1 },
+        {
+          count: 1,
+          display: "Jupyter Notebook",
+          id: "jupyter-notebook"
+        },
+        {
+          count: 1,
+          display: "Kotlin",
+          id: "kotlin"
+        },
+        {
+          count: 6,
+          display: "Python",
+          id: "python"
+        },
+        {
+          count: 1,
+          display: "TypeScript",
+          id: "typescript"
+        }
+      ]);
     });
 
     it("filters out languages with less than 3 repositories and sorts the remaining languages alphabetically", () => {
