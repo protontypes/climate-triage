@@ -51,21 +51,23 @@ export const CategoryPicker = ({
           isCollapsed ? "max-h-0" : "max-h-96"
         } ${isCollapsed ? "sm:max-h-full" : ""}`}
       >
-        {categories.map((category) => {
-          return (
-            <PickerItem
-              className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
-                onCategoryPage && category.id === activeTagId
-                  ? "active-pill"
-                  : "border-silver-100 transition-all hover:border-primary hover:text-primary"
-              }`}
-              href={`/category/${category.id}`}
-              key={category.id}
-              text={category.display}
-              totalOccurrences={category.count}
-            />
-          );
-        })}
+        {categories
+          .filter((c) => c.id)
+          .map((category) => {
+            return (
+              <PickerItem
+                className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
+                  onCategoryPage && category.id === activeTagId
+                    ? "active-pill"
+                    : "border-silver-100 transition-all hover:border-primary hover:text-primary"
+                }`}
+                href={`/category/${category.id}`}
+                key={category.id}
+                text={category.display}
+                totalOccurrences={category.count}
+              />
+            );
+          })}
       </div>
     </div>
   );
