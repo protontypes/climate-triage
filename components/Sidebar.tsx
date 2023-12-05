@@ -50,7 +50,7 @@ export const Sidebar = () => {
   const handleScrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <section id="sidebar" className="px-6 text-silver-500">
+    <section id="sidebar" className="px-6 text-gray-900 dark:text-silver-500">
       <AboutSection />
       <div className="pt-4">
         <LinkButton
@@ -62,7 +62,7 @@ export const Sidebar = () => {
           Star it on GitHub 🌟
         </LinkButton>
       </div>
-      <div className="pt-2">
+      <div className="py-2">
         <LinkButton
           title="Add your project"
           href="https://github.com/protontypes/open-sustainable-technology"
@@ -71,7 +71,7 @@ export const Sidebar = () => {
         </LinkButton>
       </div>
       <div
-        className={`z-50 bg-black-400 transition-all duration-300 md:sticky md:top-4 ${
+        className={`z-50 bg-stone-50 transition-all duration-300 dark:bg-black-400 md:sticky md:top-4 ${
           scrollHeightReached ? "fixed top-0 " : "sticky top-0"
         }`}
       >

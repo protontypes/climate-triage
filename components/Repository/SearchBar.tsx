@@ -23,7 +23,7 @@ export const SearchBar = () => {
         onChange={(e) => handleSearch(e.target.value)}
       />
       <div className="pointer-events-none absolute inset-y-0 left-0 z-20 flex items-center pl-4">
-        <FontAwesomeIcon icon={faSearch} className={"text-silver-500"} />
+        <FontAwesomeIcon icon={faSearch} className={"text-gray-900 dark:text-silver-500"} />
       </div>
     </div>
   );

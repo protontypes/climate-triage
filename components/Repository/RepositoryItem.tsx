@@ -34,7 +34,7 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
     >
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
-        className="cursor-pointer px-5 py-3 transition-all hover:bg-black-300"
+        className="cursor-pointer rounded-md px-5 py-3 transition-all hover:bg-stone-100 dark:hover:bg-black-300"
         onClick={() => setIsIssueOpen(!isIssueOpen)}
       >
         <RepositoryItemTopBar

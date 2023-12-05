@@ -6,7 +6,7 @@ export const AboutSection = () => {
     <div>
       <SectionTitle className="mb-2" text="About" />
       <h1 className="hidden text-lg font-bold">{config.meta.title}</h1>
-      <p className="text-silver-500">
+      <p className="text-gray-900 dark:text-silver-500">
         <strong>{config.meta.title}</strong> is a unique platform dedicated to harnessing the power
         of open source collaboration in tackling environmental challenges. We provide a curated
         directory of impactful projects focused on climate change, energy, biodiversity, and natural

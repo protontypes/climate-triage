@@ -10,7 +10,7 @@ type LayoutProps = {
 };
 
 export const Layout = ({ children }: LayoutProps) => (
-  <div className="flex min-h-screen flex-col bg-black-400 text-silver-500 antialiased">
+  <div className="flex min-h-screen flex-col bg-stone-50 text-gray-900 antialiased dark:bg-black-400 dark:text-silver-500">
     <AppDataProvider>
       <Header />
       <main className="flex flex-1">
