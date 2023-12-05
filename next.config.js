@@ -67,7 +67,7 @@ module.exports = () => {
     assetPrefix: isProd ? prodBaseUrl : "",
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     eslint: {
-      dirs: ["app", "components", "types"]
+      dirs: ["."]
     },
     images: {
       domains: []

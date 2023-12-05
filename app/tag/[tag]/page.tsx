@@ -1,7 +1,7 @@
 import { Layout } from "@/components/Layout";
+import { RepositoryList } from "@/components/Repository/RepositoryList";
 import { getData } from "app/data-loader";
 import { Metadata } from "next";
-import { RepositoryList } from "../../../components/Repository/RepositoryList";
 
 export async function generateMetadata({
   params

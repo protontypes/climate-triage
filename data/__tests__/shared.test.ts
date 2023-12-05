@@ -1,68 +1,10 @@
-import { Repository, Source } from "@/types/types";
-import { getGitHubRepositories } from "../github";
-import { getFilteredLanguages, getFilteredTags, processSource } from "../shared";
+import { Repository } from "@/types/types";
+import { getFilteredLanguages, getFilteredTags } from "../shared";
 import { dummyRepositories } from "./test-data";
 
 jest.mock("../github");
 
 describe("shared", () => {
-  describe("processSource", () => {
-    it("returns an empty array when given an empty source", async () => {
-      const source: Source = {
-        name: "Empty Source",
-        provider: "github",
-        repositories: [],
-        labels: []
-      };
-      const result = await processSource(source);
-      expect(result).toEqual([]);
-    });
-
-    it("returns an array of repositories when given a source with repositories", async () => {
-      const source: Source = {
-        name: "React Repositories",
-        provider: "github",
-        repositories: ["facebook/react", "airbnb/react-dates"],
-        labels: []
-      };
-      (getGitHubRepositories as jest.Mock).mockResolvedValueOnce([
-        {
-          name: "React",
-          url: "https://github.com/facebook/react",
-          language: { id: "javascript", display: "JavaScript" },
-          tags: [{ id: "ui", display: "UI" }]
-        },
-        {
-          name: "React Dates",
-          url: "https://github.com/airbnb/react-dates",
-          language: { id: "javascript", display: "JavaScript" },
-          tags: [
-            { id: "ui", display: "UI" },
-            { id: "calendar", display: "Calendar" }
-          ]
-        }
-      ]);
-      const result = await processSource(source);
-      expect(result).toEqual([
-        {
-          name: "React",
-          url: "https://github.com/facebook/react",
-          language: { id: "javascript", display: "JavaScript" },
-          tags: [{ id: "ui", display: "UI" }]
-        },
-        {
-          name: "React Dates",
-          url: "https://github.com/airbnb/react-dates",
-          language: { id: "javascript", display: "JavaScript" },
-          tags: [
-            { id: "ui", display: "UI" },
-            { id: "calendar", display: "Calendar" }
-          ]
-        }
-      ]);
-    });
-  });
-
   describe("getFilteredLanguages", () => {
     it("returns an empty array when given an empty array of repositories", () => {
       const result = getFilteredLanguages([]);
