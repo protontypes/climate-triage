@@ -53,7 +53,7 @@ const securityHeaders = [
 ];
 
 const isProd = process.env.NODE_ENV === "production";
-const prodBaseUrl = "/climate-triage";
+const prodBaseUrl = ""; // /climate-triage without custom domain
 
 /**
  * @type {import('next').NextConfig}
