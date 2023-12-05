@@ -14,6 +14,15 @@ function formatStars(stars: number): string {
   }
 }
 
+const slugger = (val: string) => {
+  const specialCases = {
+    "C++": "c-plus-plus",
+    "C#": "c-sharp",
+    "F#": "f-sharp"
+  };
+  return specialCases[val] || slugify(val, { lower: true });
+};
+
 const main = async () => {
   console.log(
     "⚠️ This command must be run from the root of the project directory with `pnpm prebuild`"
@@ -33,12 +42,12 @@ const main = async () => {
           license: license ?? undefined, // TODO: Handle null better here
           last_modified: pushed_at.toString(),
           language: {
-            id: language ? slugify(language, { lower: true }) : "na", // TODO: Handle null better here
+            id: language ? slugger(language) : "na", // TODO: Handle null better here
             display: language ?? "N/A"
           },
           has_new_issues: has_new_issues,
           category: {
-            id: slugify(category ?? "", { lower: true }),
+            id: category ? slugger(category) : "na", // TODO: Handle null better here
             display: category ?? ""
           },
           issues: issues.map(
@@ -53,7 +62,7 @@ const main = async () => {
             })
           ),
           tags: topics.map((t) => ({
-            display: slugify(t, { lower: true }),
+            display: slugger(t),
             id: t
           }))
         } as Repository;
