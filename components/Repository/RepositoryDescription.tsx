@@ -6,7 +6,7 @@ type RepositoryDescriptionProps = {
 
 export const RepositoryDescription = ({ repositoryDescription }: RepositoryDescriptionProps) => {
   return (
-    <div className="flex flex-row overflow-auto py-2 text-justify text-gray-700">
+    <div className="flex flex-row overflow-auto py-2 text-justify text-gray-700 dark:text-gray-400">
       {repositoryDescription}
     </div>
   );
