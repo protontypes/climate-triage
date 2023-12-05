@@ -10,19 +10,21 @@ type CategoryPickerProps = {
   activeTagId: string | string[] | undefined;
   categories: CountableCategory[];
   onCategoryPage: boolean;
+  isCollapsedDefault?: boolean;
 };
 
 export const CategoryPicker = ({
   activeTagId,
   categories,
-  onCategoryPage
+  onCategoryPage,
+  isCollapsedDefault = true
 }: CategoryPickerProps) => {
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(isCollapsedDefault);
 
   // Automatically collapse the sidebar after redirection
   useEffect(() => {
-    setIsCollapsed(true);
-  }, [onCategoryPage, activeTagId]);
+    setIsCollapsed(isCollapsedDefault);
+  }, [isCollapsedDefault, onCategoryPage, activeTagId]);
 
   // Toggle the collapsible sidebar
   const toggleCollapsible = () => {

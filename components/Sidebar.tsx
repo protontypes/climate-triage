@@ -81,6 +81,7 @@ export const Sidebar = () => {
           categories={categories}
           activeTagId={activeCategoryId}
           onCategoryPage={pageType == "category"}
+          isCollapsedDefault={false}
         />
         {/* <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageType == "tag"} /> */}
       </div>
