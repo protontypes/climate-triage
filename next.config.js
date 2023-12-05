@@ -53,7 +53,7 @@ const securityHeaders = [
 ];
 
 const isProd = process.env.NODE_ENV === "production";
-const prodBaseUrl = "/open-climate-impact";
+const prodBaseUrl = "/climate-triage";
 
 /**
  * @type {import('next').NextConfig}
