@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.custom-substack-widget+.success, .custom-substack-widget+.error {
-  font-family: var(--font-inter), sans-serif !important;
-  color: #cb3364 !important;
-  font-size: 0.875rem;
-}
-
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -23,26 +17,21 @@
 
 .active-pill {
   @apply border-primary font-semibold text-primary;
-}
 
-.active-pill > span {
-  @apply text-primary;
+  >span {
+    @apply text-primary;
+  }
 }
 
 #sidebar {
   @apply w-full flex-none font-sans;
-}
 
-@media screen(md) {
-  #sidebar {
+  @media (min-width: 768px) {
     @apply relative;
-    max-width:24rem;
+    max-width: 24rem;
   }
-}
 
-@media screen(lg) {
-  #sidebar {
-    @apply relative;
-    max-width:28rem;
+  @media (min-width: 1024px) {
+    max-width: 28rem;
   }
 }
