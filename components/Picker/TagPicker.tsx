@@ -80,21 +80,24 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
         //   isCollapsed ? "max-h-0" : "max-h-96"
         // } ${isCollapsed ? "sm:max-h-full" : ""}`}
       >
-        {tags.slice(0, limit).map((tag) => {
-          return (
-            <PickerItem
-              className={`group m-1 inline-block rounded-sm border px-2 py-1 text-sm${
-                onTagPage && tag.id === activeTagId
-                  ? "active-pill"
-                  : "border-silver-100 transition-all hover:border-primary hover:text-primary"
-              }`}
-              href={`/tag/${tag.id}`}
-              key={tag.id}
-              text={tag.display}
-              totalOccurrences={tag.count}
-            />
-          );
-        })}
+        {tags
+          .sort((a, b) => b.count - a.count)
+          .slice(0, limit)
+          .map((tag) => {
+            return (
+              <PickerItem
+                className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
+                  onTagPage && tag.id === activeTagId
+                    ? "active-pill"
+                    : "border-silver-100 transition-all hover:border-primary hover:text-primary"
+                }`}
+                href={`/tag/${tag.id}`}
+                key={tag.id}
+                text={tag.display}
+                totalOccurrences={tag.count}
+              />
+            );
+          })}
         <ShowMoreButton hasMore={hasMore} onClick={handleShowMore} />
       </div>
     </div>

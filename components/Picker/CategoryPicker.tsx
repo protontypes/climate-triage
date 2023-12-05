@@ -59,6 +59,7 @@ export const CategoryPicker = ({
       >
         {categories
           .filter((c) => c.id)
+          .sort((a, b) => b.count - a.count)
           .map((category) => {
             return (
               <PickerItem
