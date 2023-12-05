@@ -1,6 +1,7 @@
 import { CountableTag } from "@/types/types";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import classNames from "classnames";
 import { useEffect, useState } from "react";
 import { ShowMoreButton } from "../Button/ShowMoreButton";
 import { SectionTitle } from "../SectionTitle";
@@ -49,9 +50,13 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
         <SectionTitle className="my-1" text="Browse by tag" />
         <FontAwesomeIcon
           icon={faChevronDown}
-          className={`mx-2 mt-[3px] text-silver-500 transition-transform${
-            isCollapsed ? "rotate-0" : "rotate-180"
-          } animate-fade-in duration-300 ease-in-out md:hidden`}
+          className={classNames(
+            "mx-2 mt-[3px] text-silver-500 transition-transform duration-300 ease-in-out",
+            {
+              ["rotate-0"]: isCollapsed,
+              ["rotate-180"]: !isCollapsed
+            }
+          )}
         />
         <button
           className={`${
@@ -65,11 +70,15 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
         {activeTagId && isCollapsed && <ActiveTagButton data={activeTagId} />}
       </div>
       <div
-        className={` transition-max-height ${
-          isShowLessVisible && "overflow-y-scroll"
-        } overflow-hidden duration-300  ease-in-out md:max-h-[50dvh] ${
-          isCollapsed ? "max-h-0" : "max-h-96"
-        } ${isCollapsed ? "sm:max-h-full" : ""}`}
+        className={classNames("-mx-1 overflow-hidden duration-300 ease-in-out", {
+          ["max-h-0 sm:max-h-20"]: isCollapsed,
+          ["max-h-full"]: !isCollapsed
+        })}
+        // className={` transition-max-height ${
+        //   isShowLessVisible && "overflow-y-scroll"
+        // } overflow-hidden duration-300  ease-in-out md:max-h-[50dvh] ${
+        //   isCollapsed ? "max-h-0" : "max-h-96"
+        // } ${isCollapsed ? "sm:max-h-full" : ""}`}
       >
         {tags.slice(0, limit).map((tag) => {
           return (
