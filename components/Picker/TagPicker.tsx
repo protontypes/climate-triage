@@ -12,22 +12,28 @@ type TagPickerProps = {
   activeTagId: string | string[] | undefined;
   onTagPage: boolean;
   tags: CountableTag[];
+  isCollapsedDefault?: boolean;
 };
 
-export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
+export const TagPicker = ({
+  tags,
+  activeTagId,
+  onTagPage,
+  isCollapsedDefault = true
+}: TagPickerProps) => {
   const limitStep = 15;
   const [limit, setLimit] = useState(limitStep);
   const hasMore = tags.length > limit;
 
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(isCollapsedDefault);
 
   // showLess button is only visible when the limit value exceeds by limitStep(i.e 15)
   const isShowLessVisible = limit > limitStep;
 
   // Automatically collapse the sidebar after redirection
   useEffect(() => {
-    setIsCollapsed(true);
-  }, [activeTagId]);
+    setIsCollapsed(isCollapsedDefault);
+  }, [isCollapsedDefault, activeTagId]);
 
   const toggleCollapsible = () => {
     setIsCollapsed(!isCollapsed);

@@ -10,15 +10,21 @@ type LanguagePickerProps = {
   activeTagId: string | string[] | undefined;
   languages: CountableLanguage[];
   onLanguagePage: boolean;
+  isCollapsedDefault?: boolean;
 };
 
-export const LanguagePicker = ({ activeTagId, languages, onLanguagePage }: LanguagePickerProps) => {
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
+export const LanguagePicker = ({
+  activeTagId,
+  languages,
+  onLanguagePage,
+  isCollapsedDefault = true
+}: LanguagePickerProps) => {
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(isCollapsedDefault);
 
   // Automatically collapse the sidebar after redirection
   useEffect(() => {
-    setIsCollapsed(true);
-  }, [onLanguagePage, activeTagId]);
+    setIsCollapsed(isCollapsedDefault);
+  }, [isCollapsedDefault, onLanguagePage, activeTagId]);
 
   // Toggle the collapsible sidebar
   const toggleCollapsible = () => {
