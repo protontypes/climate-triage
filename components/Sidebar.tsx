@@ -47,7 +47,7 @@ export const Sidebar = () => {
   const handleScrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <section className="w-full flex-none px-6 font-sans text-silver-500 md:relative md:max-w-sm">
+    <section id="sidebar" className="px-6 text-silver-500">
       <AboutSection />
       <div className="pt-4">
         <LinkButton
@@ -68,7 +68,7 @@ export const Sidebar = () => {
         </LinkButton>
       </div>
       <div
-        className={` z-50 bg-black-400 transition-all duration-300 md:sticky md:top-4 ${
+        className={`z-50 bg-black-400 transition-all duration-300 md:sticky md:top-4 ${
           scrollHeightReached ? "fixed top-0 " : "sticky top-0"
         }`}
       >
