@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk } from "next/font/google";
 import React from "react";
 
-import "../styles/globals.css";
+import "@/styles/globals.scss";
 import config from "./config.mts";
 
 // Fontawesome and TailwindCSS related settings
