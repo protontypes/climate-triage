@@ -84,38 +84,23 @@ module.exports = {
           900: "#fafcfd"
         }
       },
-      typography: ({ theme }) => ({
-        DEFAULT: {
+      typography: (theme) => ({
+        default: {
           css: {
-            p: {
-              color: theme("colors.gray.800")
-            },
-            ul: {
-              color: theme("colors.gray.800")
-            },
-            strong: {
-              color: theme("colors.green.500")
-            },
-            a: {
-              color: theme("colors.primary.500"),
-              "&:hover": {
-                color: `${theme("colors.primary.400")}`
-              },
-              code: { color: theme("colors.primary.400") }
-            },
-            "h1,h2,h3,h4,h5,h6": {
-              color: theme("colors.gray.900")
-            },
+            color: theme("colors.gray.900"),
             "h1,h2": {
               fontWeight: "700",
               letterSpacing: theme("letterSpacing.tight")
             },
             h3: {
               fontWeight: "600"
-            },
-            code: {
-              color: theme("colors.azure.600")
             }
+          }
+        },
+
+        dark: {
+          css: {
+            color: theme("colors.silver.500")
           }
         }
       })
