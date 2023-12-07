@@ -68,9 +68,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#101620" />
-        <meta name="msapplication-TileColor" content="#101620" />
-        <meta name="theme-color" content="#101620" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2563eb" />
+        <meta name="msapplication-TileColor" content="#2563eb" />
+        <meta name="theme-color" content="#2563eb" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       </head>
       <body>
         <main className={`${space_grotesk.variable} font-sans`}>

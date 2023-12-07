@@ -4,7 +4,7 @@
   "description": "",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#101620",
+  "theme_color": "#2563eb",
   "background_color": "#101620",
   "icons": [
     {
@@ -12,24 +12,24 @@
       "sizes": "48x48"
     },
     {
-      "src": "/favicon-16x16.png",
+      "src": "/favicon-16x16.svg",
       "sizes": "16x16",
-      "type": "image/png"
+      "type": "image/svg"
     },
     {
-      "src": "/favicon-32x32.png",
+      "src": "/favicon-32x32.svg",
       "sizes": "32x32",
-      "type": "image/png"
+      "type": "image/svg"
     },
     {
-      "src": "/apple-icon.png",
+      "src": "/apple-icon.svg",
       "sizes": "180x180",
-      "type": "image/png"
+      "type": "image/svg"
     },
     {
-      "src": "/mstile-150x150.png",
+      "src": "/mstile-150x150.svg",
       "sizes": "150x150",
-      "type": "image/png"
+      "type": "image/svg"
     },
     {
       "src": "/safari-pinned-tab.svg",
@@ -41,8 +41,8 @@
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-384x384.png",
-      "sizes": "384x384",
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
