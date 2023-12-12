@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk } from "next/font/google";
 import React from "react";
 
+import { TopBar } from "@/components/TopBar";
 import "@/styles/globals.scss";
 import config from "./config.mts";
 
@@ -75,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <main className={`${space_grotesk.variable} font-sans`}>
-          {/* <TopBar /> */}
+          <TopBar />
           {children}
         </main>
         {/* <SponsorMe /> */}

@@ -1,8 +1,5 @@
 "use client";
 
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import useWindowSize from "@/hooks/useWindowSize";
 import { useParams, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -52,7 +49,7 @@ export const Sidebar = () => {
   return (
     <section id="sidebar" className="px-6 text-gray-900 dark:text-silver-500">
       <AboutSection />
-      <div className="pt-4">
+      {/* <div className="pt-4">
         <LinkButton
           title="Star it on GitHub"
           href="https://github.com/protontypes/open-sustainable-technology"
@@ -61,8 +58,8 @@ export const Sidebar = () => {
           <FontAwesomeIcon icon={faGithub} className="mr-2" />
           Star it on GitHub 🌟
         </LinkButton>
-      </div>
-      <div className="py-2">
+      </div> */}
+      <div className="pb-2 pt-4">
         <LinkButton
           title="Add your project"
           href="https://github.com/protontypes/open-sustainable-technology"
