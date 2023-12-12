@@ -59,8 +59,11 @@ export default function Page() {
         that all new contributors first comment their interest in each issue before jumping in and
         fixing it. Many of the projects require specialist domain knowledge and are directed at
         scientists and experts in the field. However, if you are interested in a long-term career in
-        one of these domains, we have listed a number of beginner-friendly open source programming
-        courses with sustainable use cases here.
+        one of these domains, we have listed a number of beginner-friendly{" "}
+        <Link href="https://opensustain.tech/education/">
+          open source programming courses with sustainable use cases here
+        </Link>
+        .
       </p>
 
       <h2>Collaborative Partnerships</h2>

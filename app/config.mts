@@ -8,9 +8,10 @@ const config = {
     website: "https://opensustain.tech"
   },
   meta: {
-    title: "Climate Triage",
+    title: "Climate Triage - Impactful open source contributions",
+    logo: "Climate Triage",
     description: ``, // TODO
-    siteUrl: "https://protontypes.github.io/climate-triage",
+    siteUrl: "https://climatetriage.com",
     socialBanner: "", // TODO
     locale: "en-US"
   }
