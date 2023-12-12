@@ -63,14 +63,15 @@ export const CategoryPicker = ({
           .filter((c) => c.id)
           .sort((a, b) => b.count - a.count)
           .map((category) => {
+            const isActive = onCategoryPage && category.id === activeTagId;
             return (
               <PickerItem
                 className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
-                  onCategoryPage && category.id === activeTagId
+                  isActive
                     ? "active-pill"
                     : "border-silver-100 transition-all hover:border-primary hover:text-primary"
                 }`}
-                href={`/category/${category.id}`}
+                href={isActive ? "/" : `/category/${category.id}`}
                 key={category.id}
                 text={category.display}
                 totalOccurrences={category.count}

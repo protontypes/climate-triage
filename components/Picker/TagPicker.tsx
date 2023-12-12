@@ -90,14 +90,15 @@ export const TagPicker = ({
           .sort((a, b) => b.count - a.count)
           .slice(0, limit)
           .map((tag) => {
+            const isActive = onTagPage && tag.id === activeTagId;
             return (
               <PickerItem
                 className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
-                  onTagPage && tag.id === activeTagId
+                  isActive
                     ? "active-pill"
                     : "border-silver-100 transition-all hover:border-primary hover:text-primary"
                 }`}
-                href={`/tag/${tag.id}`}
+                href={isActive ? "/" : `/tag/${tag.id}`}
                 key={tag.id}
                 text={tag.display}
                 totalOccurrences={tag.count}

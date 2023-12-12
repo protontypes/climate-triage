@@ -62,14 +62,15 @@ export const LanguagePicker = ({
         {languages
           .sort((a, b) => b.count - a.count)
           .map((language) => {
+            const isActive = onLanguagePage && language.id === activeTagId;
             return (
               <PickerItem
                 className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
-                  onLanguagePage && language.id === activeTagId
+                  isActive
                     ? "active-pill"
                     : "border-silver-100 transition-all hover:border-primary hover:text-primary"
                 }`}
-                href={`/language/${language.id}`}
+                href={isActive ? "/" : `/language/${language.id}`}
                 key={language.id}
                 text={language.display}
                 totalOccurrences={language.count}
