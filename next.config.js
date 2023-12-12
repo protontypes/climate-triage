@@ -70,7 +70,8 @@ module.exports = () => {
       dirs: ["."]
     },
     images: {
-      domains: []
+      domains: [],
+      unoptimized: true
     },
     compiler: {
       removeConsole: true
