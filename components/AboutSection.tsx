@@ -8,7 +8,8 @@ export const AboutSection = () => {
       <SectionTitle className="mb-2" text="About" />
       <h1 className="hidden text-lg font-bold">{config.meta.title}</h1>
       <p className="text-gray-900 dark:text-silver-500">
-        Find your impactful open source contribution to climate technology and sustainability.{" "}
+        Find your impactful open source contribution to climate technology and sustainability.
+        Interested but no idea what this is about?{" "}
         <Link href="/about/" className="text-primary underline">
           Read more...
         </Link>
