@@ -31,7 +31,7 @@ export default function Page() {
 
       <h2>Join the OpenSustain.tech Community</h2>
       <p>
-        Have you have developed a documented and thriving open source project in the field of
+        You have developed a documented and thriving open source project in the field of
         sustainability? Are you are looking for new contributors to help you build a stable
         community? Simply add your project to OpenSustain.tech and label your issues as 'Good First
         Issue' or 'Help Wanted'. Ecosyste.ms will do the rest in the background and your project
