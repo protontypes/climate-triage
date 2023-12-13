@@ -6,7 +6,7 @@ import Link from "next/link";
 import { SectionTitle } from "./SectionTitle";
 
 export const TopBar = () => (
-  <div className="flex h-16 items-center justify-between bg-black-400 px-6 py-3 transition-all hover:border-primary hover:text-primary">
+  <div className="flex h-16 items-center justify-between bg-stone-50 px-6 py-3 transition-all hover:border-primary hover:text-primary dark:bg-black-400">
     <div className="flex items-center justify-between gap-5">
       <SectionTitle text="Sponsored by" />
       {sponsors.map((s, i) => (

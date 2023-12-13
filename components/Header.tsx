@@ -1,6 +1,7 @@
 "use client";
 
 import { Tag } from "@/types/types";
+import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import config from "../app/config.mts";
@@ -17,10 +18,10 @@ export const Header = () => {
     <header className="container mx-auto my-5 flex flex-col items-center bg-stone-50 p-6 dark:bg-black-400 md:my-10 md:flex-row md:justify-between lg:max-w-6xl">
       <nav className="flex flex-wrap items-center md:justify-center">
         <Link href="/" title="Home" aria-label="Home">
-          <span className="text-3xl">{config.meta.logo}</span>
+          <Image src="/logo.svg" alt={config.meta.logo} width={280} height={40} />
         </Link>
         {activeFilter ? (
-          <span className="ml-8 cursor-pointer text-4xl font-semibold text-gray-900 dark:text-silver-500">
+          <span className="mt-4 cursor-pointer text-4xl font-semibold text-gray-900 dark:text-silver-500 sm:ml-8 sm:mt-0">
             {activeFilter?.display}
           </span>
         ) : null}
