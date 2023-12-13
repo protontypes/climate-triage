@@ -5,7 +5,8 @@ export default function Page() {
   return (
     <article className="prose prose-lg mb-10 dark:prose-invert lg:prose-xl">
       <h1>
-        Discover a meaningful way to contribute to open source projects focused on climate technology and sustainability.
+        Discover a meaningful way to contribute to open source projects focused on climate
+        technology and sustainability.
       </h1>
       <p className="lead">
         Harness the power of open source collaboration to tackle environmental challenges such as
@@ -42,7 +43,8 @@ export default function Page() {
       <p>
         Citizens, engineers, scientists, and developers from all sectors have shared their
         calculations, tools, and blueprints for a sustainable future. To support this emerging open
-        source ecosystem, the OpenSustain.tech website lists all the active and high quality projects.
+        source ecosystem, the OpenSustain.tech website lists all the active and high quality
+        projects.
       </p>
 
       <h2>ClimateTriage: Your Gateway to Sustainability Projects</h2>
