@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <article className="prose mb-10 dark:prose-invert lg:prose-lg">
       <h1>
-        Find your impactful open source contribution to climate technology and sustainability.
+        Discover a meaningful way to contribute to open source projects focused on climate technology and sustainability.
       </h1>
       <p className="lead">
         Harness the power of open source collaboration to tackle environmental challenges such as
@@ -29,8 +29,8 @@ export default function Page() {
 
       <h2>Join the OpenSustain.tech Community</h2>
       <p>
-        You have developed a documented and thriving open source project in the field of
-        sustainability and you are now looking for new contributors to help you build a stable
+        Have you have developed a documented and thriving open source project in the field of
+        sustainability? Are you are looking for new contributors to help you build a stable
         community? Simply add your project to OpenSustain.tech and label your issues as 'Good First
         Issue' or 'Help Wanted'. Ecosyste.ms will do the rest in the background and your project
         should soon appear on this website. Still interested but not sure how to get started? Read
@@ -41,7 +41,7 @@ export default function Page() {
       <p>
         Citizens, engineers, scientists, and developers from all sectors have shared their
         calculations, tools, and blueprints for a sustainable future. To support this emerging open
-        source ecosystem, the OpenSustain.tech website listed all active and high quality projects.
+        source ecosystem, the OpenSustain.tech website lists all the active and high quality projects.
       </p>
 
       <h2>ClimateTriage: Your Gateway to Sustainability Projects</h2>
