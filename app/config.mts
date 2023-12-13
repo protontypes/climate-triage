@@ -10,9 +10,10 @@ const config = {
   meta: {
     title: "Climate Triage - Impactful open source contributions",
     logo: "Climate Triage",
-    description: ``, // TODO
+    description:
+      "Discover a meaningful way to contribute to open source projects focused on climate technology and sustainability.",
     siteUrl: "https://climatetriage.com",
-    socialBanner: "", // TODO
+    socialBanner: "/social-share.jpg",
     locale: "en-US"
   }
 };
