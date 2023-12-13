@@ -1,8 +1,9 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 import Link from "next/link";
 
 export default function Page() {
   return (
-    <article className="prose mb-10 dark:prose-invert lg:prose-lg">
+    <article className="prose prose-lg mb-10 dark:prose-invert lg:prose-xl">
       <h1>
         Find your impactful open source contribution to climate technology and sustainability.
       </h1>
@@ -77,11 +78,14 @@ export default function Page() {
           Ecosyste.ms
         </Link>
         {", "}
-        OpenCorridor and{" "}
         <Link href="https://opensustain.tech/" target="_blank">
           Open Sustainable Technology
         </Link>{" "}
-        as part of the Linux Foundation Energy.
+        and{" "}
+        <Link href="https://lfenergy.org" target="_blank" rel="nofollow noreferrer">
+          Linux Foundation Energy
+        </Link>
+        .
       </p>
     </article>
   );
