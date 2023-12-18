@@ -1,6 +1,7 @@
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true"
 });
+const withMDX = require("@next/mdx")();
 
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
@@ -59,7 +60,7 @@ const prodBaseUrl = ""; // /climate-triage without custom domain
  * @type {import('next').NextConfig}
  */
 module.exports = () => {
-  const plugins = [withBundleAnalyzer];
+  const plugins = [withBundleAnalyzer, withMDX];
   return plugins.reduce((acc, next) => next(acc), {
     reactStrictMode: true,
     output: "export",
