@@ -17,6 +17,11 @@ export const sponsors: Sponsor[] = [
     url: "https://ecosyste.ms"
   },
   {
+    name: "Open Corridor",
+    logoSmall: "/partners/opencorridor_s.svg",
+    url: "https://opencorridor.org"
+  },
+  {
     name: "LF Energy",
     logoSmall: "/partners/lf-energy_s.svg",
     url: "https://lfenergy.org"

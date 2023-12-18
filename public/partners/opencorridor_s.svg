@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="220"
+   height="219.013"
+   fill="none"
+   viewBox="0 0 220 219.013"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="opencorridor_s.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs12" />
+<sodipodi:namedview
+   id="namedview10"
+   pagecolor="#505050"
+   bordercolor="#ffffff"
+   borderopacity="1"
+   inkscape:showpageshadow="0"
+   inkscape:pageopacity="0"
+   inkscape:pagecheckerboard="1"
+   inkscape:deskcolor="#505050"
+   showgrid="false"
+   inkscape:zoom="2.7633333"
+   inkscape:cx="109.65018"
+   inkscape:cy="109.2883"
+   inkscape:window-width="1920"
+   inkscape:window-height="1009"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="svg8" />
+xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;&gt;<path
+   fill="#a3b9cc"
+   d="m 110,170.691 c -23.228,0 -42.059,-18.745 -42.059,-41.867 0,-23.123 18.83,-41.868 42.059,-41.868 23.228,0 42.059,18.745 42.059,41.868 0,23.122 -18.83,41.867 -42.059,41.867 z"
+   id="path2" />
+<path
+   fill="#0a4477"
+   d="m 110.443,219 c -0.15,0 -0.298,0.004 -0.443,0.013 a 8.38,8.38 0 0 0 -0.443,-0.014 C 59.713,218.762 19.412,178.462 19.412,128.824 19.412,79.02 59.969,38.647 110,38.647 c 50.03,0 90.588,40.373 90.588,90.177 0,49.638 -40.301,89.938 -90.145,90.175 z M 110,183.573 c 30.376,0 55,-24.513 55,-54.75 0,-30.238 -24.624,-54.75 -55,-54.75 -30.376,0 -55,24.512 -55,54.75 0,30.237 24.624,54.75 55,54.75 z"
+   id="path4" />
+<path
+   fill="#a3b9cc"
+   d="M 6.47,128.824 C 6.47,71.906 52.822,25.764 110,25.764 c 57.178,0 103.53,46.142 103.53,103.06 0,8.902 -1.135,17.542 -3.267,25.783 C 216.518,140.85 220,125.579 220,109.5 220,49.025 170.751,0 110,0 49.249,0 0,49.025 0,109.5 c 0,16.079 3.482,31.35 9.737,45.107 A 102.793,102.793 0 0 1 6.471,128.824 Z"
+   id="path6" />
+</svg>
