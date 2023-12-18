@@ -19,6 +19,7 @@ export const TopBar = () => (
             title={s.name}
             aria-label={s.name}
             className="grayscale hover:grayscale-0"
+            target="_blank"
           >
             <Image src={s.logoSmall} alt={s.name} width={25} height={25} />
           </Link>
