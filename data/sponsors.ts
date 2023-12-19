@@ -8,7 +8,7 @@ interface Sponsor {
 export const sponsors: Sponsor[] = [
   {
     name: "Codeshark",
-    logoSmall: "/partners/codeshark_s.png",
+    logoSmall: "/partners/codeshark_s.svg",
     url: "https://codeshark.net"
   },
   {

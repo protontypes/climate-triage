@@ -22,7 +22,7 @@ export default function LaunchBanner(): JSX.Element {
           <span>
             We just launched! Read the blog post here{" "}
             <Link
-              href="https://github.com/protontypes/climate-triage"
+              href="https://opensustain.tech/blog/launch_climate_triage/"
               target="_blank"
               className="inline font-medium text-blue-600 underline decoration-primary-600 decoration-solid underline-offset-2 hover:no-underline dark:text-blue-500 dark:decoration-primary-500"
             >
