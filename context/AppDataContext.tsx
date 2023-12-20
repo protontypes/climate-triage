@@ -97,9 +97,9 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
       });
     }
 
-    if (sortOrder === RepositorySortOrder.LEAST_STARS) {
+    if (sortOrder === RepositorySortOrder.MOST_DOWNLOADS) {
       updatedRepositories = [...allRepositories].sort((currentRepository, nextRepository) => {
-        return currentRepository.stars - nextRepository.stars;
+        return nextRepository.monthly_downloads - currentRepository.monthly_downloads;
       });
     }
 
