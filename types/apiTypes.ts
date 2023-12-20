@@ -13,6 +13,7 @@ export interface Project {
   sub_category: string;
   issues: Issue[];
   has_new_issues: boolean;
+  monthly_downloads: number;
 }
 
 export interface Issue {

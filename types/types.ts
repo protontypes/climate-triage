@@ -44,6 +44,7 @@ export interface Repository {
   url: string;
   tags?: Tag[];
   category: Tag;
+  monthly_downloads: number;
 }
 
 // Describes an Issue, which is a GitHub issue linked to a repository
@@ -65,7 +66,7 @@ export interface Label {
 
 export enum RepositorySortOrder {
   NEW_ISSUES = "New Issues",
-  LEAST_STARS = "By Least Stars",
+  MOST_DOWNLOADS = "By Most Downloads",
   MOST_STARS = "By Most Stars",
   NONE = "None"
 }

@@ -29,7 +29,17 @@ const main = async () => {
   );
   try {
     const repositories = (await GetAllProjects()).map(
-      ({ id, name, url, language, category, has_new_issues, repository, issues }) => {
+      ({
+        id,
+        name,
+        url,
+        language,
+        category,
+        has_new_issues,
+        repository,
+        issues,
+        monthly_downloads
+      }) => {
         const { description, owner, stargazers_count, license, pushed_at, topics } = repository;
         return {
           id: id.toString(),
@@ -64,7 +74,8 @@ const main = async () => {
           tags: topics.map((t) => ({
             display: slugger(t),
             id: t
-          }))
+          })),
+          monthly_downloads: monthly_downloads
         } as Repository;
       }
     );
