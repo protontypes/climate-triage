@@ -72,17 +72,18 @@ export const Sidebar = () => {
           scrollHeightReached ? "fixed top-0 " : "sticky top-0"
         }`}
       >
-        <LanguagePicker
-          languages={languages}
-          activeTagId={activeLanguageId}
-          onLanguagePage={pageType == "language"}
-        />
         <CategoryPicker
           categories={categories}
           activeTagId={activeCategoryId}
           onCategoryPage={pageType == "category"}
           isCollapsedDefault={width < 768} // Collapse for mobile, not for desktop
         />
+        <LanguagePicker
+          languages={languages}
+          activeTagId={activeLanguageId}
+          onLanguagePage={pageType == "language"}
+        />
+
         {/* <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageType == "tag"} /> */}
       </div>
       {showUpArrow && <ScrollToTop handleOnClick={handleScrollToTop} />}

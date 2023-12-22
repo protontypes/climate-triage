@@ -33,6 +33,7 @@ const main = async () => {
         id,
         name,
         url,
+        description,
         language,
         category,
         has_new_issues,
@@ -40,7 +41,7 @@ const main = async () => {
         issues,
         monthly_downloads
       }) => {
-        const { description, owner, stargazers_count, license, pushed_at, topics } = repository;
+        const { owner, stargazers_count, license, pushed_at, topics } = repository;
         return {
           id: id.toString(),
           owner,
