@@ -68,8 +68,9 @@ export const Sidebar = () => {
         </LinkButton>
       </div>
       <div
-        className={`z-50 bg-stone-50 transition-all duration-300 dark:bg-black-400 md:sticky md:top-4 ${scrollHeightReached ? "fixed top-0 " : "sticky top-0"
-          }`}
+        className={`z-50 bg-stone-50 transition-all duration-300 dark:bg-black-400 md:sticky md:top-4 ${
+          scrollHeightReached ? "fixed top-0 " : "sticky top-0"
+        }`}
       >
         <CategoryPicker
           categories={categories}
@@ -81,8 +82,8 @@ export const Sidebar = () => {
           languages={languages}
           activeTagId={activeLanguageId}
           onLanguagePage={pageType == "language"}
-          isCollapsedDefault={width < 768} // Collapse for mobile, not for desktop
         />
+
         {/* <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageType == "tag"} /> */}
       </div>
       {showUpArrow && <ScrollToTop handleOnClick={handleScrollToTop} />}
