@@ -16,12 +16,10 @@ img1
 ## Step 2 : Fork the Project
 - Fork this Repository. This will create a Local Copy of this Repository on your Github Profile. Keep a reference to the original project in `upstream` remote.
 ```
-$ git clone https://github.com/<your-username>/Amazing-WebDev-Components
-$ cd Amazing-WebDev-Components
-$ git remote add upstream https://github.com/parag477/Amazing-WebDev-Components
+$ git clone https://github.com/protontypes/climate-triage/
+$ cd climate-triage
+$ git remote add upstream https://github.com/protontypes/climate-triage/
 ```
-
-img2
 
 - If you have already forked the project, update your copy before working.
 ```
