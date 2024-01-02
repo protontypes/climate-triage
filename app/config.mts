@@ -8,8 +8,8 @@ const config = {
     website: "https://opensustain.tech"
   },
   meta: {
-    title: "Climate Triage - Impactful open source contributions",
-    logo: "Climate Triage",
+    title: "ClimateTriage - Impactful open source contributions",
+    logo: "ClimateTriage",
     description:
       "Discover a meaningful way to contribute to open source projects focused on climate technology and sustainability.",
     siteUrl: "https://climatetriage.com",

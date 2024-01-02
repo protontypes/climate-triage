@@ -36,9 +36,17 @@ export const TopBar = () => (
           href="https://github.com/protontypes/climate-triage"
           rel="noopener noreferrer"
           target="_blank"
-          className="hidden text-sm font-bold uppercase tracking-wider text-gray-900 hover:opacity-80 dark:text-silver-500 sm:inline"
+          className="hidden text-sm font-bold uppercase tracking-wider text-gray-900 hover:opacity-80 sm:inline dark:text-silver-500"
         >
           Repository <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ms-1" />
+        </Link>
+        <Link
+          href="https://opencollective.com/open-sustainable-technology/projects/climate-triage"
+          rel="noopener noreferrer"
+          target="_blank"
+          className="hidden text-sm font-bold uppercase tracking-wider text-gray-900 hover:opacity-80 sm:inline dark:text-silver-500"
+        >
+          Fund this <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ms-1" />
         </Link>
         {/* <Socials /> */}
       </div>
