@@ -45,7 +45,7 @@ export interface Repository {
   tags?: Tag[];
   category: Tag;
   monthly_downloads: number;
-  created_at: Date;
+  created_at: string;
 }
 
 // Describes an Issue, which is a GitHub issue linked to a repository
