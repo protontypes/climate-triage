@@ -41,13 +41,14 @@ const main = async () => {
         issues,
         monthly_downloads
       }) => {
-        const { owner, stargazers_count, license, pushed_at, topics } = repository;
+        const { owner, stargazers_count, license, pushed_at, topics, created_at } = repository;
         return {
           id: id.toString(),
           owner,
           name: name ?? "N/A",
           description,
           url,
+          created_at:created_at,
           stars: stargazers_count,
           stars_display: formatStars(stargazers_count),
           license: license ?? undefined, // TODO: Handle null better here

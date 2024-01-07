@@ -81,6 +81,7 @@ export const Sidebar = () => {
         <LanguagePicker
           languages={languages}
           activeTagId={activeLanguageId}
+          isCollapsedDefault={width < 768} // Collapse for mobile, not for desktop
           onLanguagePage={pageType == "language"}
         />
 
