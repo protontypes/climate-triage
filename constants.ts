@@ -5,5 +5,5 @@ export const REPOSITORY_SORT_OPTIONS = [
   RepositorySortOrder.MOST_DOWNLOADS,
   RepositorySortOrder.MOST_STARS,
   RepositorySortOrder.LATEST,
-  RepositorySortOrder.NONE,
+  RepositorySortOrder.NONE
 ];
