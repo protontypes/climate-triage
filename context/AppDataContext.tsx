@@ -77,30 +77,32 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   const updateRepositoriesOnSortChange = (sortOrder: RepositorySortOrder) => {
     let updatedRepositories: Repository[] = [];
 
-    //Find and return the newest issue in a given repository
+    // Find and return the newest issue in a given repository
     if (sortOrder === RepositorySortOrder.NEW_ISSUES) {
-      //Compare current repo's newest issue to next repo's newest issue, sort by newest issue first
-      updatedRepositories = [...allRepositories].sort((currentRepository, nextRepository) => {
-        const currentNewestIssue = getNewestIssue(currentRepository);
-        const nextNewestIssue = getNewestIssue(nextRepository);
-        const timestampDiff =
-          new Date(nextNewestIssue.created_at).getTime() -
-          new Date(currentNewestIssue.created_at).getTime();
-
-        return timestampDiff;
+      updatedRepositories = [...allRepositories].sort((a, b) => {
+        const newestIssueA = getNewestIssue(a).created_at;
+        const newestIssueB = getNewestIssue(b).created_at;
+        return new Date(newestIssueB).getTime() - new Date(newestIssueA).getTime();
       });
     }
 
+    // Sort by number of stars
     if (sortOrder === RepositorySortOrder.MOST_STARS) {
-      updatedRepositories = [...allRepositories].sort((currentRepository, nextRepository) => {
-        return nextRepository.stars - currentRepository.stars;
-      });
+      updatedRepositories = [...allRepositories].sort((a, b) => b.stars - a.stars);
     }
 
+    // Sort by number of monthly downloads
     if (sortOrder === RepositorySortOrder.MOST_DOWNLOADS) {
-      updatedRepositories = [...allRepositories].sort((currentRepository, nextRepository) => {
-        return nextRepository.monthly_downloads - currentRepository.monthly_downloads;
-      });
+      updatedRepositories = [...allRepositories].sort(
+        (a, b) => b.monthly_downloads - a.monthly_downloads
+      );
+    }
+
+    // Sort by newest project
+    if (sortOrder === RepositorySortOrder.NEWEST) {
+      updatedRepositories = [...allRepositories].sort(
+        (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      );
     }
 
     if (sortOrder === RepositorySortOrder.NONE) {
