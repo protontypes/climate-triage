@@ -68,7 +68,7 @@ export const Sidebar = () => {
         </LinkButton>
       </div>
       <div
-        className={`z-50 bg-stone-50 transition-all duration-300 dark:bg-black-400 md:sticky md:top-4 ${
+        className={`z-50 bg-stone-50 transition-all duration-300 md:sticky md:top-4 dark:bg-black-400 ${
           scrollHeightReached ? "fixed top-0 " : "sticky top-0"
         }`}
       >
@@ -81,6 +81,7 @@ export const Sidebar = () => {
         <LanguagePicker
           languages={languages}
           activeTagId={activeLanguageId}
+          isCollapsedDefault={width < 768} // Collapse for mobile, not for desktop
           onLanguagePage={pageType == "language"}
         />
 

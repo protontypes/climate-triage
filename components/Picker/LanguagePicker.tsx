@@ -38,7 +38,7 @@ export const LanguagePicker = ({
         onClick={toggleCollapsible}
         className={`flex cursor-pointer ${isCollapsed ? "sm:flex" : ""}`}
       >
-        <SectionTitle className="mb-2" text="Browse by Language" />
+        <SectionTitle text="Browse by Language" />
         <FontAwesomeIcon
           icon={faChevronDown}
           className={classNames(
@@ -54,7 +54,7 @@ export const LanguagePicker = ({
         {activeTagId && isCollapsed ? <ActiveTagButton data={activeTagId} /> : null}
       </div>
       <div
-        className={classNames("-mx-1 overflow-hidden duration-300 ease-in-out", {
+        className={classNames("-mx-1 mt-2 overflow-hidden duration-300 ease-in-out", {
           ["max-h-0 sm:max-h-20"]: isCollapsed,
           ["max-h-full"]: !isCollapsed
         })}
@@ -65,11 +65,11 @@ export const LanguagePicker = ({
             const isActive = onLanguagePage && language.id === activeTagId;
             return (
               <PickerItem
-                className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
-                  isActive
-                    ? "active-pill"
-                    : "border-silver-100 transition-all hover:border-primary hover:text-primary"
-                }`}
+                className={classNames("group m-1 inline-block rounded-sm border px-2 py-1", {
+                  ["active-pill"]: isActive,
+                  ["border-silver-100 transition-all hover:border-primary hover:text-primary"]:
+                    !isActive
+                })}
                 href={isActive ? "/" : `/language/${language.id}`}
                 key={language.id}
                 text={language.display}
