@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   root: true,
   parser: "@typescript-eslint/parser",
@@ -23,16 +25,19 @@ module.exports = {
     tsconfigRootDir: __dirname
   },
   rules: {
-    "prettier/prettier": ["error", {
-      "endOfLine": "auto",
-      "printWidth": 100,
-      "tabWidth": 2,
-      "trailingComma": "none",
-      "bracketSpacing": true,
-      "singleQuote": false,
-      "semi": true,
-      "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"]
-    }],
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+        printWidth: 100,
+        tabWidth: 2,
+        trailingComma: "none",
+        bracketSpacing: true,
+        singleQuote: false,
+        semi: true,
+        plugins: ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"]
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/anchor-is-valid": [
       "error",
@@ -47,6 +52,12 @@ module.exports = {
     "react/no-unescaped-entities": 0,
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/ban-ts-comment": "off"
+    "@typescript-eslint/ban-ts-comment": "off",
+    "tailwindcss/no-custom-classname": ["warn", { whitelist: ["active-pill"] }]
+  },
+  settings: {
+    tailwindcss: {
+      config: path.join(__dirname, "./tailwind.config.js")
+    }
   }
 };
