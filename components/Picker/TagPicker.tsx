@@ -53,7 +53,7 @@ export const TagPicker = ({
         onClick={toggleCollapsible}
         className={`flex cursor-pointer ${isCollapsed ? "sm:flex" : ""}`}
       >
-        <SectionTitle className="my-1" text="Browse by tag" />
+        <SectionTitle text="Browse by tag" />
         <FontAwesomeIcon
           icon={faChevronDown}
           className={classNames(
@@ -76,15 +76,10 @@ export const TagPicker = ({
         {activeTagId && isCollapsed && <ActiveTagButton data={activeTagId} />}
       </div>
       <div
-        className={classNames("-mx-1 overflow-hidden duration-300 ease-in-out", {
+        className={classNames("-mx-1 mt-2 overflow-hidden duration-300 ease-in-out", {
           ["max-h-0 sm:max-h-20"]: isCollapsed,
           ["max-h-full"]: !isCollapsed
         })}
-        // className={` transition-max-height ${
-        //   isShowLessVisible && "overflow-y-scroll"
-        // } overflow-hidden duration-300  ease-in-out md:max-h-[50dvh] ${
-        //   isCollapsed ? "max-h-0" : "max-h-96"
-        // } ${isCollapsed ? "sm:max-h-full" : ""}`}
       >
         {tags
           .sort((a, b) => b.count - a.count)
@@ -93,11 +88,11 @@ export const TagPicker = ({
             const isActive = onTagPage && tag.id === activeTagId;
             return (
               <PickerItem
-                className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
-                  isActive
-                    ? "active-pill"
-                    : "border-silver-100 transition-all hover:border-primary hover:text-primary"
-                }`}
+                className={classNames("group m-1 inline-block rounded-sm border px-2 py-1", {
+                  ["active-pill"]: isActive,
+                  ["border-silver-100 transition-all hover:border-primary hover:text-primary"]:
+                    !isActive
+                })}
                 href={isActive ? "/" : `/tag/${tag.id}`}
                 key={tag.id}
                 text={tag.display}
