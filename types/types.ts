@@ -61,7 +61,7 @@ export enum RepositorySortOrder {
   NEW_ISSUES = "New Issues",
   MOST_DOWNLOADS = "Downloads",
   MOST_STARS = "Stars",
-  LATEST = "New Projects",
+  NEWEST = "New Projects",
   NONE = "Random"
 }
 
