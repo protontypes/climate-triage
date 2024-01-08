@@ -103,6 +103,15 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
       });
     }
 
+    if (sortOrder === RepositorySortOrder.LATEST) {
+      updatedRepositories = [...allRepositories].sort((currentRepository, nextRepository) => {
+        const timestampDiff =
+          new Date(nextRepository.created_at).getTime() -
+          new Date(currentRepository.created_at).getTime();
+        return timestampDiff;
+      });
+    }
+
     if (sortOrder === RepositorySortOrder.NONE) {
       updatedRepositories = allRepositories;
     }

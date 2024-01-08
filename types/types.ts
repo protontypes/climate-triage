@@ -45,6 +45,7 @@ export interface Repository {
   tags?: Tag[];
   category: Tag;
   monthly_downloads: number;
+  created_at: string;
 }
 
 // Describes an Issue, which is a GitHub issue linked to a repository
@@ -66,9 +67,10 @@ export interface Label {
 
 export enum RepositorySortOrder {
   NEW_ISSUES = "New Issues",
-  MOST_DOWNLOADS = "By Most Downloads",
-  MOST_STARS = "By Most Stars",
-  NONE = "None"
+  MOST_DOWNLOADS = "Downloads",
+  MOST_STARS = "Stars",
+  LATEST = "New Projects",
+  NONE = "Random"
 }
 
 // Describes the data that is retrieved from the GitHub API and used by the app
