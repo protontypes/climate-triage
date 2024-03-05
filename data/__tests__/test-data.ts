@@ -186,7 +186,9 @@ export const dummyRepositories: Repository[] = [
       { display: "energy-data", id: "energy-data" },
       { display: "energy-flexibility", id: "energy-flexibility" },
       { display: "machine-learning", id: "machine-learning" }
-    ]
+    ],
+    monthly_downloads: 0,
+    created_at: ""
   },
   {
     id: "64170",
@@ -226,7 +228,9 @@ export const dummyRepositories: Repository[] = [
       { display: "water", id: "water" },
       { display: "weather", id: "weather" },
       { display: "wind", id: "wind" }
-    ]
+    ],
+    monthly_downloads: 0,
+    created_at: ""
   },
   {
     id: "64174",
@@ -305,7 +309,9 @@ export const dummyRepositories: Repository[] = [
         url: "https://github.com/WFP-VAM/prism-app/issues/443"
       }
     ],
-    tags: []
+    tags: [],
+    monthly_downloads: 0,
+    created_at: ""
   },
   {
     id: "64148",
@@ -389,7 +395,9 @@ export const dummyRepositories: Repository[] = [
       { display: "electric-vehicle", id: "electric-vehicle" },
       { display: "hacktoberfest", id: "hacktoberfest" },
       { display: "map", id: "map" }
-    ]
+    ],
+    monthly_downloads: 0,
+    created_at: ""
   },
   {
     id: "857",
@@ -440,7 +448,9 @@ export const dummyRepositories: Repository[] = [
       { display: "pathway-analysis", id: "pathway-analysis" },
       { display: "scenario", id: "scenario" },
       { display: "sr15", id: "sr15" }
-    ]
+    ],
+    monthly_downloads: 0,
+    created_at: ""
   },
   {
     id: "76706",
@@ -492,7 +502,9 @@ export const dummyRepositories: Repository[] = [
       { display: "climate-model", id: "climate-model" },
       { display: "climate-solutions", id: "climate-solutions" },
       { display: "drawdown", id: "drawdown" }
-    ]
+    ],
+    monthly_downloads: 0,
+    created_at: ""
   },
   {
     id: "64175",
@@ -604,7 +616,9 @@ export const dummyRepositories: Repository[] = [
       { display: "national-hydrography-dataset", id: "national-hydrography-dataset" },
       { display: "national-water-center", id: "national-water-center" },
       { display: "noaa", id: "noaa" }
-    ]
+    ],
+    monthly_downloads: 0,
+    created_at: ""
   },
   {
     id: "64195",
@@ -706,7 +720,9 @@ export const dummyRepositories: Repository[] = [
       { display: "openscience", id: "openscience" },
       { display: "pangeo", id: "pangeo" },
       { display: "remote-sensing", id: "remote-sensing" }
-    ]
+    ],
+    monthly_downloads: 0,
+    created_at: ""
   },
   {
     id: "25757",
@@ -748,7 +764,9 @@ export const dummyRepositories: Repository[] = [
         url: "https://github.com/openclimatefix/metnet/issues/1"
       }
     ],
-    tags: [{ display: "pytorch", id: "pytorch" }]
+    tags: [{ display: "pytorch", id: "pytorch" }],
+    monthly_downloads: 0,
+    created_at: ""
   },
   {
     id: "64168",
@@ -803,6 +821,8 @@ export const dummyRepositories: Repository[] = [
     tags: [
       { display: "manuscript", id: "manuscript" },
       { display: "python", id: "python" }
-    ]
+    ],
+    monthly_downloads: 0,
+    created_at: ""
   }
 ];

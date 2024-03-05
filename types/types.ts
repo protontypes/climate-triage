@@ -58,11 +58,16 @@ export interface Label {
 }
 
 export enum RepositorySortOrder {
-  NEW_ISSUES = "New Issues",
+  ISSUE_AGE = "Age",
   MOST_DOWNLOADS = "Downloads",
-  MOST_STARS = "Stars",
-  NEWEST = "New Projects",
-  NONE = "Random"
+  MOST_STARS = "Stars"
+}
+
+// Sorting types
+export enum RepositorySortType {
+  DESCENDING = "Descending",
+  ASCENDING = "Ascending",
+  NONE = "None"
 }
 
 // Describes the data that is retrieved from the GitHub API and used by the app
@@ -71,9 +76,9 @@ export interface AppData {
   categories: CountableCategory[];
   repositories: Repository[];
   repositorySortOrder: RepositorySortOrder;
+  repositorySortType: RepositorySortType;
   tags: CountableTag[];
   query: string;
-  updateRepositorySortOrder: (sortOrder: RepositorySortOrder) => void;
 }
 
 export interface Data {

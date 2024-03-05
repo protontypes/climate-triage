@@ -18,7 +18,7 @@
 .active-pill {
   @apply border-primary font-semibold text-primary;
 
-  >span {
+  > span {
     @apply text-primary;
   }
 }

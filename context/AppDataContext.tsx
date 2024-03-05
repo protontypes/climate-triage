@@ -6,7 +6,8 @@ import {
   CountableTag,
   Issue,
   Repository,
-  RepositorySortOrder
+  RepositorySortOrder,
+  RepositorySortType
 } from "@/types/types";
 import { getData } from "app/data-loader";
 import React, { createContext, useEffect, useState } from "react";
@@ -16,13 +17,15 @@ type AppDataContextType = AppData & {
   filterRepositoriesByQuery: (query: string) => void;
   filterRepositoriesByLanguage: (languageId: string) => Repository[];
   filterRepositoriesByCategory: (categoryId: string) => Repository[];
+  updateRepositorySortOrder: (sortOrder: RepositorySortOrder, sortType: RepositorySortType) => void;
 };
 
 const DEFAULT_VALUE: AppDataContextType = {
   languages: [],
   categories: [],
   repositories: [],
-  repositorySortOrder: RepositorySortOrder.NONE,
+  repositorySortOrder: RepositorySortOrder.ISSUE_AGE,
+  repositorySortType: RepositorySortType.ASCENDING,
   tags: [],
   query: "",
   updateRepositorySortOrder: () => {},
@@ -56,7 +59,10 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   } = data;
   const [repositories, setRepositories] = useState<Repository[]>(allRepositories);
   const [repositorySortOrder, setRepositorySortOrder] = useState<RepositorySortOrder>(
-    RepositorySortOrder.NONE
+    RepositorySortOrder.ISSUE_AGE
+  );
+  const [repositorySortType, setRepositorySortType] = useState<RepositorySortType>(
+    RepositorySortType.NONE
   );
 
   useEffect(() => {
@@ -64,51 +70,74 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     setRepositories(repositories);
   }, [data]);
 
-  const updateRepositorySortOrder = (sortOrder: RepositorySortOrder) => {
-    const isSetToDefaultSort = sortOrder === RepositorySortOrder.NONE;
-    const shouldDeselect = !isSetToDefaultSort && sortOrder === repositorySortOrder;
-
-    const finalSortOrder = shouldDeselect ? RepositorySortOrder.NONE : sortOrder;
-
-    setRepositorySortOrder(finalSortOrder);
-    updateRepositoriesOnSortChange(finalSortOrder);
+  const updateRepositorySortOrder = (
+    sortOrder: RepositorySortOrder,
+    sortType: RepositorySortType
+  ) => {
+    let nextSortType: RepositorySortType;
+    if (sortOrder === repositorySortOrder) {
+      switch (sortType) {
+        case RepositorySortType.NONE:
+          nextSortType = RepositorySortType.DESCENDING;
+          break;
+        case RepositorySortType.DESCENDING:
+          nextSortType = RepositorySortType.ASCENDING;
+          break;
+        case RepositorySortType.ASCENDING:
+        default:
+          nextSortType = RepositorySortType.NONE;
+          break;
+      }
+    } else {
+      nextSortType = RepositorySortType.DESCENDING;
+    }
+    setRepositorySortOrder(sortOrder);
+    setRepositorySortType(nextSortType);
+    updateRepositoriesOnSortChange(sortOrder, nextSortType);
   };
 
-  const updateRepositoriesOnSortChange = (sortOrder: RepositorySortOrder) => {
-    let updatedRepositories: Repository[] = [];
+  const updateRepositoriesOnSortChange = (sortOrder: RepositorySortOrder, order) => {
+    let updatedRepositories: Repository[] = [...allRepositories];
 
-    // Find and return the newest issue in a given repository
-    if (sortOrder === RepositorySortOrder.NEW_ISSUES) {
-      updatedRepositories = [...allRepositories].sort((a, b) => {
-        const newestIssueA = getNewestIssue(a).created_at;
-        const newestIssueB = getNewestIssue(b).created_at;
-        return new Date(newestIssueB).getTime() - new Date(newestIssueA).getTime();
-      });
+    switch (sortOrder) {
+      case RepositorySortOrder.ISSUE_AGE:
+        updatedRepositories = updatedRepositories.sort((a, b) => {
+          const newestIssueA = getNewestIssue(a).created_at;
+          const newestIssueB = getNewestIssue(b).created_at;
+          if (order === "Descending") {
+            return new Date(newestIssueB).getTime() - new Date(newestIssueA).getTime();
+          } else if (order === "Ascending") {
+            return new Date(newestIssueA).getTime() - new Date(newestIssueB).getTime();
+          } else {
+            return 0;
+          }
+        });
+        break;
+      case RepositorySortOrder.MOST_STARS:
+        updatedRepositories = updatedRepositories.sort((a, b) => {
+          if (order === "Descending") {
+            return b.stars - a.stars;
+          } else if (order === "Ascending") {
+            return a.stars - b.stars;
+          } else {
+            return 0;
+          }
+        });
+        break;
+      case RepositorySortOrder.MOST_DOWNLOADS:
+        updatedRepositories = updatedRepositories.sort((a, b) => {
+          if (order === "Descending") {
+            return b.monthly_downloads - a.monthly_downloads;
+          } else if (order === "Ascending") {
+            return a.monthly_downloads - b.monthly_downloads;
+          } else {
+            return 0;
+          }
+        });
+        break;
+      default:
+        break;
     }
-
-    // Sort by number of stars
-    if (sortOrder === RepositorySortOrder.MOST_STARS) {
-      updatedRepositories = [...allRepositories].sort((a, b) => b.stars - a.stars);
-    }
-
-    // Sort by number of monthly downloads
-    if (sortOrder === RepositorySortOrder.MOST_DOWNLOADS) {
-      updatedRepositories = [...allRepositories].sort(
-        (a, b) => b.monthly_downloads - a.monthly_downloads
-      );
-    }
-
-    // Sort by newest project
-    if (sortOrder === RepositorySortOrder.NEWEST) {
-      updatedRepositories = [...allRepositories].sort(
-        (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-      );
-    }
-
-    if (sortOrder === RepositorySortOrder.NONE) {
-      updatedRepositories = allRepositories;
-    }
-
     setRepositories(updatedRepositories);
   };
 
@@ -138,12 +167,12 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   const filterRepositoriesByCategory = (categoryId: string) => {
     return repositories.filter((repository) => repository.category.id === categoryId);
   };
-
   const value = {
     languages: data.languages,
     categories: data.categories,
     repositories,
     repositorySortOrder,
+    repositorySortType,
     tags: data.tags,
     query,
     updateRepositorySortOrder,
