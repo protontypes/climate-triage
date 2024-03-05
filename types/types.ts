@@ -60,14 +60,14 @@ export interface Label {
 export enum RepositorySortOrder {
   ISSUE_AGE = "Age",
   MOST_DOWNLOADS = "Downloads",
-  MOST_STARS = "Stars",
+  MOST_STARS = "Stars"
 }
 
 // Sorting types
 export enum RepositorySortType {
   DESCENDING = "Descending",
   ASCENDING = "Ascending",
-  NONE = "None",
+  NONE = "None"
 }
 
 // Describes the data that is retrieved from the GitHub API and used by the app

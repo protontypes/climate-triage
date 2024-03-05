@@ -18,7 +18,6 @@ type AppDataContextType = AppData & {
   filterRepositoriesByLanguage: (languageId: string) => Repository[];
   filterRepositoriesByCategory: (categoryId: string) => Repository[];
   updateRepositorySortOrder: (sortOrder: RepositorySortOrder, sortType: RepositorySortType) => void;
-
 };
 
 const DEFAULT_VALUE: AppDataContextType = {
@@ -59,82 +58,88 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     tags: CountableTag[];
   } = data;
   const [repositories, setRepositories] = useState<Repository[]>(allRepositories);
-  const [repositorySortOrder, setRepositorySortOrder] = useState<RepositorySortOrder>(RepositorySortOrder.ISSUE_AGE);
-  const [repositorySortType, setRepositorySortType] = useState<RepositorySortType>(RepositorySortType.NONE);
-
+  const [repositorySortOrder, setRepositorySortOrder] = useState<RepositorySortOrder>(
+    RepositorySortOrder.ISSUE_AGE
+  );
+  const [repositorySortType, setRepositorySortType] = useState<RepositorySortType>(
+    RepositorySortType.NONE
+  );
 
   useEffect(() => {
     const { repositories } = data;
     setRepositories(repositories);
   }, [data]);
 
-const updateRepositorySortOrder = (sortOrder: RepositorySortOrder, sortType: RepositorySortType) => {
-  let nextSortType: RepositorySortType;
-  if (sortOrder === repositorySortOrder) {
-    switch (sortType) {
-      case RepositorySortType.NONE:
-        nextSortType = RepositorySortType.DESCENDING;
-        break;
-      case RepositorySortType.DESCENDING:
-        nextSortType = RepositorySortType.ASCENDING;
-        break;
-      case RepositorySortType.ASCENDING:
-      default:
-        nextSortType = RepositorySortType.NONE;
-        break;
+  const updateRepositorySortOrder = (
+    sortOrder: RepositorySortOrder,
+    sortType: RepositorySortType
+  ) => {
+    let nextSortType: RepositorySortType;
+    if (sortOrder === repositorySortOrder) {
+      switch (sortType) {
+        case RepositorySortType.NONE:
+          nextSortType = RepositorySortType.DESCENDING;
+          break;
+        case RepositorySortType.DESCENDING:
+          nextSortType = RepositorySortType.ASCENDING;
+          break;
+        case RepositorySortType.ASCENDING:
+        default:
+          nextSortType = RepositorySortType.NONE;
+          break;
+      }
+    } else {
+      nextSortType = RepositorySortType.DESCENDING;
     }
-  } else {
-    nextSortType = RepositorySortType.DESCENDING;
-  }
-  setRepositorySortOrder(sortOrder);
-  setRepositorySortType(nextSortType);
-  updateRepositoriesOnSortChange(sortOrder, nextSortType);
-};
+    setRepositorySortOrder(sortOrder);
+    setRepositorySortType(nextSortType);
+    updateRepositoriesOnSortChange(sortOrder, nextSortType);
+  };
 
-const updateRepositoriesOnSortChange = (sortOrder: RepositorySortOrder, order) => {
+  const updateRepositoriesOnSortChange = (sortOrder: RepositorySortOrder, order) => {
     let updatedRepositories: Repository[] = [...allRepositories];
 
     switch (sortOrder) {
-        case RepositorySortOrder.ISSUE_AGE:
-            updatedRepositories = updatedRepositories.sort((a, b) => {
-                const newestIssueA = getNewestIssue(a).created_at;
-                const newestIssueB = getNewestIssue(b).created_at;
-                if (order === "Descending") {
-                    return new Date(newestIssueB).getTime() - new Date(newestIssueA).getTime();
-                } else if (order === "Ascending") {
-                    return new Date(newestIssueA).getTime() - new Date(newestIssueB).getTime();
-                } else {
-                    return 0;
-                }
-            });
-            break;
-        case RepositorySortOrder.MOST_STARS:
-            updatedRepositories = updatedRepositories.sort((a, b) => {
-                if (order === "Descending") {
-                    return b.stars - a.stars;
-                } else if (order === "Ascending") {
-                    return a.stars - b.stars;
-                } else {
-                    return 0;
-                }
-            });
-            break;
-        case RepositorySortOrder.MOST_DOWNLOADS:
-            updatedRepositories = updatedRepositories.sort((a, b) => {
-                if (order === "Descending") {
-                    return b.monthly_downloads - a.monthly_downloads;
-                } else if (order === "Ascending") {
-                    return a.monthly_downloads - b.monthly_downloads;
-                } else {
-                    return 0;
-                }
-            });
-            break;
-        default:
-            break;
+      case RepositorySortOrder.ISSUE_AGE:
+        updatedRepositories = updatedRepositories.sort((a, b) => {
+          const newestIssueA = getNewestIssue(a).created_at;
+          const newestIssueB = getNewestIssue(b).created_at;
+          if (order === "Descending") {
+            return new Date(newestIssueB).getTime() - new Date(newestIssueA).getTime();
+          } else if (order === "Ascending") {
+            return new Date(newestIssueA).getTime() - new Date(newestIssueB).getTime();
+          } else {
+            return 0;
+          }
+        });
+        break;
+      case RepositorySortOrder.MOST_STARS:
+        updatedRepositories = updatedRepositories.sort((a, b) => {
+          if (order === "Descending") {
+            return b.stars - a.stars;
+          } else if (order === "Ascending") {
+            return a.stars - b.stars;
+          } else {
+            return 0;
+          }
+        });
+        break;
+      case RepositorySortOrder.MOST_DOWNLOADS:
+        updatedRepositories = updatedRepositories.sort((a, b) => {
+          if (order === "Descending") {
+            return b.monthly_downloads - a.monthly_downloads;
+          } else if (order === "Ascending") {
+            return a.monthly_downloads - b.monthly_downloads;
+          } else {
+            return 0;
+          }
+        });
+        break;
+      default:
+        break;
     }
     setRepositories(updatedRepositories);
-};
+  };
 
   const filterRepositoriesByTag = (tag: string) => {
     return repositories.filter((repository) => repository.tags?.some((t) => t.id === tag));

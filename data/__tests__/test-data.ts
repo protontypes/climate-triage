@@ -5,7 +5,8 @@ export const dummyRepositories: Repository[] = [
     id: "75603",
     owner: "FlexMeasures",
     name: "FlexMeasures",
-    description: "The intelligent & developer-friendly EMS to support real-time energy flexibility apps, rapidly and scalable.",
+    description:
+      "The intelligent & developer-friendly EMS to support real-time energy flexibility apps, rapidly and scalable.",
     url: "https://github.com/FlexMeasures/flexmeasures",
     stars: 121,
     stars_display: "121",
@@ -235,7 +236,8 @@ export const dummyRepositories: Repository[] = [
     id: "64174",
     owner: "WFP-VAM",
     name: "PRISM",
-    description: "PRISM is an interactive map-based dashboard that simplifies the integration of geospatial data on hazards, along with information on socioeconomic vulnerability",
+    description:
+      "PRISM is an interactive map-based dashboard that simplifies the integration of geospatial data on hazards, along with information on socioeconomic vulnerability",
     url: "https://github.com/WFP-VAM/prism-app",
     stars: 35,
     stars_display: "35",
@@ -315,7 +317,8 @@ export const dummyRepositories: Repository[] = [
     id: "64148",
     owner: "ev-map",
     name: "EVMap",
-    description: "Android app to find electric vehicle charging stations - compatible with community databases such as GoingElectric.de and OpenChargeMap.org.",
+    description:
+      "Android app to find electric vehicle charging stations - compatible with community databases such as GoingElectric.de and OpenChargeMap.org.",
     url: "https://github.com/ev-map/EVMap",
     stars: 148,
     stars_display: "148",
@@ -400,7 +403,8 @@ export const dummyRepositories: Repository[] = [
     id: "857",
     owner: "iiasa",
     name: "ipcc_sr15_scenario_analysis",
-    description: "Scenario analysis notebooks for the IPCC Special Report on Global Warming of 1.5°C",
+    description:
+      "Scenario analysis notebooks for the IPCC Special Report on Global Warming of 1.5°C",
     url: "https://github.com/iiasa/ipcc_sr15_scenario_analysis",
     stars: 60,
     stars_display: "60",
@@ -452,7 +456,8 @@ export const dummyRepositories: Repository[] = [
     id: "76706",
     owner: "ProjectDrawdown",
     name: "ProjectDrawdown",
-    description: "The mission of Project Drawdown is to help the world reach “Drawdown”— the point in the future when levels of greenhouse gases in the atmosphere stop climbing and start to steadily decline, thereby stopping catastrophic climate change — as quickly, safely, and equitably as possible.",
+    description:
+      "The mission of Project Drawdown is to help the world reach “Drawdown”— the point in the future when levels of greenhouse gases in the atmosphere stop climbing and start to steadily decline, thereby stopping catastrophic climate change — as quickly, safely, and equitably as possible.",
     url: "https://github.com/projectdrawdown/solutions",
     stars: 203,
     stars_display: "203",
@@ -505,7 +510,8 @@ export const dummyRepositories: Repository[] = [
     id: "64175",
     owner: "NOAA-OWP",
     name: "Inundation Mapping",
-    description: "Flood inundation mapping and evaluation software configured to work with U.S. National Water Model.",
+    description:
+      "Flood inundation mapping and evaluation software configured to work with U.S. National Water Model.",
     url: "https://github.com/NOAA-OWP/inundation-mapping",
     stars: 82,
     stars_display: "82",
@@ -532,7 +538,8 @@ export const dummyRepositories: Repository[] = [
         comments_count: 0,
         created_at: "2023-11-08T21:13:06.000Z",
         number: 1032,
-        title: "[5pt] Do not suppress as many flake8 errors (remove `per-file-ignores` in `pyproject.toml`)",
+        title:
+          "[5pt] Do not suppress as many flake8 errors (remove `per-file-ignores` in `pyproject.toml`)",
         labels: [
           { id: "testing", display: "testing" },
           { id: "good first issue", display: "good first issue" }
@@ -590,7 +597,8 @@ export const dummyRepositories: Repository[] = [
         comments_count: 1,
         created_at: "2023-08-28T19:31:53.000Z",
         number: 978,
-        title: "Potential false inundation in levee-protected areas from branch 0 due to levee burning",
+        title:
+          "Potential false inundation in levee-protected areas from branch 0 due to levee burning",
         labels: [
           { id: "help wanted", display: "help wanted" },
           { id: "FIM4", display: "FIM4" }
@@ -764,7 +772,8 @@ export const dummyRepositories: Repository[] = [
     id: "64168",
     owner: "VeinsOfTheEarth",
     name: "RivGraph",
-    description: "Extracting and quantifying graphical representations of river and delta channel networks from binary masks",
+    description:
+      "Extracting and quantifying graphical representations of river and delta channel networks from binary masks",
     url: "https://github.com/VeinsOfTheEarth/RivGraph",
     stars: 64,
     stars_display: "64",
