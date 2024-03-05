@@ -58,7 +58,7 @@ export interface Label {
 }
 
 export enum RepositorySortOrder {
-  ISSUE_AGE = "New Issues",
+  ISSUE_AGE = "Age",
   MOST_DOWNLOADS = "Downloads",
   MOST_STARS = "Stars",
 }
@@ -76,9 +76,10 @@ export interface AppData {
   categories: CountableCategory[];
   repositories: Repository[];
   repositorySortOrder: RepositorySortOrder;
+  repositorySortType: RepositorySortType;
   tags: CountableTag[];
   query: string;
-  repositorySortType: RepositorySortType;}
+}
 
 export interface Data {
   repositories: Repository[];
