@@ -18,13 +18,14 @@ type AppDataContextType = AppData & {
   filterRepositoriesByLanguage: (languageId: string) => Repository[];
   filterRepositoriesByCategory: (categoryId: string) => Repository[];
   updateRepositorySortOrder: (sortOrder: RepositorySortOrder, sortType: RepositorySortType) => void;
+  seeRecentIssues: () => void;
 };
 
 const DEFAULT_VALUE: AppDataContextType = {
   languages: [],
   categories: [],
   repositories: [],
-  repositorySortOrder: RepositorySortOrder.ISSUE_AGE,
+  repositorySortOrder: RepositorySortOrder.RECENT,
   repositorySortType: RepositorySortType.ASCENDING,
   tags: [],
   query: "",
@@ -32,7 +33,8 @@ const DEFAULT_VALUE: AppDataContextType = {
   filterRepositoriesByTag: () => [],
   filterRepositoriesByQuery: () => {},
   filterRepositoriesByLanguage: () => [],
-  filterRepositoriesByCategory: () => []
+  filterRepositoriesByCategory: () => [],
+  seeRecentIssues: () => {}
 };
 
 function getNewestIssue(repository: Repository): Issue {
@@ -59,7 +61,7 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   } = data;
   const [repositories, setRepositories] = useState<Repository[]>(allRepositories);
   const [repositorySortOrder, setRepositorySortOrder] = useState<RepositorySortOrder>(
-    RepositorySortOrder.ISSUE_AGE
+    RepositorySortOrder.RECENT
   );
   const [repositorySortType, setRepositorySortType] = useState<RepositorySortType>(
     RepositorySortType.NONE
@@ -94,6 +96,17 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     setRepositorySortOrder(sortOrder);
     setRepositorySortType(nextSortType);
     updateRepositoriesOnSortChange(sortOrder, nextSortType);
+  };
+  const seeRecentIssues = () => {
+    let updatedRepositories: Repository[] = [...repositories];
+    updatedRepositories = updatedRepositories.sort((a, b) => {
+      const newestIssueA = getNewestIssue(a).created_at;
+      const newestIssueB = getNewestIssue(b).created_at;
+      return new Date(newestIssueA).getTime() - new Date(newestIssueB).getTime();
+    });
+    setRepositories(updatedRepositories);
+    setRepositorySortType(RepositorySortType.NONE);
+    setRepositorySortOrder(RepositorySortOrder.RECENT);
   };
 
   const updateRepositoriesOnSortChange = (sortOrder: RepositorySortOrder, order) => {
@@ -175,6 +188,7 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     repositorySortType,
     tags: data.tags,
     query,
+    seeRecentIssues,
     updateRepositorySortOrder,
     filterRepositoriesByTag,
     filterRepositoriesByQuery,
