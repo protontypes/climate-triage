@@ -58,7 +58,8 @@ export interface Label {
 }
 
 export enum RepositorySortOrder {
-  ISSUE_AGE = "Age",
+  RECENT = "Recent issues",
+  ISSUE_AGE = "Project age",
   MOST_DOWNLOADS = "Downloads",
   MOST_STARS = "Stars"
 }

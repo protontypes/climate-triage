@@ -33,6 +33,7 @@ export const RepositoryList = ({ languageId, categoryId, tagId }: RepositoryList
     repositories,
     repositorySortType,
     repositorySortOrder,
+    seeRecentIssues,
     updateRepositorySortOrder,
     filterRepositoriesByTag,
     filterRepositoriesByLanguage,
@@ -56,6 +57,7 @@ export const RepositoryList = ({ languageId, categoryId, tagId }: RepositoryList
     <main className="grow md:max-w-sm lg:max-w-none">
       <div className="px-6">
         <SortPicker
+          seeRecentIssues={seeRecentIssues}
           activeSort={repositorySortOrder}
           sortOptions={REPOSITORY_SORT_OPTIONS}
           onSortOrderSelect={updateRepositorySortOrder}

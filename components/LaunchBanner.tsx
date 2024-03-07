@@ -12,10 +12,10 @@ export default function LaunchBanner(): JSX.Element {
     >
       <div className="mx-auto flex items-center">
         <p className="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
-          <span className="me-3 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-stone-100 p-1 dark:bg-gray-600">
+          <span className="me-3 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-stone-100 p-1 dark:bg-gray-600">
             <FontAwesomeIcon
               icon={faBullhorn}
-              className="h-3 w-3 text-gray-500 dark:text-gray-400"
+              className="size-3 text-gray-500 dark:text-gray-400"
             />
             <span className="sr-only">Bullhorn</span>
           </span>

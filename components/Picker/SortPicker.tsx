@@ -9,12 +9,14 @@ type SortPickerProps = {
   sortType: RepositorySortType;
   sortOptions: RepositorySortOrder[];
   onSortOrderSelect: (sortOrder: RepositorySortOrder, sortType: RepositorySortType) => void;
+  seeRecentIssues: () => void;
 };
 export const SortPicker = ({
   activeSort,
   sortOptions,
   onSortOrderSelect,
-  sortType
+  sortType,
+  seeRecentIssues
 }: SortPickerProps) => {
   return (
     <div
@@ -25,6 +27,17 @@ export const SortPicker = ({
         <SectionTitle className="mb-2 md:mb-0" text="Sort By" />
       </div>
       <div className="-mx-1">
+        <button
+          onClick={() => seeRecentIssues()}
+          className={classNames("group m-1 inline-block rounded-sm border px-2 py-1", {
+            ["active-pill"]: activeSort === RepositorySortOrder.RECENT,
+            ["border-silver-100 transition-all hover:border-primary hover:text-primary"]: !(
+              activeSort === RepositorySortOrder.RECENT
+            )
+          })}
+        >
+          {RepositorySortOrder.RECENT}
+        </button>
         {sortOptions.map((sortOption) => {
           return (
             <button
