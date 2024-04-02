@@ -9,13 +9,12 @@ type SortPickerProps = {
   sortType: RepositorySortType;
   sortOptions: RepositorySortOrder[];
   onSortOrderSelect: (sortOrder: RepositorySortOrder, sortType: RepositorySortType) => void;
-  seeRecentIssues: () => void;
 };
 export const SortPicker = ({
   activeSort,
   sortOptions,
   onSortOrderSelect,
-  sortType,
+  sortType
 }: SortPickerProps) => {
   return (
     <div

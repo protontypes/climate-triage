@@ -32,7 +32,7 @@ const DEFAULT_VALUE: AppDataContextType = {
   filterRepositoriesByTag: () => [],
   filterRepositoriesByQuery: () => {},
   filterRepositoriesByLanguage: () => [],
-  filterRepositoriesByCategory: () => [],
+  filterRepositoriesByCategory: () => []
 };
 
 function getRecentIssue(repository: Repository): Issue {
@@ -43,7 +43,6 @@ function getRecentIssue(repository: Repository): Issue {
   });
   return sortedIssues[0];
 }
-
 
 const AppDataContext = createContext<AppDataContextType>(DEFAULT_VALUE);
 
