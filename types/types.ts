@@ -57,15 +57,15 @@ export interface Label {
   display: string;
 }
 
-export enum RepositorySortOrder {
-  RECENT = "Recent issues",
-  ISSUE_AGE = "Project age",
-  MOST_DOWNLOADS = "Downloads",
-  MOST_STARS = "Stars"
+export enum RepositorySortMethod {
+  ISSUE_AGE = "Recent issues",
+  PROJECT_AGE = "Project age",
+  DOWNLOADS = "Downloads",
+  STARS = "Stars"
 }
 
 // Sorting types
-export enum RepositorySortType {
+export enum RepositorySortDirection {
   DESCENDING = "Descending",
   ASCENDING = "Ascending",
   NONE = "None"
@@ -76,8 +76,8 @@ export interface AppData {
   languages: CountableLanguage[];
   categories: CountableCategory[];
   repositories: Repository[];
-  repositorySortOrder: RepositorySortOrder;
-  repositorySortType: RepositorySortType;
+  repositorySortMethod: RepositorySortMethod;
+  repositorySortDirection: RepositorySortDirection;
   tags: CountableTag[];
   query: string;
 }
