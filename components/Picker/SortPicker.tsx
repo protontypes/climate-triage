@@ -1,20 +1,23 @@
-import { RepositorySortOrder, RepositorySortType } from "@/types/types";
+import { RepositorySortDirection, RepositorySortMethod } from "@/types/types";
 import { faCaretDown, faCaretUp, faShuffle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
 import { SectionTitle } from "../SectionTitle";
 
 type SortPickerProps = {
-  activeSort: RepositorySortOrder;
-  sortType: RepositorySortType;
-  sortOptions: RepositorySortOrder[];
-  onSortOrderSelect: (sortOrder: RepositorySortOrder, sortType: RepositorySortType) => void;
+  activeSort: RepositorySortMethod;
+  sortDirection: RepositorySortDirection;
+  sortOptions: RepositorySortMethod[];
+  onSortMethodSelect: (
+    sortMethod: RepositorySortMethod,
+    sortDirection: RepositorySortDirection
+  ) => void;
 };
 export const SortPicker = ({
   activeSort,
   sortOptions,
-  onSortOrderSelect,
-  sortType
+  onSortMethodSelect,
+  sortDirection
 }: SortPickerProps) => {
   return (
     <div
@@ -29,7 +32,7 @@ export const SortPicker = ({
           return (
             <button
               key={sortOption}
-              onClick={() => onSortOrderSelect(sortOption, sortType)}
+              onClick={() => onSortMethodSelect(sortOption, sortDirection)}
               className={classNames("group m-1 inline-block rounded-sm border px-2 py-1", {
                 ["active-pill"]: activeSort === sortOption,
                 ["border-silver-100 transition-all hover:border-primary hover:text-primary"]: !(
@@ -40,13 +43,13 @@ export const SortPicker = ({
               {sortOption}
               {activeSort === sortOption && (
                 <>
-                  {sortType === RepositorySortType.ASCENDING && (
+                  {sortDirection === RepositorySortDirection.ASCENDING && (
                     <FontAwesomeIcon icon={faCaretUp} className="ms-1" />
                   )}
-                  {sortType === RepositorySortType.DESCENDING && (
+                  {sortDirection === RepositorySortDirection.DESCENDING && (
                     <FontAwesomeIcon icon={faCaretDown} className="ms-1" />
                   )}
-                  {sortType === RepositorySortType.NONE && (
+                  {sortDirection === RepositorySortDirection.NONE && (
                     <FontAwesomeIcon icon={faShuffle} className="ms-1" />
                   )}
                 </>

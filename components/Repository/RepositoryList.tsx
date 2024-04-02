@@ -31,9 +31,9 @@ export const RepositoryList = ({ languageId, categoryId, tagId }: RepositoryList
   const [items, setItems] = useState(itemsPerScroll);
   const {
     repositories,
-    repositorySortType,
-    repositorySortOrder,
-    updateRepositorySortOrder,
+    repositorySortDirection,
+    repositorySortMethod,
+    updateRepositorySortMethod,
     filterRepositoriesByTag,
     filterRepositoriesByLanguage,
     filterRepositoriesByCategory
@@ -56,10 +56,10 @@ export const RepositoryList = ({ languageId, categoryId, tagId }: RepositoryList
     <main className="grow md:max-w-sm lg:max-w-none">
       <div className="px-6">
         <SortPicker
-          activeSort={repositorySortOrder}
+          activeSort={repositorySortMethod}
           sortOptions={REPOSITORY_SORT_OPTIONS}
-          onSortOrderSelect={updateRepositorySortOrder}
-          sortType={repositorySortType}
+          onSortMethodSelect={updateRepositorySortMethod}
+          sortDirection={repositorySortDirection}
         />
         <SearchBar />
         <InfiniteScroll

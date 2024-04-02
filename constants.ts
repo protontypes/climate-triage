@@ -1,7 +1,8 @@
-import { RepositorySortOrder } from "./types/types";
+import { RepositorySortMethod } from "./types/types";
 
 export const REPOSITORY_SORT_OPTIONS = [
-  RepositorySortOrder.ISSUE_AGE,
-  RepositorySortOrder.MOST_DOWNLOADS,
-  RepositorySortOrder.MOST_STARS
+  RepositorySortMethod.ISSUE_AGE,
+  RepositorySortMethod.PROJECT_AGE,
+  RepositorySortMethod.DOWNLOADS,
+  RepositorySortMethod.STARS
 ];

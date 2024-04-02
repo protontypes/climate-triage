@@ -6,8 +6,8 @@ import {
   CountableTag,
   Issue,
   Repository,
-  RepositorySortOrder,
-  RepositorySortType
+  RepositorySortDirection,
+  RepositorySortMethod
 } from "@/types/types";
 import { getData } from "app/data-loader";
 import React, { createContext, useEffect, useState } from "react";
@@ -17,25 +17,28 @@ type AppDataContextType = AppData & {
   filterRepositoriesByQuery: (query: string) => void;
   filterRepositoriesByLanguage: (languageId: string) => Repository[];
   filterRepositoriesByCategory: (categoryId: string) => Repository[];
-  updateRepositorySortOrder: (sortOrder: RepositorySortOrder, sortType: RepositorySortType) => void;
+  updateRepositorySortMethod: (
+    sortMethod: RepositorySortMethod,
+    sortDirection: RepositorySortDirection
+  ) => void;
 };
 
 const DEFAULT_VALUE: AppDataContextType = {
   languages: [],
   categories: [],
   repositories: [],
-  repositorySortOrder: RepositorySortOrder.ISSUE_AGE,
-  repositorySortType: RepositorySortType.ASCENDING,
+  repositorySortMethod: RepositorySortMethod.ISSUE_AGE,
+  repositorySortDirection: RepositorySortDirection.ASCENDING,
   tags: [],
   query: "",
-  updateRepositorySortOrder: () => {},
+  updateRepositorySortMethod: () => {},
   filterRepositoriesByTag: () => [],
   filterRepositoriesByQuery: () => {},
   filterRepositoriesByLanguage: () => [],
   filterRepositoriesByCategory: () => []
 };
 
-function getNewestIssue(repository: Repository): Issue {
+function getMostRecentIssue(repository: Repository): Issue {
   const sortedIssues = [...repository.issues].sort((a, b) => {
     const dateA = new Date(a.created_at).getTime();
     const dateB = new Date(b.created_at).getTime();
@@ -58,11 +61,13 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     tags: CountableTag[];
   } = data;
   const [repositories, setRepositories] = useState<Repository[]>(allRepositories);
-  const [repositorySortOrder, setRepositorySortOrder] = useState<RepositorySortOrder>(
-    RepositorySortOrder.ISSUE_AGE
+
+  // Set default sorting method & direction
+  const [repositorySortMethod, setRepositorySortMethod] = useState<RepositorySortMethod>(
+    RepositorySortMethod.ISSUE_AGE
   );
-  const [repositorySortType, setRepositorySortType] = useState<RepositorySortType>(
-    RepositorySortType.NONE
+  const [repositorySortDirection, setRepositorySortDirection] = useState<RepositorySortDirection>(
+    RepositorySortDirection.NONE
   );
 
   useEffect(() => {
@@ -70,40 +75,40 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     setRepositories(repositories);
   }, [data]);
 
-  const updateRepositorySortOrder = (
-    sortOrder: RepositorySortOrder,
-    sortType: RepositorySortType
+  const updateRepositorySortMethod = (
+    sortMethod: RepositorySortMethod,
+    sortDirection: RepositorySortDirection
   ) => {
-    let nextSortType: RepositorySortType;
-    if (sortOrder === repositorySortOrder) {
-      switch (sortType) {
-        case RepositorySortType.NONE:
-          nextSortType = RepositorySortType.DESCENDING;
+    let nextSortDirection: RepositorySortDirection;
+    if (sortMethod === repositorySortMethod) {
+      switch (sortDirection) {
+        case RepositorySortDirection.NONE:
+          nextSortDirection = RepositorySortDirection.DESCENDING;
           break;
-        case RepositorySortType.DESCENDING:
-          nextSortType = RepositorySortType.ASCENDING;
+        case RepositorySortDirection.DESCENDING:
+          nextSortDirection = RepositorySortDirection.ASCENDING;
           break;
-        case RepositorySortType.ASCENDING:
+        case RepositorySortDirection.ASCENDING:
         default:
-          nextSortType = RepositorySortType.NONE;
+          nextSortDirection = RepositorySortDirection.NONE;
           break;
       }
     } else {
-      nextSortType = RepositorySortType.DESCENDING;
+      nextSortDirection = RepositorySortDirection.DESCENDING;
     }
-    setRepositorySortOrder(sortOrder);
-    setRepositorySortType(nextSortType);
-    updateRepositoriesOnSortChange(sortOrder, nextSortType);
+    setRepositorySortMethod(sortMethod);
+    setRepositorySortDirection(nextSortDirection);
+    updateRepositoriesOnSortChange(sortMethod, nextSortDirection);
   };
 
-  const updateRepositoriesOnSortChange = (sortOrder: RepositorySortOrder, order) => {
+  const updateRepositoriesOnSortChange = (sortMethod: RepositorySortMethod, order) => {
     let updatedRepositories: Repository[] = [...allRepositories];
 
-    switch (sortOrder) {
-      case RepositorySortOrder.ISSUE_AGE:
+    switch (sortMethod) {
+      case RepositorySortMethod.ISSUE_AGE:
         updatedRepositories = updatedRepositories.sort((a, b) => {
-          const newestIssueA = getNewestIssue(a).created_at;
-          const newestIssueB = getNewestIssue(b).created_at;
+          const newestIssueA = getMostRecentIssue(a).created_at;
+          const newestIssueB = getMostRecentIssue(b).created_at;
           if (order === "Descending") {
             return new Date(newestIssueB).getTime() - new Date(newestIssueA).getTime();
           } else if (order === "Ascending") {
@@ -113,7 +118,20 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
           }
         });
         break;
-      case RepositorySortOrder.MOST_STARS:
+      case RepositorySortMethod.PROJECT_AGE:
+        updatedRepositories = updatedRepositories.sort((a, b) => {
+          const newestIssueA = a.created_at;
+          const newestIssueB = b.created_at;
+          if (order === "Descending") {
+            return new Date(newestIssueB).getTime() - new Date(newestIssueA).getTime();
+          } else if (order === "Ascending") {
+            return new Date(newestIssueA).getTime() - new Date(newestIssueB).getTime();
+          } else {
+            return 0;
+          }
+        });
+        break;
+      case RepositorySortMethod.STARS:
         updatedRepositories = updatedRepositories.sort((a, b) => {
           if (order === "Descending") {
             return b.stars - a.stars;
@@ -124,7 +142,7 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
           }
         });
         break;
-      case RepositorySortOrder.MOST_DOWNLOADS:
+      case RepositorySortMethod.DOWNLOADS:
         updatedRepositories = updatedRepositories.sort((a, b) => {
           if (order === "Descending") {
             return b.monthly_downloads - a.monthly_downloads;
@@ -171,11 +189,11 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     languages: data.languages,
     categories: data.categories,
     repositories,
-    repositorySortOrder,
-    repositorySortType,
+    repositorySortMethod,
+    repositorySortDirection,
     tags: data.tags,
     query,
-    updateRepositorySortOrder,
+    updateRepositorySortMethod,
     filterRepositoriesByTag,
     filterRepositoriesByQuery,
     filterRepositoriesByLanguage,
