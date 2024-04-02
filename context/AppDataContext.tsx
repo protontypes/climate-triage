@@ -18,7 +18,6 @@ type AppDataContextType = AppData & {
   filterRepositoriesByLanguage: (languageId: string) => Repository[];
   filterRepositoriesByCategory: (categoryId: string) => Repository[];
   updateRepositorySortOrder: (sortOrder: RepositorySortOrder, sortType: RepositorySortType) => void;
-  seeRecentIssues: () => void;
 };
 
 const DEFAULT_VALUE: AppDataContextType = {
@@ -34,10 +33,9 @@ const DEFAULT_VALUE: AppDataContextType = {
   filterRepositoriesByQuery: () => {},
   filterRepositoriesByLanguage: () => [],
   filterRepositoriesByCategory: () => [],
-  seeRecentIssues: () => {}
 };
 
-function getNewestIssue(repository: Repository): Issue {
+function getRecentIssue(repository: Repository): Issue {
   const sortedIssues = [...repository.issues].sort((a, b) => {
     const dateA = new Date(a.created_at).getTime();
     const dateB = new Date(b.created_at).getTime();
@@ -45,6 +43,7 @@ function getNewestIssue(repository: Repository): Issue {
   });
   return sortedIssues[0];
 }
+
 
 const AppDataContext = createContext<AppDataContextType>(DEFAULT_VALUE);
 
@@ -97,26 +96,28 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     setRepositorySortType(nextSortType);
     updateRepositoriesOnSortChange(sortOrder, nextSortType);
   };
-  const seeRecentIssues = () => {
-    let updatedRepositories: Repository[] = [...repositories];
-    updatedRepositories = updatedRepositories.sort((a, b) => {
-      const newestIssueA = getNewestIssue(a).created_at;
-      const newestIssueB = getNewestIssue(b).created_at;
-      return new Date(newestIssueA).getTime() - new Date(newestIssueB).getTime();
-    });
-    setRepositories(updatedRepositories);
-    setRepositorySortType(RepositorySortType.NONE);
-    setRepositorySortOrder(RepositorySortOrder.RECENT);
-  };
 
   const updateRepositoriesOnSortChange = (sortOrder: RepositorySortOrder, order) => {
     let updatedRepositories: Repository[] = [...allRepositories];
 
     switch (sortOrder) {
+      case RepositorySortOrder.RECENT:
+        updatedRepositories = updatedRepositories.sort((a, b) => {
+          const newestIssueA = getRecentIssue(a).created_at;
+          const newestIssueB = getRecentIssue(b).created_at;
+          if (order === "Descending") {
+            return new Date(newestIssueB).getTime() - new Date(newestIssueA).getTime();
+          } else if (order === "Ascending") {
+            return new Date(newestIssueA).getTime() - new Date(newestIssueB).getTime();
+          } else {
+            return 0;
+          }
+        });
+        break;
       case RepositorySortOrder.ISSUE_AGE:
         updatedRepositories = updatedRepositories.sort((a, b) => {
-          const newestIssueA = getNewestIssue(a).created_at;
-          const newestIssueB = getNewestIssue(b).created_at;
+          const newestIssueA = a.created_at;
+          const newestIssueB = b.created_at;
           if (order === "Descending") {
             return new Date(newestIssueB).getTime() - new Date(newestIssueA).getTime();
           } else if (order === "Ascending") {
@@ -188,7 +189,6 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     repositorySortType,
     tags: data.tags,
     query,
-    seeRecentIssues,
     updateRepositorySortOrder,
     filterRepositoriesByTag,
     filterRepositoriesByQuery,
