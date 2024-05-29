@@ -20,13 +20,13 @@ export default function LaunchBanner(): JSX.Element {
             <span className="sr-only">Bullhorn</span>
           </span>
           <span>
-            We just launched! Read the blog post here{" "}
+            Listen to our new podcast{" "}
             <Link
-              href="https://opensustain.tech/blog/launch_climate_triage/"
+              href="https://ossforclimate.sustainoss.org/"
               target="_blank"
               className="inline font-medium text-blue-600 underline decoration-primary-600 decoration-solid underline-offset-2 hover:no-underline dark:text-blue-500 dark:decoration-primary-500"
             >
-              ClimateTriage
+              OSS for Climate
             </Link>
           </span>
         </p>
