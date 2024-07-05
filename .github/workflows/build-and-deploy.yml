@@ -5,7 +5,7 @@ name: Build & Deploy
 # Controls when the workflow will run
 on:
   schedule:
-    - cron:  '0 * * * *'
+    - cron: "0 * * * *"
 
   # Triggers the workflow on push events but only for the "main" branch
   push:
@@ -34,19 +34,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # 👇 Build steps
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
         with:
           version: 8
+          run_install: false
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 20
           cache: "pnpm"
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install Dependencies
         run: pnpm install
@@ -58,18 +72,20 @@ jobs:
         env:
           NODE_ENV: "production"
         run: pnpm build
+
       # 👆 Build steps
+
       # 👇 Deploy steps
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           # 👇 Specify build output path
           path: out
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
         # 👆 Deploy steps
