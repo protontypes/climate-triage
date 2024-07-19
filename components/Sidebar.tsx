@@ -69,7 +69,7 @@ export const Sidebar = () => {
       </div>
       <div
         className={`z-50 bg-stone-50 transition-all duration-300 md:sticky md:top-4 dark:bg-black-400 ${
-          scrollHeightReached ? "fixed top-0 " : "sticky top-0"
+          scrollHeightReached ? "fixed top-0" : "sticky top-0"
         }`}
       >
         <CategoryPicker
