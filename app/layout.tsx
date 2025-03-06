@@ -78,6 +78,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           data-domain="climatetriage.com"
           src="https://plausible.io/js/script.js"
         ></script>
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="8ef78ec6-24ca-4940-bfdc-ee8e79b8ed3f"
+        ></script>
       </head>
       <body>
         <main className={`${space_grotesk.variable} font-sans`}>
