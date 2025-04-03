@@ -1,5 +1,4 @@
 name: Post Good First Issues to Bluesky and Mastodon
-
 on:
   issues:
     types:
@@ -12,7 +11,7 @@ jobs:
     steps:
       - name: Prepare Post
         env:
-          default_hashtags: " #climate #sustainability #opensource #opensustain #goodfirstissue #goodfirstissues #hacktoberfest #hacktoberfest2023"
+          default_hashtags: " #climate #sustainability #opensource #opensustain #goodfirstissue #goodfirstissues"
         run: |
           issue_title="${{ github.event.issue.title }}"
           issue_url="${{ github.event.issue.html_url }}"
