@@ -20,7 +20,7 @@ export default function OpenClimateFundLaunchBanner(): JSX.Element {
             <span className="sr-only">Bullhorn</span>
           </span>
           <span>
-            Don't know where to start? Ask our
+            Don't know where to start? Ask our{" "}
             <Link
               href="https://matrix.to/#/#climatetriage:matrix.org"
               target="_blank"
