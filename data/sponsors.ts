@@ -17,13 +17,13 @@ export const sponsors: Sponsor[] = [
     url: "https://ecosyste.ms"
   },
   {
-    name: "Open Corridor",
-    logoSmall: "/partners/opencorridor_s.svg",
-    url: "https://opencorridor.org"
+    name: "GitHub",
+    logoSmall: "/partners/github-mark.svg",
+    url: "https://github.com/social-impact"
   },
   {
-    name: "LF Energy",
-    logoSmall: "/partners/lf-energy_s.svg",
-    url: "https://lfenergy.org"
+    name: "Ground Truth",
+    logoSmall: "/partners/ground_truth.png",
+    url: "https://groundtruth.app/"
   }
 ];
