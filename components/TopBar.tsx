@@ -1,3 +1,4 @@
+import config from "@/app/config.mts";
 import { sponsors } from "@/data/sponsors";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -26,6 +27,12 @@ export const TopBar = () => (
         ))}
       </div>
       <div className="flex items-center gap-7">
+        <Link
+          href={config.links.community}
+          className="text-sm font-bold uppercase tracking-wider text-gray-900 hover:opacity-80 dark:text-silver-500"
+        >
+          Ask the Community
+        </Link>
         <Link
           href="/about"
           className="text-sm font-bold uppercase tracking-wider text-gray-900 hover:opacity-80 dark:text-silver-500"
