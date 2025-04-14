@@ -1,0 +1,41 @@
+name: Post Good First Issues to Bluesky and Mastodon
+on:
+  issues:
+    types:
+      - labeled
+
+jobs:
+  post_good_first_issue:
+    runs-on: ubuntu-latest
+    if: contains(github.event.label.name, 'good first issue')
+    steps:
+      - name: Prepare Post
+        env:
+          default_hashtags: " #climate #sustainability #opensource #opensustain #goodfirstissue #goodfirstissues"
+        run: |
+          issue_title="${{ github.event.issue.title }}"
+          issue_url="${{ github.event.issue.html_url }}"
+          issue_text="${{ github.event.issue.body }}"
+          post_message="$issue_title $issue_url $default_hashtags"
+          echo "post_message=$post_message" >> $GITHUB_ENV
+
+      - name: Send post to Bluesky
+        id: bluesky_post
+        uses: myConsciousness/bluesky-post@v5
+        with:
+          text: |
+            A new good first issue available for contribution: 
+            ${{ env.post_message }}
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
+          password: ${{ secrets.BLUESKY_PASSWORD }}
+
+      - name: Send post to Mastodon
+        id: mastodon_post
+        uses: cbrgm/mastodon-github-action@v2
+        with:
+          message: |
+            A new good first issue available for contribution: 
+            ${{ env.post_message }}
+          url: ${{ secrets.MASTODON_URL }}
+          access-token: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+          visibility: "public"
