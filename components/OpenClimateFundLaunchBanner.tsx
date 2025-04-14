@@ -1,3 +1,4 @@
+import config from "@/app/config.mts";
 import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
@@ -22,7 +23,7 @@ export default function OpenClimateFundLaunchBanner(): JSX.Element {
           <span>
             Don't know where to start? Ask our{" "}
             <Link
-              href="https://matrix.to/#/#climatetriage:matrix.org"
+              href={config.links.community}
               target="_blank"
               className="inline font-medium text-blue-600 underline decoration-primary-600 decoration-solid underline-offset-2 hover:no-underline dark:text-blue-500 dark:decoration-primary-500"
             >

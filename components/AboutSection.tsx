@@ -11,10 +11,7 @@ export const AboutSection = () => {
         Launch your open source journey in climate and sustainability. Explore current Good First
         Issues from open source initiatives focused on protecting natural resources. Still don't
         know where to start?
-        <Link
-          href="https://matrix.to/#/#climatetriage:matrix.org"
-          className="text-primary underline"
-        >
+        <Link href={config.links.community} className="text-primary underline">
           <strong>Ask the community.</strong>
         </Link>
       </p>

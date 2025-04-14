@@ -15,6 +15,9 @@ const config = {
     siteUrl: "https://climatetriage.com",
     socialBanner: "/social-share.jpg",
     locale: "en-US"
+  },
+  links: {
+    community: "https://discord.gg/JDUatGKxve"
   }
 };
 
