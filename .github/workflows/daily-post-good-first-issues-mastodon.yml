@@ -1,0 +1,69 @@
+name: Daily Post Good First Issues to Mastodon
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 * * *" # Runs daily at 12:00 PM UTC
+
+jobs:
+  post_good_first_issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Good First Issues
+        id: fetch_issues
+        run: |
+          # Uncomment the following line for production:
+           response=$(curl -s https://ost.ecosyste.ms/api/v1/issues?recent=true)
+
+          # For testing purposes, create a sample response as a single-line JSON
+          # response='[{"project":{"name":"Project A","language":"Python"},"title":"Issue 1","url":"www.github.com/issue1","labels":[{"name":"good first issue"}]},{"project":{"name":"Project B","language":"JavaScript"},"title":"Issue 2","url":"www.github.com/issue2","labels":[{"name":"good first issue"}]}]'
+
+          # Save to environment for next steps
+          echo "response=$response" >> $GITHUB_ENV
+
+      - name: Check if there are issues
+        id: check_issues
+        run: |
+          if [[ -z "${response}" ]] || [[ "${response}" == "[]" ]]; then
+            echo "No issues found. Exiting."
+            exit 0
+          fi
+          echo "Issues found. Proceeding."
+
+      - name: Prepare Posts
+        env:
+          default_hashtags: " #climate #sustainability #opensource #opensustain #goodfirstissue #goodfirstissues"
+        run: |
+          posts=$(echo "${response}" | jq -c '[.[] | {project_name: .project.name, title: .title, language: .project.language, url: .url}]')
+          echo "posts=$posts" >> $GITHUB_ENV
+
+          # Display the prepared posts for debugging
+          echo "Prepared posts:"
+          echo "$posts"
+
+      - name: Check if there are posts
+        run: |
+          if [[ -z "${posts}" ]] || [[ "${posts}" == "[]" ]]; then
+            echo "No posts to send. Exiting."
+            exit 0
+          fi
+          echo "Posts found. Proceeding."
+
+      - name: Send posts to Mastodon
+        env:
+          MASTODON_URL: ${{ secrets.MASTODON_URL }}
+          MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+          default_hashtags: " #climate #sustainability #opensource #opensustain #goodfirstissue #goodfirstissues"
+        run: |
+          echo "${posts}" | jq -c '.[]' | while read -r post; do
+            project_name=$(echo "$post" | jq -r '.project_name')
+            title=$(echo "$post" | jq -r '.title')
+            language=$(echo "$post" | jq -r '.language')
+            url=$(echo "$post" | jq -r '.url')
+            post_message="$title ($language) - $project_name $url $default_hashtags"
+
+            echo "Sending to Mastodon..."
+            curl -s -X POST "${MASTODON_URL}/api/v1/statuses" \
+              -H "Authorization: Bearer $MASTODON_ACCESS_TOKEN" \
+              -d "status=A new good first issue available for contribution: $post_message&visibility=public"
+          done
