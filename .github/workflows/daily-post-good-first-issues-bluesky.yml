@@ -16,10 +16,10 @@ jobs:
         id: fetch_issues
         run: |
           # Uncomment the following line for production:
-          # response=$(curl -s https://ost.ecosyste.ms/api/v1/issues?recent=true)
+           response=$(curl -s https://ost.ecosyste.ms/api/v1/issues?recent=true)
 
           # For testing purposes, create a sample response as a single-line JSON
-           response='[{"project":{"name":"Project A","language":"Python"},"title":"Issue 1","url":"www.github.com/issue1","labels":["good first issue"]},{"project":{"name":"Project B","language":"JavaScript"},"title":"Issue 2","url":"www.github.com/issue2","labels":["good first issue"]},{"project":{"name":"Project C","language":"Ruby"},"title":"Issue 3","url":"www.github.com/issue3","labels":["bug"]}]'
+          # response='[{"project":{"name":"Project A","language":"Python"},"title":"Issue 1","url":"www.github.com/issue1","labels":["good first issue"]},{"project":{"name":"Project B","language":"JavaScript"},"title":"Issue 2","url":"www.github.com/issue2","labels":["good first issue"]},{"project":{"name":"Project C","language":"Ruby"},"title":"Issue 3","url":"www.github.com/issue3","labels":["bug"]}]'
 
           echo "$response" > issues.json
 
