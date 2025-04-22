@@ -16,7 +16,7 @@ jobs:
            response=$(curl -s https://ost.ecosyste.ms/api/v1/issues?recent=true)
 
           # For testing purposes, create a sample response as a single-line JSON
-          # response='[{"project":{"name":"Project A","language":"Python"},"title":"Issue 1","url":"www.github.com/issue1","labels":[{"name":"good first issue"}]},{"project":{"name":"Project B","language":"JavaScript"},"title":"Issue 2","url":"www.github.com/issue2","labels":[{"name":"good first issue"}]}]'
+          # response='[{"project":{"name":"Project A","language":"Python"},"title":"Issue 1","url":"www.github.com/issue1","labels":["good first issue"]},{"project":{"name":"Project B","language":"JavaScript"},"title":"Issue 2","url":"www.github.com/issue2","labels":["good first issue"]}]'
 
           # Save to environment for next steps
           echo "response=$response" >> $GITHUB_ENV
