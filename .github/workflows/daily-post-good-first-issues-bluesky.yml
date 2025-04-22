@@ -90,5 +90,7 @@ jobs:
               -H "Authorization: Bearer $ACCESS_JWT" \
               -d "$post_payload"
 
+            echo "Waiting 5 seconds before the next post..."
+            sleep 5
           done < <(jq -c '.[]' posts.json)
           echo "✅ All posts sent to Bluesky."
