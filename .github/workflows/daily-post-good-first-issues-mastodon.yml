@@ -13,10 +13,10 @@ jobs:
         id: fetch_issues
         run: |
           # Uncomment the following line for production:
-           response=$(curl -s https://ost.ecosyste.ms/api/v1/issues?recent=true)
+          # response=$(curl -s https://ost.ecosyste.ms/api/v1/issues?recent=true)
 
           # For testing purposes, create a sample response as a single-line JSON
-          # response='[{"project":{"name":"Project A","language":"Python"},"title":"Issue 1","url":"www.github.com/issue1","labels":["good first issue"]},{"project":{"name":"Project B","language":"JavaScript"},"title":"Issue 2","url":"www.github.com/issue2","labels":["good first issue"]}]'
+           response='[{"project":{"name":"Project A","language":"Python"},"title":"Issue 1","url":"www.github.com/issue1","labels":["good first issue"]},{"project":{"name":"Project B","language":"JavaScript"},"title":"Issue 2","url":"www.github.com/issue2","labels":["good first issue"]},{"project":{"name":"Project C","language":"Ruby"},"title":"Issue 3","url":"www.github.com/issue3","labels":["bug"]}]'
 
           # Save to environment for next steps
           echo "response=$response" >> $GITHUB_ENV
@@ -34,7 +34,7 @@ jobs:
         env:
           default_hashtags: " #climate #sustainability #opensource #opensustain #goodfirstissue #goodfirstissues"
         run: |
-          posts=$(echo "${response}" | jq -c '[.[] | {project_name: .project.name, title: .title, language: .project.language, url: .url}]')
+          posts=$(echo "${response}" | jq -c '[.[] | select(.labels[] == "good first issue") | {project_name: .project.name, title: .title, language: .project.language, url: .url}]')
           echo "posts=$posts" >> $GITHUB_ENV
 
           # Display the prepared posts for debugging
