@@ -16,7 +16,7 @@ jobs:
            response=$(curl -s https://ost.ecosyste.ms/api/v1/issues?recent=true)
 
           # For testing purposes, create a sample response as a single-line JSON
-          # response='[{"project":{"name":"Project A","language":"Python"},"title":"Issue 1","url":"www.github.com/issue1","labels":["good first issue"]},{"project":{"name":"Project B","language":"JavaScript"},"title":"Issue 2","url":"www.github.com/issue2","labels":["good first issue"]},{"project":{"name":"Project C","language":"Ruby"},"title":"Issue 3","url":"www.github.com/issue3","labels":["bug"]}]'
+          # response='[{"project":{"name":"Project A","language":"Python"},"title":"Issue 1","html_url":"www.github.com/issue1","labels":["good first issue"]},{"project":{"name":"Project B","language":"JavaScript"},"title":"Issue 2","html_url":"www.github.com/issue2","labels":["good first issue"]},{"project":{"name":"Project C","language":"Ruby"},"title":"Issue 3","html_url":"www.github.com/issue3","labels":["bug"]}]'
 
           # Save to environment for next steps
           echo "response=$response" >> $GITHUB_ENV
@@ -34,7 +34,7 @@ jobs:
         env:
           default_hashtags: " #climate #sustainability #opensource #opensustain #goodfirstissue #goodfirstissues"
         run: |
-          posts=$(echo "${response}" | jq -c '[.[] | select(.labels[] == "good first issue") | {project_name: .project.name, title: .title, language: .project.language, url: .url}]')
+          posts=$(echo "${response}" | jq -c '[.[] | select(.labels[] == "good first issue") | {project_name: .project.name, title: .title, language: .project.language, html_url: .html_url}]')
           echo "posts=$posts" >> $GITHUB_ENV
 
           # Display the prepared posts for debugging
@@ -59,8 +59,8 @@ jobs:
             project_name=$(echo "$post" | jq -r '.project_name')
             title=$(echo "$post" | jq -r '.title')
             language=$(echo "$post" | jq -r '.language')
-            url=$(echo "$post" | jq -r '.url')
-            post_message="$title ($language) - $project_name $url $default_hashtags"
+            html_url=$(echo "$post" | jq -r '.html_url')
+            post_message="$title ($language) - $project_name $html_url $default_hashtags"
 
             echo "Sending to Mastodon..."
             curl -s -X POST "${MASTODON_URL}/api/v1/statuses" \
