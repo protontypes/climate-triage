@@ -104,6 +104,7 @@ const main = async () => {
     console.log("Data generation complete.");
   } catch (e) {
     console.error(e);
+    process.exit(1);
   }
 };
 

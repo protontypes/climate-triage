@@ -46,16 +46,19 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: "pnpm"
 
       - name: Install Dependencies
         run: pnpm install
 
       - name: Run Prebuild Script
+        id: prebuild
         run: pnpm prebuild
+        continue-on-error: true
 
       - name: Build the Project
+        if: steps.prebuild.outcome == 'success'
         env:
           NODE_ENV: "production"
         run: pnpm build
@@ -64,15 +67,18 @@ jobs:
 
       # 👇 Deploy steps
       - name: Setup Pages
+        if: steps.prebuild.outcome == 'success'
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
+        if: steps.prebuild.outcome == 'success'
         uses: actions/upload-pages-artifact@v3
         with:
           # 👇 Specify build output path
           path: out
 
       - name: Deploy to GitHub Pages
+        if: steps.prebuild.outcome == 'success'
         id: deployment
         uses: actions/deploy-pages@v4
         # 👆 Deploy steps
