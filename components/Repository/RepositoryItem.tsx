@@ -8,6 +8,16 @@ import { RepositoryDescription } from "./RepositoryDescription";
 import { RepositoryItemTopBar } from "./RepositoryItemTopBar";
 import { RepositoryMetadata } from "./RepositoryMetadata";
 
+dayjs.extend(relativeTime);
+
+const useLastModified = (date: string) => {
+  const [lastModified, setLastModified] = useState("");
+
+  useEffect(() => setLastModified(dayjs(date).fromNow()), [date]);
+
+  return lastModified;
+};
+
 type RepositoryItemProps = {
   repository: Repository;
 };
@@ -15,14 +25,6 @@ type RepositoryItemProps = {
 export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
   const [isIssueOpen, setIsIssueOpen] = useState(false);
 
-  dayjs.extend(relativeTime);
-  const useLastModified = (date: string) => {
-    const [lastModified, setLastModified] = useState("");
-
-    useEffect(() => setLastModified(dayjs(date).fromNow()), [date]);
-
-    return lastModified;
-  };
   const lastModified = useLastModified(repository.last_modified);
 
   return (
