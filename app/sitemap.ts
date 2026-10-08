@@ -5,25 +5,26 @@ import { getData } from "./data-loader";
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = config.meta.siteUrl;
   const data = getData();
+  const lastModified = new Date().toISOString().split("T")[0];
 
   const languageRoutes = data.languages.map((l) => ({
     url: `${siteUrl}/language/${l.id}`,
-    lastModified: new Date().toISOString().split("T")[0]
+    lastModified
   }));
 
-  const categoryRoutes = data.languages.map((c) => ({
+  const categoryRoutes = data.categories.map((c) => ({
     url: `${siteUrl}/category/${c.id}`,
-    lastModified: new Date().toISOString().split("T")[0]
+    lastModified
   }));
 
   const tagRoutes = data.tags.map((t) => ({
     url: `${siteUrl}/tag/${t.id}`,
-    lastModified: new Date().toISOString().split("T")[0]
+    lastModified
   }));
 
-  const routes = [""].map((route) => ({
+  const routes = ["", "about"].map((route) => ({
     url: `${siteUrl}/${route}`,
-    lastModified: new Date().toISOString().split("T")[0]
+    lastModified
   }));
 
   return [...routes, ...languageRoutes, ...categoryRoutes, ...tagRoutes];
