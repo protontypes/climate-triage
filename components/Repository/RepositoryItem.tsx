@@ -2,9 +2,11 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { useEffect, useState } from "react";
 
+import { getHealthScore } from "@/data/health";
 import { Repository } from "@/types/types";
 import { IssuesList } from "./IssueList";
 import { RepositoryDescription } from "./RepositoryDescription";
+import { RepositoryHealthBadge } from "./RepositoryHealthBadge";
 import { RepositoryItemTopBar } from "./RepositoryItemTopBar";
 import { RepositoryMetadata } from "./RepositoryMetadata";
 
@@ -24,6 +26,7 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
     return lastModified;
   };
   const lastModified = useLastModified(repository.last_modified);
+  const health = getHealthScore(repository);
 
   return (
     <div
@@ -46,6 +49,9 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
           repositoryUrl={repository.url}
         />
         <RepositoryDescription repositoryDescription={repository.description} />
+        <div className="flex flex-wrap items-center gap-2">
+          <RepositoryHealthBadge score={health.score} level={health.level} />
+        </div>
         <RepositoryMetadata
           lastModified={lastModified}
           repositoryLang={repository.language.display}
