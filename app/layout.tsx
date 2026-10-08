@@ -85,10 +85,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         ></script>
       </head>
       <body>
-        <main className={`${space_grotesk.variable} font-sans`}>
+        <div className={`${space_grotesk.variable} font-sans`}>
           <TopBar />
           {children}
-        </main>
+        </div>
         {/* <SponsorMe /> */}
       </body>
     </html>
