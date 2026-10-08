@@ -26,7 +26,11 @@ curl -s "https://ost.ecosyste.ms/api/v1/issues/openclimateaction?per_page=300" |
   | group_by(.category) | map(.[:3]) | flatten | sort_by(.id)
   | map({
       id, name, description, url, language, category, has_new_issues, monthly_downloads,
-      repository: (.repository | {owner, stargazers_count, license, pushed_at, topics, created_at}),
+      repository: (.repository | {
+        owner, stargazers_count, license, pushed_at, topics, created_at,
+        open_issues_count,
+        commit_stats: (.commit_stats | if . == null then null else {total_committers} end)
+      }),
       issues: (.issues[:3] | map({uuid, number, title, labels, comments_count, created_at, html_url}))
     })' > data/fixtures/ecosystems-sample.json
 ```

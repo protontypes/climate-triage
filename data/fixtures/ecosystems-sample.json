@@ -19,7 +19,11 @@
         "network",
         "optimization"
       ],
-      "created_at": "2016-08-29T16:01:10.000Z"
+      "created_at": "2016-08-29T16:01:10.000Z",
+      "open_issues_count": 50,
+      "commit_stats": {
+        "total_committers": 13
+      }
     },
     "issues": [
       {
@@ -74,7 +78,11 @@
         "real-time",
         "simulation"
       ],
-      "created_at": "2020-01-29T08:49:59.000Z"
+      "created_at": "2020-01-29T08:49:59.000Z",
+      "open_issues_count": 113,
+      "commit_stats": {
+        "total_committers": 32
+      }
     },
     "issues": [
       {
@@ -128,9 +136,9 @@
     "monthly_downloads": 0,
     "repository": {
       "owner": "powsybl",
-      "stargazers_count": 187,
+      "stargazers_count": 190,
       "license": "mpl-2.0",
-      "pushed_at": "2026-10-02T15:44:42.000Z",
+      "pushed_at": "2026-10-16T13:34:36.000Z",
       "topics": [
         "cim",
         "energy-system",
@@ -142,7 +150,11 @@
         "power-systems",
         "powsybl"
       ],
-      "created_at": "2017-09-29T14:51:18.000Z"
+      "created_at": "2017-09-29T14:51:18.000Z",
+      "open_issues_count": 234,
+      "commit_stats": {
+        "total_committers": 113
+      }
     },
     "issues": [
       {
@@ -195,12 +207,12 @@
     "language": "Python",
     "category": "Energy Systems",
     "has_new_issues": false,
-    "monthly_downloads": 76692,
+    "monthly_downloads": 77525,
     "repository": {
       "owner": "OpenSTEF",
-      "stargazers_count": 169,
+      "stargazers_count": 173,
       "license": "mpl-2.0",
-      "pushed_at": "2026-10-02T08:36:19.000Z",
+      "pushed_at": "2026-10-16T04:30:30.000Z",
       "topics": [
         "data-science",
         "energy",
@@ -210,7 +222,11 @@
         "python",
         "time-series"
       ],
-      "created_at": "2021-02-09T08:48:47.000Z"
+      "created_at": "2021-02-09T08:48:47.000Z",
+      "open_issues_count": 49,
+      "commit_stats": {
+        "total_committers": 38
+      }
     },
     "issues": [
       {
@@ -261,7 +277,7 @@
     "language": "R",
     "category": "Consumption",
     "has_new_issues": false,
-    "monthly_downloads": 1143,
+    "monthly_downloads": 1289,
     "repository": {
       "owner": "ropensci",
       "stargazers_count": 443,
@@ -286,7 +302,11 @@
         "transportation",
         "walking"
       ],
-      "created_at": "2015-01-30T08:34:49.000Z"
+      "created_at": "2015-01-30T08:34:49.000Z",
+      "open_issues_count": 26,
+      "commit_stats": {
+        "total_committers": 34
+      }
     },
     "issues": [
       {
@@ -331,49 +351,6 @@
     ]
   },
   {
-    "id": 361,
-    "name": "CoopCycle",
-    "description": "A self-hosted platform to order meals in your neighborhood and get them delivered by bike couriers.",
-    "url": "https://github.com/coopcycle/coopcycle-web",
-    "language": "PHP",
-    "category": "Consumption",
-    "has_new_issues": false,
-    "monthly_downloads": 0,
-    "repository": {
-      "owner": "coopcycle",
-      "stargazers_count": 601,
-      "license": "other",
-      "pushed_at": "2026-10-05T20:38:49.000Z",
-      "topics": [
-        "apiplatform",
-        "coop",
-        "delivery",
-        "delivery-app",
-        "foodtech",
-        "platformcoop",
-        "symfony"
-      ],
-      "created_at": "2016-11-29T12:10:32.000Z"
-    },
-    "issues": [
-      {
-        "uuid": "1940789334",
-        "number": 3809,
-        "title": "In order to look pro, i want the red banner to be the cooperatives´ color with their logo",
-        "labels": [
-          "B2B Customer Interface",
-          "help wanted",
-          "Local Commerce",
-          "Let's Make CoopCycle Fun",
-          "Customer Service"
-        ],
-        "comments_count": 0,
-        "created_at": "2023-10-12T21:02:16.000Z",
-        "html_url": "https://github.com/coopcycle/coopcycle-web/issues/3809"
-      }
-    ]
-  },
-  {
     "id": 415,
     "name": "A/B Street",
     "description": "A traffic simulation game exploring how small changes to roads affect cyclists, transit users, pedestrians, and drivers.",
@@ -384,7 +361,7 @@
     "monthly_downloads": 0,
     "repository": {
       "owner": "a-b-street",
-      "stargazers_count": 8185,
+      "stargazers_count": 8187,
       "license": "apache-2.0",
       "pushed_at": "2025-09-10T09:20:24.000Z",
       "topics": [
@@ -394,7 +371,11 @@
         "simulation",
         "traffic-simulation"
       ],
-      "created_at": "2018-06-04T00:44:43.000Z"
+      "created_at": "2018-06-04T00:44:43.000Z",
+      "open_issues_count": 234,
+      "commit_stats": {
+        "total_committers": 49
+      }
     },
     "issues": [
       {
@@ -433,6 +414,77 @@
     ]
   },
   {
+    "id": 447,
+    "name": "Kepler",
+    "description": "Uses eBPF to probe energy related system stats and exports as Prometheus metrics.",
+    "url": "https://github.com/sustainable-computing-io/kepler",
+    "language": "Go",
+    "category": "Consumption",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "sustainable-computing-io",
+      "stargazers_count": 1583,
+      "license": "apache-2.0",
+      "pushed_at": "2026-10-14T12:32:12.000Z",
+      "topics": [
+        "cloud-native",
+        "energy-consumption",
+        "energy-efficiency",
+        "energy-monitoring",
+        "kubernetes",
+        "kubernetes-monitoring",
+        "prometheus",
+        "prometheus-exporter",
+        "sustainability"
+      ],
+      "created_at": "2022-02-01T19:48:56.000Z",
+      "open_issues_count": 46,
+      "commit_stats": {
+        "total_committers": 66
+      }
+    },
+    "issues": [
+      {
+        "uuid": "3360777527",
+        "number": 2302,
+        "title": "Publish helm repo to github oci section",
+        "labels": [
+          "kind/feature",
+          "help wanted"
+        ],
+        "comments_count": 1,
+        "created_at": "2025-08-27T20:33:50.000Z",
+        "html_url": "https://github.com/sustainable-computing-io/kepler/issues/2302"
+      },
+      {
+        "uuid": "3360789759",
+        "number": 2303,
+        "title": "NetworkPolicy for kepler",
+        "labels": [
+          "kind/feature",
+          "help wanted"
+        ],
+        "comments_count": 1,
+        "created_at": "2025-08-27T20:38:45.000Z",
+        "html_url": "https://github.com/sustainable-computing-io/kepler/issues/2303"
+      },
+      {
+        "uuid": "2774041458",
+        "number": 1906,
+        "title": "[Track] Call for Machine/Device Sponsorship",
+        "labels": [
+          "kind/feature",
+          "help wanted",
+          "discussion"
+        ],
+        "comments_count": 10,
+        "created_at": "2025-01-08T01:34:27.000Z",
+        "html_url": "https://github.com/sustainable-computing-io/kepler/issues/1906"
+      }
+    ]
+  },
+  {
     "id": 581,
     "name": "PlantCV",
     "description": "Plant phenotyping using computer vision.",
@@ -445,7 +497,7 @@
       "owner": "danforthcenter",
       "stargazers_count": 834,
       "license": "mpl-2.0",
-      "pushed_at": "2026-10-03T03:37:48.000Z",
+      "pushed_at": "2026-10-17T22:17:49.000Z",
       "topics": [
         "bioinformatics",
         "image-analysis",
@@ -453,20 +505,13 @@
         "plantcv",
         "science"
       ],
-      "created_at": "2014-03-14T18:24:23.000Z"
+      "created_at": "2014-03-14T18:24:23.000Z",
+      "open_issues_count": 46,
+      "commit_stats": {
+        "total_committers": 69
+      }
     },
     "issues": [
-      {
-        "uuid": "2595214290",
-        "number": 1610,
-        "title": "Fatal error handling in `pcv.transform.detect_color_card` ",
-        "labels": [
-          "help wanted"
-        ],
-        "comments_count": 0,
-        "created_at": "2024-10-17T16:29:46.000Z",
-        "html_url": "https://github.com/danforthcenter/plantcv/issues/1610"
-      },
       {
         "uuid": "3365056351",
         "number": 1773,
@@ -479,18 +524,26 @@
         "html_url": "https://github.com/danforthcenter/plantcv/issues/1773"
       },
       {
-        "uuid": "2669416009",
-        "number": 1635,
-        "title": "Improve datatype checks",
+        "uuid": "3045937822",
+        "number": 1699,
+        "title": "longest_path values unrealistically large?",
         "labels": [
-          "enhancement",
-          "help wanted",
-          "update",
-          "good first issue/PR"
+          "help wanted"
         ],
-        "comments_count": 2,
-        "created_at": "2024-11-18T18:04:41.000Z",
-        "html_url": "https://github.com/danforthcenter/plantcv/issues/1635"
+        "comments_count": 0,
+        "created_at": "2025-05-07T13:14:35.000Z",
+        "html_url": "https://github.com/danforthcenter/plantcv/issues/1699"
+      },
+      {
+        "uuid": "2750816410",
+        "number": 1643,
+        "title": "Skeleton tips easily overwritten within the `plantcv.morphology` sub-package",
+        "labels": [
+          "help wanted"
+        ],
+        "comments_count": 0,
+        "created_at": "2024-12-19T16:10:56.000Z",
+        "html_url": "https://github.com/danforthcenter/plantcv/issues/1643"
       }
     ]
   },
@@ -499,7 +552,7 @@
     "name": "rGEDI",
     "description": "An R Package for NASA's Global Ecosystem Dynamics Investigation (GEDI) Data Visualization and Processing.",
     "url": "https://github.com/carlos-alberto-silva/rGEDI",
-    "language": "R",
+    "language": "HTML",
     "category": "Biosphere",
     "has_new_issues": false,
     "monthly_downloads": 0,
@@ -507,9 +560,13 @@
       "owner": "carlos-alberto-silva",
       "stargazers_count": 186,
       "license": null,
-      "pushed_at": "2026-03-27T00:50:54.000Z",
+      "pushed_at": "2026-10-10T17:07:42.000Z",
       "topics": [],
-      "created_at": "2020-01-25T14:15:11.000Z"
+      "created_at": "2020-01-25T14:15:11.000Z",
+      "open_issues_count": 1,
+      "commit_stats": {
+        "total_committers": 5
+      }
     },
     "issues": [
       {
@@ -538,7 +595,7 @@
       "owner": "WildMeOrg",
       "stargazers_count": 143,
       "license": "gpl-2.0",
-      "pushed_at": "2026-10-01T14:50:17.000Z",
+      "pushed_at": "2026-10-17T15:45:34.000Z",
       "topics": [
         "cloud",
         "conservation",
@@ -550,21 +607,13 @@
         "reactjs",
         "tomcat"
       ],
-      "created_at": "2016-07-12T22:09:20.000Z"
+      "created_at": "2016-07-12T22:09:20.000Z",
+      "open_issues_count": 229,
+      "commit_stats": {
+        "total_committers": 63
+      }
     },
     "issues": [
-      {
-        "uuid": "2589579726",
-        "number": 834,
-        "title": "Count of sightings on individual page",
-        "labels": [
-          "enhancement",
-          "good first issue"
-        ],
-        "comments_count": 0,
-        "created_at": "2024-10-15T18:42:45.000Z",
-        "html_url": "https://github.com/WildMeOrg/Wildbook/issues/834"
-      },
       {
         "uuid": "2562657559",
         "number": 815,
@@ -589,6 +638,19 @@
         "comments_count": 0,
         "created_at": "2026-05-06T20:25:39.000Z",
         "html_url": "https://github.com/WildMeOrg/Wildbook/issues/1569"
+      },
+      {
+        "uuid": "2283868434",
+        "number": 543,
+        "title": "Remove references to Occurrence IDs in favor of Sightings IDs",
+        "labels": [
+          "enhancement",
+          "good first issue",
+          "techdebt"
+        ],
+        "comments_count": 8,
+        "created_at": "2024-05-07T17:21:07.000Z",
+        "html_url": "https://github.com/WildMeOrg/Wildbook/issues/543"
       }
     ]
   },
@@ -605,14 +667,18 @@
       "owner": "Open-MSS",
       "stargazers_count": 80,
       "license": "apache-2.0",
-      "pushed_at": "2026-09-30T13:28:08.000Z",
+      "pushed_at": "2026-10-15T05:55:12.000Z",
       "topics": [
         "conda-forge",
         "flight-planning",
         "mission-support-system",
         "python"
       ],
-      "created_at": "2020-12-03T21:52:50.000Z"
+      "created_at": "2020-12-03T21:52:50.000Z",
+      "open_issues_count": 193,
+      "commit_stats": {
+        "total_committers": 57
+      }
     },
     "issues": [
       {
@@ -640,11 +706,15 @@
     "monthly_downloads": 452,
     "repository": {
       "owner": "ESMValGroup",
-      "stargazers_count": 276,
+      "stargazers_count": 277,
       "license": "apache-2.0",
-      "pushed_at": "2026-10-01T14:11:44.000Z",
+      "pushed_at": "2026-10-15T14:04:47.000Z",
       "topics": [],
-      "created_at": "2017-01-26T14:15:37.000Z"
+      "created_at": "2017-01-26T14:15:37.000Z",
+      "open_issues_count": 232,
+      "commit_stats": {
+        "total_committers": 138
+      }
     },
     "issues": [
       {
@@ -701,7 +771,7 @@
       "owner": "NOAA-GFDL",
       "stargazers_count": 121,
       "license": "other",
-      "pushed_at": "2026-09-28T21:36:47.000Z",
+      "pushed_at": "2026-10-14T20:19:37.000Z",
       "topics": [
         "climate",
         "climate-model",
@@ -711,7 +781,11 @@
         "infrastructure",
         "netcdf"
       ],
-      "created_at": "2014-04-17T16:49:09.000Z"
+      "created_at": "2014-04-17T16:49:09.000Z",
+      "open_issues_count": 110,
+      "commit_stats": {
+        "total_committers": 90
+      }
     },
     "issues": [
       {
@@ -764,9 +838,9 @@
     "monthly_downloads": 0,
     "repository": {
       "owner": "NOAA-EMC",
-      "stargazers_count": 101,
+      "stargazers_count": 102,
       "license": "lgpl-3.0",
-      "pushed_at": "2026-10-02T14:54:25.000Z",
+      "pushed_at": "2026-10-15T18:30:42.000Z",
       "topics": [
         "gdas",
         "gefs",
@@ -776,7 +850,11 @@
         "sfs",
         "ufs"
       ],
-      "created_at": "2019-12-16T13:38:50.000Z"
+      "created_at": "2019-12-16T13:38:50.000Z",
+      "open_issues_count": 239,
+      "commit_stats": {
+        "total_committers": 86
+      }
     },
     "issues": [
       {
@@ -818,13 +896,17 @@
       "owner": "atmtools",
       "stargazers_count": 94,
       "license": "other",
-      "pushed_at": "2026-10-06T08:01:42.000Z",
+      "pushed_at": "2026-10-13T08:50:02.000Z",
       "topics": [
         "atmospheric-science",
         "cpp",
         "radiative-transfer"
       ],
-      "created_at": "2012-10-29T12:51:17.000Z"
+      "created_at": "2012-10-29T12:51:17.000Z",
+      "open_issues_count": 13,
+      "commit_stats": {
+        "total_committers": 58
+      }
     },
     "issues": [
       {
@@ -852,15 +934,19 @@
     "monthly_downloads": 0,
     "repository": {
       "owner": "open-meteo",
-      "stargazers_count": 6279,
+      "stargazers_count": 6362,
       "license": "agpl-3.0",
-      "pushed_at": "2026-09-30T14:37:21.000Z",
+      "pushed_at": "2026-10-16T16:55:53.000Z",
       "topics": [
         "weather",
         "weather-api",
         "weather-forecast"
       ],
-      "created_at": "2021-06-24T09:48:38.000Z"
+      "created_at": "2021-06-24T09:48:38.000Z",
+      "open_issues_count": 151,
+      "commit_stats": {
+        "total_committers": 52
+      }
     },
     "issues": [
       {
@@ -882,7 +968,7 @@
         "labels": [
           "good first issue"
         ],
-        "comments_count": 0,
+        "comments_count": 1,
         "created_at": "2025-12-21T12:02:23.000Z",
         "html_url": "https://github.com/open-meteo/open-meteo/issues/1636"
       }
@@ -899,13 +985,17 @@
     "monthly_downloads": 0,
     "repository": {
       "owner": "openaq",
-      "stargazers_count": 92,
+      "stargazers_count": 93,
       "license": "mit",
       "pushed_at": "2026-08-24T15:57:54.000Z",
       "topics": [
         "air-quality"
       ],
-      "created_at": "2015-10-26T23:41:23.000Z"
+      "created_at": "2015-10-26T23:41:23.000Z",
+      "open_issues_count": 121,
+      "commit_stats": {
+        "total_committers": 31
+      }
     },
     "issues": [
       {
@@ -958,9 +1048,17 @@
       "owner": "NOAA-OWP",
       "stargazers_count": 97,
       "license": "apache-2.0",
-      "pushed_at": "2026-09-28T18:22:12.000Z",
-      "topics": [],
-      "created_at": "2020-02-19T19:52:57.000Z"
+      "pushed_at": "2026-10-16T17:15:07.000Z",
+      "topics": [
+        "hydrological-modelling",
+        "hydrology",
+        "hydrology-modeling"
+      ],
+      "created_at": "2020-02-19T19:52:57.000Z",
+      "open_issues_count": 203,
+      "commit_stats": {
+        "total_committers": 41
+      }
     },
     "issues": [
       {
@@ -1003,9 +1101,9 @@
     "monthly_downloads": 12909,
     "repository": {
       "owner": "pySTEPS",
-      "stargazers_count": 588,
+      "stargazers_count": 593,
       "license": "bsd-3-clause",
-      "pushed_at": "2026-09-22T13:34:25.000Z",
+      "pushed_at": "2026-10-08T20:04:52.000Z",
       "topics": [
         "advection",
         "ensemble-prediction",
@@ -1020,7 +1118,11 @@
         "weather",
         "weather-radar"
       ],
-      "created_at": "2018-07-09T09:32:49.000Z"
+      "created_at": "2018-07-09T09:32:49.000Z",
+      "open_issues_count": 79,
+      "commit_stats": {
+        "total_committers": 34
+      }
     },
     "issues": [
       {
@@ -1047,15 +1149,19 @@
     "monthly_downloads": 2508,
     "repository": {
       "owner": "natcap",
-      "stargazers_count": 256,
+      "stargazers_count": 257,
       "license": "apache-2.0",
-      "pushed_at": "2026-09-29T18:38:13.000Z",
+      "pushed_at": "2026-10-12T14:03:16.000Z",
       "topics": [
         "ecosystem-services",
         "geospatial",
         "gis"
       ],
-      "created_at": "2020-01-29T22:22:07.000Z"
+      "created_at": "2020-01-29T22:22:07.000Z",
+      "open_issues_count": 249,
+      "commit_stats": {
+        "total_committers": 16
+      }
     },
     "issues": [
       {
@@ -1107,9 +1213,13 @@
       "owner": "remindmodel",
       "stargazers_count": 148,
       "license": "other",
-      "pushed_at": "2026-10-08T13:14:30.000Z",
+      "pushed_at": "2026-10-15T07:25:30.000Z",
       "topics": [],
-      "created_at": "2019-12-06T15:42:32.000Z"
+      "created_at": "2019-12-06T15:42:32.000Z",
+      "open_issues_count": 63,
+      "commit_stats": {
+        "total_committers": 72
+      }
     },
     "issues": [
       {
@@ -1140,14 +1250,18 @@
       "owner": "Open-EO",
       "stargazers_count": 219,
       "license": "apache-2.0",
-      "pushed_at": "2026-10-02T14:31:50.000Z",
+      "pushed_at": "2026-10-12T10:19:20.000Z",
       "topics": [
         "earth-observation",
         "openeo",
         "python",
         "remote-sensing"
       ],
-      "created_at": "2017-10-06T13:40:18.000Z"
+      "created_at": "2017-10-06T13:40:18.000Z",
+      "open_issues_count": 212,
+      "commit_stats": {
+        "total_committers": 38
+      }
     },
     "issues": [
       {
@@ -1206,7 +1320,7 @@
       "owner": "solectrus",
       "stargazers_count": 166,
       "license": "agpl-3.0",
-      "pushed_at": "2026-10-06T18:11:23.000Z",
+      "pushed_at": "2026-10-13T09:10:08.000Z",
       "topics": [
         "homelab",
         "influxdb",
@@ -1216,7 +1330,11 @@
         "photovoltaics-dashboard",
         "self-hosted"
       ],
-      "created_at": "2020-12-19T18:28:37.000Z"
+      "created_at": "2020-12-19T18:28:37.000Z",
+      "open_issues_count": 50,
+      "commit_stats": {
+        "total_committers": 7
+      }
     },
     "issues": [
       {
@@ -1265,9 +1383,9 @@
     "monthly_downloads": 116,
     "repository": {
       "owner": "GreenScheduler",
-      "stargazers_count": 81,
+      "stargazers_count": 82,
       "license": "mit",
-      "pushed_at": "2026-10-01T11:40:18.000Z",
+      "pushed_at": "2026-10-08T11:06:42.000Z",
       "topics": [
         "carbon",
         "carbon-footprint",
@@ -1280,7 +1398,11 @@
         "job-scheduler",
         "scheduling"
       ],
-      "created_at": "2023-05-04T09:16:56.000Z"
+      "created_at": "2023-05-04T09:16:56.000Z",
+      "open_issues_count": 43,
+      "commit_stats": {
+        "total_committers": 12
+      }
     },
     "issues": [
       {
@@ -1341,7 +1463,11 @@
         "hydropower",
         "water-resources"
       ],
-      "created_at": "2021-10-30T19:45:13.000Z"
+      "created_at": "2021-10-30T19:45:13.000Z",
+      "open_issues_count": 15,
+      "commit_stats": {
+        "total_committers": 2
+      }
     },
     "issues": [
       {
@@ -1393,7 +1519,11 @@
         "scientific-machine-learning",
         "sciml"
       ],
-      "created_at": "2021-03-17T16:12:29.000Z"
+      "created_at": "2021-03-17T16:12:29.000Z",
+      "open_issues_count": 62,
+      "commit_stats": {
+        "total_committers": 4
+      }
     },
     "issues": [
       {
@@ -1410,61 +1540,6 @@
     ]
   },
   {
-    "id": 16396,
-    "name": "huawei_solar",
-    "description": "This integration exposes the information and functions made available by Huawei Solar inverters directly via one of its Modbus interfaces in Home Assistant.",
-    "url": "https://github.com/wlcrs/huawei_solar",
-    "language": "Python",
-    "category": "Renewable Energy",
-    "has_new_issues": false,
-    "monthly_downloads": 0,
-    "repository": {
-      "owner": "wlcrs",
-      "stargazers_count": 934,
-      "license": "agpl-3.0",
-      "pushed_at": "2026-09-29T18:47:29.000Z",
-      "topics": [
-        "home-assistant",
-        "home-assistant-integration",
-        "huawei",
-        "huawei-solar",
-        "modbus",
-        "modbus-rtu",
-        "modbus-tcp",
-        "solar-energy"
-      ],
-      "created_at": "2021-10-20T15:12:45.000Z"
-    },
-    "issues": [
-      {
-        "uuid": "2824264722",
-        "number": 912,
-        "title": "[Feature request]: add support for SDongle registers",
-        "labels": [
-          "enhancement",
-          "help wanted",
-          "on-hold"
-        ],
-        "comments_count": 8,
-        "created_at": "2025-01-31T19:42:30.000Z",
-        "html_url": "https://github.com/wlcrs/huawei_solar/issues/912"
-      },
-      {
-        "uuid": "4027614388",
-        "number": 1265,
-        "title": "[Bug]: Timestamps don't match",
-        "labels": [
-          "bug",
-          "help wanted",
-          "on-hold"
-        ],
-        "comments_count": 8,
-        "created_at": "2026-03-05T11:21:57.000Z",
-        "html_url": "https://github.com/wlcrs/huawei_solar/issues/1265"
-      }
-    ]
-  },
-  {
     "id": 17011,
     "name": "SalishSeaNowcast",
     "description": "A collection of Python modules associated with running the SalishSeaCast ocean models system of daily nowcasts and forecasts.",
@@ -1477,7 +1552,7 @@
       "owner": "SalishSeaCast",
       "stargazers_count": 7,
       "license": "apache-2.0",
-      "pushed_at": "2026-09-14T19:07:01.000Z",
+      "pushed_at": "2026-10-13T16:28:20.000Z",
       "topics": [
         "automation",
         "ocean-modelling",
@@ -1486,7 +1561,11 @@
         "salishseacast",
         "ubc-moad"
       ],
-      "created_at": "2020-02-01T01:41:43.000Z"
+      "created_at": "2020-02-01T01:41:43.000Z",
+      "open_issues_count": 31,
+      "commit_stats": {
+        "total_committers": 21
+      }
     },
     "issues": [
       {
@@ -1515,9 +1594,9 @@
     "monthly_downloads": 1289794,
     "repository": {
       "owner": "pvlib",
-      "stargazers_count": 1678,
+      "stargazers_count": 1699,
       "license": "bsd-3-clause",
-      "pushed_at": "2026-10-01T17:35:28.000Z",
+      "pushed_at": "2026-10-15T11:30:13.000Z",
       "topics": [
         "photovoltaic",
         "python",
@@ -1525,7 +1604,11 @@
         "renewables",
         "solar-energy"
       ],
-      "created_at": "2015-02-17T00:21:33.000Z"
+      "created_at": "2015-02-17T00:21:33.000Z",
+      "open_issues_count": 256,
+      "commit_stats": {
+        "total_committers": 129
+      }
     },
     "issues": [
       {
@@ -1571,6 +1654,41 @@
     ]
   },
   {
+    "id": 19798,
+    "name": "Pysolar",
+    "description": "A collection of Python libraries for simulating the irradiation of any point on earth by the sun. It includes code for extremely precise ephemeris calculations.",
+    "url": "https://github.com/pingswept/pysolar",
+    "language": "Jupyter Notebook",
+    "category": "Renewable Energy",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "pingswept",
+      "stargazers_count": 405,
+      "license": "gpl-3.0",
+      "pushed_at": "2025-10-20T14:49:53.000Z",
+      "topics": [],
+      "created_at": "2008-03-01T23:35:48.000Z",
+      "open_issues_count": 17,
+      "commit_stats": {
+        "total_committers": 50
+      }
+    },
+    "issues": [
+      {
+        "uuid": "1436309411",
+        "number": 155,
+        "title": "Discontinuity just after sunset",
+        "labels": [
+          "help wanted"
+        ],
+        "comments_count": 2,
+        "created_at": "2022-11-04T16:05:25.000Z",
+        "html_url": "https://github.com/pingswept/pysolar/issues/155"
+      }
+    ]
+  },
+  {
     "id": 19865,
     "name": "cellpy",
     "description": "Extract and tweak data from electro-chemical tests of battery cells.",
@@ -1581,9 +1699,9 @@
     "monthly_downloads": 1890,
     "repository": {
       "owner": "jepegit",
-      "stargazers_count": 110,
+      "stargazers_count": 111,
       "license": "mit",
-      "pushed_at": "2026-10-06T12:23:49.000Z",
+      "pushed_at": "2026-10-15T17:06:56.000Z",
       "topics": [
         "battery",
         "chemistry",
@@ -1592,7 +1710,11 @@
         "opensource",
         "physics"
       ],
-      "created_at": "2015-12-17T11:33:35.000Z"
+      "created_at": "2015-12-17T11:33:35.000Z",
+      "open_issues_count": 42,
+      "commit_stats": {
+        "total_committers": 17
+      }
     },
     "issues": [
       {
@@ -1651,7 +1773,7 @@
       "owner": "openghg",
       "stargazers_count": 46,
       "license": "apache-2.0",
-      "pushed_at": "2026-10-05T16:20:27.000Z",
+      "pushed_at": "2026-10-13T19:54:57.000Z",
       "topics": [
         "analysis",
         "cloud",
@@ -1659,7 +1781,11 @@
         "data-science",
         "greenhouse-gas"
       ],
-      "created_at": "2020-09-30T14:35:48.000Z"
+      "created_at": "2020-09-30T14:35:48.000Z",
+      "open_issues_count": 274,
+      "commit_stats": {
+        "total_committers": 17
+      }
     },
     "issues": [
       {
@@ -1691,7 +1817,7 @@
       "owner": "icesat2py",
       "stargazers_count": 259,
       "license": "bsd-3-clause",
-      "pushed_at": "2026-09-07T22:00:04.000Z",
+      "pushed_at": "2026-10-12T03:26:07.000Z",
       "topics": [
         "closember",
         "community-driven",
@@ -1699,7 +1825,11 @@
         "icesat-2",
         "python3"
       ],
-      "created_at": "2019-06-20T23:49:26.000Z"
+      "created_at": "2019-06-20T23:49:26.000Z",
+      "open_issues_count": 115,
+      "commit_stats": {
+        "total_committers": 33
+      }
     },
     "issues": [
       {
@@ -1753,7 +1883,7 @@
       "owner": "hydroshare",
       "stargazers_count": 199,
       "license": "bsd-3-clause",
-      "pushed_at": "2026-10-02T17:28:33.000Z",
+      "pushed_at": "2026-10-09T15:40:05.000Z",
       "topics": [
         "collaboration",
         "django",
@@ -1774,7 +1904,11 @@
         "python",
         "solr"
       ],
-      "created_at": "2014-10-02T02:19:41.000Z"
+      "created_at": "2014-10-02T02:19:41.000Z",
+      "open_issues_count": 346,
+      "commit_stats": {
+        "total_committers": 68
+      }
     },
     "issues": [
       {
@@ -1791,22 +1925,6 @@
         "html_url": "https://github.com/hydroshare/hydroshare/issues/5550"
       },
       {
-        "uuid": "481013611",
-        "number": 3524,
-        "title": "Repeated file upload validation error is left in a JSON-type format when displayed to the user.",
-        "labels": [
-          "Resource Landing Page",
-          "Cosmetic",
-          "enhancement",
-          "good-first-issue",
-          "Pages and General HS Components",
-          "blocked"
-        ],
-        "comments_count": 5,
-        "created_at": "2019-08-15T06:32:08.000Z",
-        "html_url": "https://github.com/hydroshare/hydroshare/issues/3524"
-      },
-      {
         "uuid": "1239998950",
         "number": 4624,
         "title": "Remove redundant horizontal scroll bar below additional metadata on resource landing page",
@@ -1819,6 +1937,18 @@
         "comments_count": 0,
         "created_at": "2022-05-18T13:50:01.000Z",
         "html_url": "https://github.com/hydroshare/hydroshare/issues/4624"
+      },
+      {
+        "uuid": "1508156648",
+        "number": 4918,
+        "title": "Form fields have varying style within a single form",
+        "labels": [
+          "Cosmetic",
+          "good-first-issue"
+        ],
+        "comments_count": 1,
+        "created_at": "2022-12-22T16:19:09.000Z",
+        "html_url": "https://github.com/hydroshare/hydroshare/issues/4918"
       }
     ]
   },
@@ -1833,9 +1963,9 @@
     "monthly_downloads": 6769,
     "repository": {
       "owner": "euroargodev",
-      "stargazers_count": 231,
+      "stargazers_count": 232,
       "license": "eupl-1.2",
-      "pushed_at": "2026-10-05T15:24:17.000Z",
+      "pushed_at": "2026-10-13T20:41:10.000Z",
       "topics": [
         "argo",
         "argo-data",
@@ -1843,7 +1973,11 @@
         "oceanography",
         "python"
       ],
-      "created_at": "2020-03-17T16:14:32.000Z"
+      "created_at": "2020-03-17T16:14:32.000Z",
+      "open_issues_count": 54,
+      "commit_stats": {
+        "total_committers": 12
+      }
     },
     "issues": [
       {
@@ -1884,7 +2018,7 @@
           "performance",
           "internals"
         ],
-        "comments_count": 4,
+        "comments_count": 7,
         "created_at": "2026-01-14T17:07:59.000Z",
         "html_url": "https://github.com/euroargodev/argopy/issues/574"
       }
@@ -1903,7 +2037,7 @@
       "owner": "LCA-ActivityBrowser",
       "stargazers_count": 208,
       "license": "lgpl-3.0",
-      "pushed_at": "2026-08-31T08:18:47.000Z",
+      "pushed_at": "2026-10-12T17:01:37.000Z",
       "topics": [
         "brightway2",
         "lca",
@@ -1912,7 +2046,11 @@
         "pyside6",
         "python"
       ],
-      "created_at": "2017-04-19T17:10:57.000Z"
+      "created_at": "2017-04-19T17:10:57.000Z",
+      "open_issues_count": 91,
+      "commit_stats": {
+        "total_committers": 38
+      }
     },
     "issues": [
       {
@@ -1954,7 +2092,7 @@
       "owner": "MTES-MCT",
       "stargazers_count": 51,
       "license": "mit",
-      "pushed_at": "2026-10-08T13:45:52.000Z",
+      "pushed_at": "2026-10-15T16:07:03.000Z",
       "topics": [
         "carbon-emissions",
         "carbon-footprint",
@@ -1962,7 +2100,11 @@
         "environmental-footprint",
         "simulation"
       ],
-      "created_at": "2021-08-18T15:18:29.000Z"
+      "created_at": "2021-08-18T15:18:29.000Z",
+      "open_issues_count": 187,
+      "commit_stats": {
+        "total_committers": 13
+      }
     },
     "issues": [
       {
@@ -1991,9 +2133,9 @@
     "monthly_downloads": 54254,
     "repository": {
       "owner": "pybamm-team",
-      "stargazers_count": 1673,
+      "stargazers_count": 1693,
       "license": "bsd-3-clause",
-      "pushed_at": "2026-10-02T16:16:22.000Z",
+      "pushed_at": "2026-10-16T15:31:29.000Z",
       "topics": [
         "batteries",
         "battery-models",
@@ -2003,7 +2145,11 @@
         "simulation",
         "solvers"
       ],
-      "created_at": "2018-10-31T10:26:29.000Z"
+      "created_at": "2018-10-31T10:26:29.000Z",
+      "open_issues_count": 302,
+      "commit_stats": {
+        "total_committers": 127
+      }
     },
     "issues": [
       {
@@ -2020,19 +2166,6 @@
         "html_url": "https://github.com/pybamm-team/PyBaMM/issues/2221"
       },
       {
-        "uuid": "2586505259",
-        "number": 4512,
-        "title": "Use `numpy.typing.NDArray` instead of `np.ndarray`",
-        "labels": [
-          "difficulty: easy",
-          "priority: low",
-          "hacktoberfest"
-        ],
-        "comments_count": 0,
-        "created_at": "2024-10-14T16:20:07.000Z",
-        "html_url": "https://github.com/pybamm-team/PyBaMM/issues/4512"
-      },
-      {
         "uuid": "2055834702",
         "number": 3662,
         "title": "Too many failing checks / implement smarter CI",
@@ -2046,6 +2179,19 @@
         "comments_count": 11,
         "created_at": "2023-12-25T19:20:56.000Z",
         "html_url": "https://github.com/pybamm-team/PyBaMM/issues/3662"
+      },
+      {
+        "uuid": "2380482477",
+        "number": 4227,
+        "title": "Create reusable workflows for scheduled and regular tests",
+        "labels": [
+          "difficulty: easy",
+          "priority: low",
+          "hacktoberfest"
+        ],
+        "comments_count": 2,
+        "created_at": "2024-06-28T13:47:28.000Z",
+        "html_url": "https://github.com/pybamm-team/PyBaMM/issues/4227"
       }
     ]
   },
@@ -2060,11 +2206,15 @@
     "monthly_downloads": 0,
     "repository": {
       "owner": "FESOM",
-      "stargazers_count": 70,
+      "stargazers_count": 71,
       "license": "gpl-3.0",
-      "pushed_at": "2026-10-06T14:15:10.000Z",
+      "pushed_at": "2026-10-14T03:09:04.000Z",
       "topics": [],
-      "created_at": "2018-07-02T10:50:34.000Z"
+      "created_at": "2018-07-02T10:50:34.000Z",
+      "open_issues_count": 68,
+      "commit_stats": {
+        "total_committers": 94
+      }
     },
     "issues": [
       {
@@ -2117,7 +2267,9 @@
         "student-vscode",
         "travis"
       ],
-      "created_at": "2023-01-16T01:01:58.000Z"
+      "created_at": "2023-01-16T01:01:58.000Z",
+      "open_issues_count": 1,
+      "commit_stats": null
     },
     "issues": [
       {
