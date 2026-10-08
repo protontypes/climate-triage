@@ -1,0 +1,35 @@
+[
+  {
+    "id": "climatebase-senior-solar-engineer",
+    "title": "Senior Solar Engineer",
+    "organization": "Example Solar Cooperative",
+    "url": "https://example.org/jobs/senior-solar-engineer",
+    "source": "Climatebase",
+    "sourceUrl": "https://climatebase.org/jobs",
+    "location": "Remote (EU)",
+    "remote": true,
+    "postedAt": "2026-09-15"
+  },
+  {
+    "id": "lf-energy-oss-developer",
+    "title": "Open Source Developer, Energy Data",
+    "organization": "Example Grid Foundation",
+    "url": "https://example.org/jobs/oss-energy-data",
+    "source": "LF Energy",
+    "sourceUrl": "https://lfenergy.org/careers",
+    "location": "Berlin, DE",
+    "remote": false,
+    "postedAt": "2026-09-20"
+  },
+  {
+    "id": "opensustain-community-manager",
+    "title": "Community Manager",
+    "organization": "Example Sustainability Collective",
+    "url": "https://example.org/jobs/community-manager",
+    "source": "OpenSustain.tech",
+    "sourceUrl": "https://opensustain.tech",
+    "location": "Remote (Global)",
+    "remote": true,
+    "postedAt": "2026-09-28"
+  }
+]
