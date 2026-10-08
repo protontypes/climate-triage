@@ -81,7 +81,7 @@ export const TagPicker = ({
           ["max-h-full"]: !isCollapsed
         })}
       >
-        {tags
+        {[...tags]
           .sort((a, b) => b.count - a.count)
           .slice(0, limit)
           .map((tag) => {
