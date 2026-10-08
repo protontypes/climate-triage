@@ -15,17 +15,22 @@ jobs:
       - name: Fetch Good First Issues
         id: fetch_issues
         run: |
-          # Uncomment the following line for production:
-           response=$(curl -s https://ost.ecosyste.ms/api/v1/issues?recent=true)
-
-          # For testing purposes, create a sample response as a single-line JSON
-          # response='[{"project":{"name":"Project A","language":"Python"},"title":"Issue 1","html_url":"www.github.com/issue1","labels":["good first issue"]},{"project":{"name":"Project B","language":"JavaScript"},"title":"Issue 2","html_url":"www.github.com/issue2","labels":["good first issue"]},{"project":{"name":"Project C","language":"Ruby"},"title":"Issue 3","html_url":"www.github.com/issue3","labels":["bug"]}]'
-
-          echo "$response" > issues.json
+          set -euo pipefail
+          if ! curl -fsSL "https://ost.ecosyste.ms/api/v1/issues?recent=true" -o issues.json; then
+            echo "Failed to fetch issues API. Exiting with failure."
+            exit 1
+          fi
+          if ! jq empty issues.json; then
+            echo "issues.json is not valid JSON. Exiting with failure."
+            exit 1
+          fi
+          echo "Fetched $(jq length issues.json) issues."
 
       - name: Check if there are issues
         run: |
-          if [[ ! -s issues.json ]] || [[ "$(jq length issues.json)" -eq 0 ]]; then
+          count=$(jq length issues.json)
+          echo "issues.json contains $count records."
+          if [[ ! -s issues.json ]] || [[ "$count" -eq 0 ]]; then
             echo "No issues found. Exiting."
             exit 0
           fi
@@ -36,12 +41,16 @@ jobs:
         env:
           default_hashtags: " #climate #sustainability #opensource #opensustain #goodfirstissue #goodfirstissues"
         run: |
-          jq -c --arg hashtags "$default_hashtags" '[.[] | select(.labels[] == "good first issue") | {
-            message: (.title + " (" + .project.language + ") - " + .project.name + " " + .html_url + $hashtags)
+          jq -c --arg hashtags "$default_hashtags" '[.[] | select(.labels[] | if type == "object" then .name else . end == "good first issue") | {
+            message: (.title + " (" + (.project.language // "unknown") + ") - " + (.project.name // "unknown") + " " + .html_url + $hashtags)
           }]' issues.json > posts.json
 
-          echo "Prepared posts:"
+          echo "Prepared $(jq length posts.json) posts:"
           cat posts.json
+          if [[ "$(jq length posts.json)" -eq 0 ]]; then
+            echo "No good first issues after label filter. Exiting."
+            exit 0
+          fi
 
       - name: Send posts to Bluesky
         env:

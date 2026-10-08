@@ -9,22 +9,29 @@ jobs:
   post_good_first_issue:
     runs-on: ubuntu-latest
     steps:
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
       - name: Fetch Good First Issues
         id: fetch_issues
         run: |
-          # Uncomment the following line for production:
-           response=$(curl -s https://ost.ecosyste.ms/api/v1/issues?recent=true)
-
-          # For testing purposes, create a sample response as a single-line JSON
-          # response='[{"project":{"name":"Project A","language":"Python"},"title":"Issue 1","html_url":"www.github.com/issue1","labels":["good first issue"]},{"project":{"name":"Project B","language":"JavaScript"},"title":"Issue 2","html_url":"www.github.com/issue2","labels":["good first issue"]},{"project":{"name":"Project C","language":"Ruby"},"title":"Issue 3","html_url":"www.github.com/issue3","labels":["bug"]}]'
-
-          # Save to environment for next steps
-          echo "response=$response" >> $GITHUB_ENV
+          set -euo pipefail
+          if ! curl -fsSL "https://ost.ecosyste.ms/api/v1/issues?recent=true" -o issues.json; then
+            echo "Failed to fetch issues API. Exiting with failure."
+            exit 1
+          fi
+          if ! jq empty issues.json; then
+            echo "issues.json is not valid JSON. Exiting with failure."
+            exit 1
+          fi
+          echo "Fetched $(jq length issues.json) issues."
 
       - name: Check if there are issues
         id: check_issues
         run: |
-          if [[ -z "${response}" ]] || [[ "${response}" == "[]" ]]; then
+          count=$(jq length issues.json)
+          echo "issues.json contains $count records."
+          if [[ ! -s issues.json ]] || [[ "$count" -eq 0 ]]; then
             echo "No issues found. Exiting."
             exit 0
           fi
@@ -34,16 +41,14 @@ jobs:
         env:
           default_hashtags: " #climate #sustainability #opensource #opensustain #goodfirstissue #goodfirstissues"
         run: |
-          posts=$(echo "${response}" | jq -c '[.[] | select(.labels[] == "good first issue") | {project_name: .project.name, title: .title, language: .project.language, html_url: .html_url}]')
-          echo "posts=$posts" >> $GITHUB_ENV
+          jq -c '[.[] | select(.labels[] | if type == "object" then .name else . end == "good first issue") | {project_name: (.project.name // "unknown"), title, language: (.project.language // "unknown"), html_url}]' issues.json > posts.json
 
-          # Display the prepared posts for debugging
-          echo "Prepared posts:"
-          echo "$posts"
+          echo "Prepared $(jq length posts.json) posts:"
+          cat posts.json
 
       - name: Check if there are posts
         run: |
-          if [[ -z "${posts}" ]] || [[ "${posts}" == "[]" ]]; then
+          if [[ ! -s posts.json ]] || [[ "$(jq length posts.json)" -eq 0 ]]; then
             echo "No posts to send. Exiting."
             exit 0
           fi
@@ -55,7 +60,7 @@ jobs:
           MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
           default_hashtags: " #climate #sustainability #opensource #opensustain #goodfirstissue #goodfirstissues"
         run: |
-          echo "${posts}" | jq -c '.[]' | while read -r post; do
+          jq -c '.[]' posts.json | while read -r post; do
             project_name=$(echo "$post" | jq -r '.project_name')
             title=$(echo "$post" | jq -r '.title')
             language=$(echo "$post" | jq -r '.language')
@@ -63,7 +68,8 @@ jobs:
             post_message="$title ($language) - $project_name $html_url $default_hashtags"
 
             echo "Sending to Mastodon..."
-            curl -s -X POST "${MASTODON_URL}/api/v1/statuses" \
+            curl -fsSL -X POST "${MASTODON_URL}/api/v1/statuses" \
               -H "Authorization: Bearer $MASTODON_ACCESS_TOKEN" \
-              -d "status=A new good first issue available for contribution: $post_message&visibility=public"
+              --data-urlencode "status=A new good first issue available for contribution: $post_message" \
+              --data-urlencode "visibility=public"
           done
