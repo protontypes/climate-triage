@@ -41,33 +41,19 @@ $ git checkout -b branch_name
 # To add all new files to branch Branch_Name
 $ git add .
 ```
-## Step 4.5 : Pre-commit hook (lint + test)
-- After your first `pnpm install`, the `prepare` script (`husky install`) installs the Git pre-commit hook from `.husky/pre-commit`.
-- Every `git commit` automatically runs:
-```
-pnpm lint
-pnpm test
-```
+## Step 4.5 : Pre-commit hook (lint-staged)
+- After your first `pnpm install`, the `prepare` script (`husky`) installs the Git pre-commit hook from `.husky/pre-commit`.
+- Every `git commit` runs [lint-staged](https://github.com/lint-staged/lint-staged), which runs `eslint --fix` on the staged `.js`, `.jsx`, `.ts` and `.tsx` files and stages the fixes.
+- If ESLint finds something it can't fix, the commit is blocked. Fix the reported errors, stage the fixes, and commit again.
 - If the hook does not run (e.g. you cloned but skipped `pnpm install`), enable it manually with:
 ```
-npx husky install
+pnpm exec husky
 ```
-- `pnpm lint:fix` auto-fixes what ESLint can, and `pnpm typecheck` runs the TypeScript check that CI runs on every PR.
-- If lint or tests fail, the commit is blocked. Fix the reported errors, stage the fixes, and commit again. Example:
+- CI runs the full checks on every PR. To run them locally first:
 ```
-$ git commit -m "my change"
-pnpm lint
-Failed to compile.
-./app/page.tsx
-12:7  Error: 'foo' is defined but never used.  @typescript-eslint/no-unused-vars
-commit blocked: lint failed
-
-$ git commit -m "my change"
-pnpm lint
-✔ No ESLint warnings or errors
+pnpm lint        # or `pnpm lint:fix` to auto-fix what ESLint can
+pnpm typecheck
 pnpm test
-Tests: 5 passed, 5 total
-[main abc1234] my change
 ```
 ## Step 5 : Commit
 - To commit give a descriptive message for the convenience of reveiwer by:
