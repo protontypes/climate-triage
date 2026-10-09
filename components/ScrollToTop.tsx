@@ -7,12 +7,14 @@ type ScrollToTopProps = {
 
 const ScrollToTop = ({ handleOnClick }: ScrollToTopProps) => {
   return (
-    <div className="z-50 hidden sm:visible">
+    <div className="z-50 hidden sm:block">
       <button
+        type="button"
+        aria-label="Scroll to top"
         onClick={handleOnClick}
         className="fixed bottom-4 right-4 flex size-[64px] items-center justify-center rounded-full border border-primary bg-transparent hover:bg-primary hover:text-black md:bottom-7 md:right-4"
       >
-        <FontAwesomeIcon icon={faArrowUp} size="xl" />
+        <FontAwesomeIcon icon={faArrowUp} size="xl" aria-hidden="true" />
       </button>
     </div>
   );

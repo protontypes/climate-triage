@@ -28,7 +28,8 @@ const main = async () => {
     "⚠️ This command must be run from the root of the project directory with `pnpm prebuild`"
   );
   try {
-    const repositories = (await GetAllProjects()).map(
+    const sample = process.argv.includes("--sample");
+    const repositories = (await GetAllProjects({ sample })).map(
       ({
         id,
         name,

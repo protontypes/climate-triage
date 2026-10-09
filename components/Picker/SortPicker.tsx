@@ -29,28 +29,30 @@ export const SortPicker = ({
       </div>
       <div className="-mx-1">
         {sortOptions.map((sortOption) => {
+          const isActive = activeSort === sortOption;
           return (
             <button
               key={sortOption}
+              type="button"
+              aria-pressed={isActive}
               onClick={() => onSortMethodSelect(sortOption, sortDirection)}
               className={classNames("group m-1 inline-block rounded-sm border px-2 py-1", {
-                ["active-pill"]: activeSort === sortOption,
-                ["border-silver-100 transition-all hover:border-primary hover:text-primary"]: !(
-                  activeSort === sortOption
-                )
+                ["active-pill"]: isActive,
+                ["border-silver-100 transition-all hover:border-primary hover:text-primary"]:
+                  !isActive
               })}
             >
               {sortOption}
-              {activeSort === sortOption && (
+              {isActive && (
                 <>
                   {sortDirection === RepositorySortDirection.ASCENDING && (
-                    <FontAwesomeIcon icon={faCaretUp} className="ms-1" />
+                    <FontAwesomeIcon icon={faCaretUp} className="ms-1" aria-hidden="true" />
                   )}
                   {sortDirection === RepositorySortDirection.DESCENDING && (
-                    <FontAwesomeIcon icon={faCaretDown} className="ms-1" />
+                    <FontAwesomeIcon icon={faCaretDown} className="ms-1" aria-hidden="true" />
                   )}
                   {sortDirection === RepositorySortDirection.NONE && (
-                    <FontAwesomeIcon icon={faShuffle} className="ms-1" />
+                    <FontAwesomeIcon icon={faShuffle} className="ms-1" aria-hidden="true" />
                   )}
                 </>
               )}
