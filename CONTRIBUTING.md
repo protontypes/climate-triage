@@ -41,6 +41,20 @@ $ git checkout -b branch_name
 # To add all new files to branch Branch_Name
 $ git add .
 ```
+## Step 4.5 : Pre-commit hook (lint-staged)
+- After your first `pnpm install`, the `prepare` script (`husky`) installs the Git pre-commit hook from `.husky/pre-commit`.
+- Every `git commit` runs [lint-staged](https://github.com/lint-staged/lint-staged), which runs `eslint --fix` on the staged `.js`, `.jsx`, `.ts` and `.tsx` files and stages the fixes.
+- If ESLint finds something it can't fix, the commit is blocked. Fix the reported errors, stage the fixes, and commit again.
+- If the hook does not run (e.g. you cloned but skipped `pnpm install`), enable it manually with:
+```
+pnpm exec husky
+```
+- CI runs the full checks on every PR. To run them locally first:
+```
+pnpm lint        # or `pnpm lint:fix` to auto-fix what ESLint can
+pnpm typecheck
+pnpm test
+```
 ## Step 5 : Commit
 - To commit give a descriptive message for the convenience of reveiwer by:
 ```
