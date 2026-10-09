@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: config.meta.title,
     description: config.meta.description,
-    url: "./",
+    url: config.meta.siteUrl,
     siteName: config.meta.title,
     images: [
       {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     type: "website"
   },
   alternates: {
-    canonical: "./"
+    canonical: config.meta.siteUrl
   },
   robots: {
     index: true,
@@ -55,6 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: config.meta.title,
+    description: config.meta.description,
     card: "summary_large_image",
     images: [socialBannerUrl]
   },
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1
+  themeColor: "#2563eb"
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
