@@ -48,23 +48,29 @@ export const TagPicker = ({
 
   return (
     <div className="pt-6">
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-      <div
-        onClick={toggleCollapsible}
-        className={`flex cursor-pointer ${isCollapsed ? "sm:flex" : ""}`}
-      >
-        <SectionTitle text="Browse by tag" />
-        <FontAwesomeIcon
-          icon={faChevronDown}
-          className={classNames(
-            "mx-2 mt-[3px] text-gray-900 transition-transform duration-300 ease-in-out dark:text-silver-500",
-            {
-              ["rotate-0"]: isCollapsed,
-              ["rotate-180"]: !isCollapsed
-            }
-          )}
-        />
+      <div className={`flex items-center ${isCollapsed ? "sm:flex" : ""}`}>
         <button
+          type="button"
+          onClick={toggleCollapsible}
+          aria-expanded={!isCollapsed}
+          aria-controls="tag-picker-panel"
+          className="flex cursor-pointer items-center"
+        >
+          <SectionTitle text="Browse by tag" />
+          <FontAwesomeIcon
+            icon={faChevronDown}
+            aria-hidden="true"
+            className={classNames(
+              "mx-2 mt-[3px] text-gray-900 transition-transform duration-300 ease-in-out dark:text-silver-500",
+              {
+                ["rotate-0"]: isCollapsed,
+                ["rotate-180"]: !isCollapsed
+              }
+            )}
+          />
+        </button>
+        <button
+          type="button"
           className={`${
             !isShowLessVisible ? "md:hidden" : "md:inline-block"
           } active-pill group mb-2 ml-2 hidden cursor-pointer rounded-sm border px-2 py-1 transition-all hover:bg-primary hover:text-white`}
@@ -76,6 +82,7 @@ export const TagPicker = ({
         {activeTagId && isCollapsed && <ActiveTagButton data={activeTagId} />}
       </div>
       <div
+        id="tag-picker-panel"
         className={classNames("-mx-1 mt-2 overflow-hidden duration-300 ease-in-out", {
           ["max-h-0 sm:max-h-20"]: isCollapsed,
           ["max-h-full"]: !isCollapsed
