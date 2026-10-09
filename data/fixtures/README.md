@@ -5,8 +5,9 @@
 `pnpm prebuild:sample` builds the site from it instead of calling the API. PR builds use it, so
 they don't send requests to ecosyste.ms and give the same result on every run.
 
-It holds 2 projects per category (at most 3 issues each), keeping only the fields
-`data/index.ts` reads. It contains no issue bodies or issue authors.
+It holds 3 projects per category, the minimum for a category to get a page, with at most 3
+issues each. It keeps only the fields `data/index.ts` reads, so it contains no issue bodies or
+issue authors.
 
 ## License
 
@@ -22,7 +23,7 @@ Requires [jq](https://jqlang.org/). If `data/index.ts` starts reading a new fiel
 curl -s "https://ost.ecosyste.ms/api/v1/issues/openclimateaction?per_page=300" | jq '
   sort_by(.id)
   | map(select((.issues | length) > 0))
-  | group_by(.category) | map(.[:2]) | flatten | sort_by(.id)
+  | group_by(.category) | map(.[:3]) | flatten | sort_by(.id)
   | map({
       id, name, description, url, language, category, has_new_issues, monthly_downloads,
       repository: (.repository | {owner, stargazers_count, license, pushed_at, topics, created_at}),
