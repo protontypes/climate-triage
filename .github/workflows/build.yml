@@ -10,7 +10,7 @@ on:
 permissions:
   contents: read
 
-# Its own group per ref: sharing the "pages" group with Build & Deploy made PR builds
+# Its own group per ref: sharing the "pages" group with Fetch & Deploy made PR builds
 # queue behind, and be dropped by, production deploys.
 concurrency:
   group: build-${{ github.ref }}
@@ -39,10 +39,10 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
-      # No continue-on-error here: a PR build that skips the build when the API is down
-      # reports green without having built anything. Re-run the job instead.
+      # Builds from the committed sample instead of the ecosyste.ms API, so PRs don't
+      # send it requests. Live data is still built hourly by Fetch & Deploy.
       - name: Run Prebuild Script
-        run: pnpm prebuild
+        run: pnpm prebuild:sample
 
       - name: Build the Project
         env:
