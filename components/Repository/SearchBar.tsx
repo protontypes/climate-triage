@@ -1,16 +1,24 @@
 // searchbar.tsx
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppData } from "../../hooks/useAppData";
+
+const SEARCH_DEBOUNCE_MS = 200;
 
 export const SearchBar = () => {
   const [query, setQuery] = useState("");
   const { filterRepositoriesByQuery } = useAppData();
 
+  // Debounce filtering: it rebuilds a search string per repository,
+  // so avoid running it on every keystroke.
+  useEffect(() => {
+    const timer = setTimeout(() => filterRepositoriesByQuery(query), SEARCH_DEBOUNCE_MS);
+    return () => clearTimeout(timer);
+  }, [query, filterRepositoriesByQuery]);
+
   const handleSearch = (searchQuery: string) => {
     setQuery(searchQuery);
-    filterRepositoriesByQuery(searchQuery);
   };
 
   return (
