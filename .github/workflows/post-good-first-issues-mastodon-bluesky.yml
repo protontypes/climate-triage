@@ -4,24 +4,28 @@ on:
     types:
       - labeled
 
+permissions: {}
+
 jobs:
   post_good_first_issue:
     runs-on: ubuntu-latest
     if: contains(github.event.label.name, 'good first issue')
     steps:
+      # The title goes through env, never `${{ }}` inside `run`: whoever opens the issue
+      # controls it, and interpolating it into the script would run it as shell.
       - name: Prepare Post
         env:
           default_hashtags: " #climate #sustainability #opensource #opensustain #goodfirstissue #goodfirstissues"
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
-          issue_title="${{ github.event.issue.title }}"
-          issue_url="${{ github.event.issue.html_url }}"
-          issue_text="${{ github.event.issue.body }}"
-          post_message="$issue_title $issue_url $default_hashtags"
-          echo "post_message=$post_message" >> $GITHUB_ENV
+          # Flatten newlines so the title can't write extra lines into $GITHUB_ENV.
+          issue_title=$(printf '%s' "$ISSUE_TITLE" | tr '\r\n' '  ')
+          echo "post_message=$issue_title $ISSUE_URL $default_hashtags" >> "$GITHUB_ENV"
 
       - name: Send post to Bluesky
         id: bluesky_post
-        uses: myConsciousness/bluesky-post@v5
+        uses: myConsciousness/bluesky-post@2d132869a6a51dea18183a26984a09f67744417e # v6
         with:
           text: |
             A new good first issue available for contribution: 
@@ -31,7 +35,7 @@ jobs:
 
       - name: Send post to Mastodon
         id: mastodon_post
-        uses: cbrgm/mastodon-github-action@v2
+        uses: cbrgm/mastodon-github-action@5939c6e084a12d79415a1e7637a6dbf6de241ab1 # v2.2.5
         with:
           message: |
             A new good first issue available for contribution: 

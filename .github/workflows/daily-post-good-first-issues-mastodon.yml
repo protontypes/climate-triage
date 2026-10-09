@@ -5,6 +5,8 @@ on:
   schedule:
     - cron: "0 12 * * *" # Runs daily at 12:00 PM UTC
 
+permissions: {}
+
 jobs:
   post_good_first_issue:
     runs-on: ubuntu-latest
@@ -19,7 +21,7 @@ jobs:
           # response='[{"project":{"name":"Project A","language":"Python"},"title":"Issue 1","html_url":"www.github.com/issue1","labels":["good first issue"]},{"project":{"name":"Project B","language":"JavaScript"},"title":"Issue 2","html_url":"www.github.com/issue2","labels":["good first issue"]},{"project":{"name":"Project C","language":"Ruby"},"title":"Issue 3","html_url":"www.github.com/issue3","labels":["bug"]}]'
 
           # Save to environment for next steps
-          echo "response=$response" >> $GITHUB_ENV
+          echo "response=$response" >> "$GITHUB_ENV"
 
       - name: Check if there are issues
         id: check_issues
@@ -35,7 +37,7 @@ jobs:
           default_hashtags: " #climate #sustainability #opensource #opensustain #goodfirstissue #goodfirstissues"
         run: |
           posts=$(echo "${response}" | jq -c '[.[] | select(.labels[] == "good first issue") | {project_name: .project.name, title: .title, language: .project.language, html_url: .html_url}]')
-          echo "posts=$posts" >> $GITHUB_ENV
+          echo "posts=$posts" >> "$GITHUB_ENV"
 
           # Display the prepared posts for debugging
           echo "Prepared posts:"
