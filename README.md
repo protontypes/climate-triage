@@ -14,6 +14,19 @@ To add a project to our list, please visit the main repository at [Open Sustaina
 
 Contributions to ClimateTriage are highly encouraged and appreciated. Whether it's through improving documentation, enhancing features, or reporting issues, your involvement plays a vital role. For more information on contributing, please consult our contribution guidelines and feel free to submit pull requests or open issues.
 
+## Roadmap
+
+- Done: static export build, `good first issue` filters, daily SoMe posting.
+- Now:
+  - Health score for workload vs. active maintainers (#56)
+  - Fix SoMe bot posting (#59)
+  - OpenGraph social image (#21)
+  - Document pre-commit hooks (#39)
+- Next:
+  - Open positions board from community sites (#58)
+  - SoMe automation follow-ups (#53)
+- Ideas: share improvements (#55). See [open issues](https://github.com/protontypes/climate-triage/issues) to propose more.
+
 ## Running the Project Locally
 
 To set up and run ClimateTriage locally, follow these steps:
