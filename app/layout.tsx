@@ -1,7 +1,7 @@
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk } from "next/font/google";
-import React from "react";
+import type React from "react";
 
 import { TopBar } from "@/components/TopBar";
 import "@/styles/globals.scss";
@@ -94,10 +94,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         ></script>
       </head>
       <body>
-        <div className={`${space_grotesk.variable} font-sans`}>
+        <main className={`${space_grotesk.variable} font-sans`}>
           <TopBar />
           {children}
-        </div>
+        </main>
         {/* <SponsorMe /> */}
       </body>
     </html>
