@@ -52,6 +52,7 @@ pnpm test
 ```
 npx husky install
 ```
+- `pnpm lint:fix` auto-fixes what ESLint can, and `pnpm typecheck` runs the TypeScript check that CI runs on every PR.
 - If lint or tests fail, the commit is blocked. Fix the reported errors, stage the fixes, and commit again. Example:
 ```
 $ git commit -m "my change"

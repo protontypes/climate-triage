@@ -1,11 +1,14 @@
 {
   "name": "climate-triage",
   "version": "1.0.0",
+  "packageManager": "pnpm@12.10.1",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "serve": "npx serve@latest out",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "typecheck": "tsc --noEmit",
     "prepare": "husky install",
     "prebuild": "tsx data/index.ts",
     "test": "jest"
