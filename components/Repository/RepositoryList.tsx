@@ -69,7 +69,7 @@ export const RepositoryList = ({ languageId, categoryId, tagId }: RepositoryList
   }, [itemsPerScroll]);
 
   return (
-    <main className="grow md:max-w-sm lg:max-w-none">
+    <section aria-label="Repositories" className="grow md:max-w-sm lg:max-w-none">
       <div className="px-6">
         <SortPicker
           activeSort={repositorySortMethod}
@@ -94,6 +94,6 @@ export const RepositoryList = ({ languageId, categoryId, tagId }: RepositoryList
           })}
         </InfiniteScroll>
       </div>
-    </main>
+    </section>
   );
 };
