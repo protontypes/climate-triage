@@ -2,7 +2,7 @@
 
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import { Repository } from "types/types";
@@ -38,22 +38,38 @@ export const RepositoryList = ({ languageId, categoryId, tagId }: RepositoryList
     filterRepositoriesByLanguage,
     filterRepositoriesByCategory
   } = useAppData();
-  let repos: Repository[] = repositories;
+  const repos: Repository[] = useMemo(() => {
+    if (languageId) {
+      return filterRepositoriesByLanguage(languageId);
+    }
 
-  if (languageId) {
-    repos = filterRepositoriesByLanguage(languageId);
-  }
+    if (categoryId) {
+      return filterRepositoriesByCategory(categoryId);
+    }
 
-  if (categoryId) {
-    repos = filterRepositoriesByCategory(categoryId);
-  }
+    if (tagId) {
+      return filterRepositoriesByTag(tagId);
+    }
 
-  if (tagId) {
-    repos = filterRepositoriesByTag(tagId);
-  }
+    return repositories;
+  }, [
+    repositories,
+    languageId,
+    categoryId,
+    tagId,
+    filterRepositoriesByLanguage,
+    filterRepositoriesByCategory,
+    filterRepositoriesByTag
+  ]);
+
+  const visibleRepos = useMemo(() => repos.slice(0, items), [repos, items]);
+
+  const loadMore = useCallback(() => {
+    setItems((prev) => prev + itemsPerScroll);
+  }, [itemsPerScroll]);
 
   return (
-    <main className="grow md:max-w-sm lg:max-w-none">
+    <section aria-label="Repositories" className="grow md:max-w-sm lg:max-w-none">
       <div className="px-6">
         <SortPicker
           activeSort={repositorySortMethod}
@@ -65,19 +81,19 @@ export const RepositoryList = ({ languageId, categoryId, tagId }: RepositoryList
         <InfiniteScroll
           className="pt-6"
           dataLength={items}
-          next={() => setItems(items + itemsPerScroll)}
+          next={loadMore}
           hasMore={items < repos.length}
           loader={<Loader />}
         >
-          {repos.slice(0, items).map((repository) => {
-            // NOTE - We sometimes get duplicate values back from GitHub API
-            // meaning we can't simply rely on the id as the key
-            const key = `${repository.id}_${new Date().getTime()}_${Math.random()}`;
+          {visibleRepos.map((repository, index) => {
+            // NOTE - We sometimes get duplicate values back from GitHub API,
+            // so fall back to the list index to keep keys unique but stable.
+            const key = `${repository.id}_${index}`;
 
             return <RepositoryItem key={key} repository={repository} />;
           })}
         </InfiniteScroll>
       </div>
-    </main>
+    </section>
   );
 };

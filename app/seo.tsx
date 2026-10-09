@@ -10,6 +10,7 @@ interface PageSEOProps {
 }
 
 export function genPageMetadata({ title, description, image, ...rest }: PageSEOProps): Metadata {
+  const banner = image ?? `${config.meta.siteUrl}${config.meta.socialBanner}`;
   return {
     title,
     openGraph: {
@@ -17,14 +18,21 @@ export function genPageMetadata({ title, description, image, ...rest }: PageSEOP
       description: description || config.meta.description,
       url: "./",
       siteName: config.meta.title,
-      images: image ? [image] : [config.meta.socialBanner],
+      images: [
+        {
+          url: banner,
+          width: 1200,
+          height: 630,
+          alt: title
+        }
+      ],
       locale: "en_US",
       type: "website"
     },
     twitter: {
       title: `${title} | ${config.meta.title}`,
       card: "summary_large_image",
-      images: image ? [image] : [config.meta.socialBanner]
+      images: [banner]
     },
     ...rest
   };

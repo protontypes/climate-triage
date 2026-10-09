@@ -14,9 +14,14 @@ type IssueCommentNumProps = {
 
 const IssueCommentNum = ({ numIssues }: IssueCommentNumProps) => {
   return (
-    <div className="mt-1 flex w-10 flex-row items-center justify-end text-gray-500 dark:text-gray-400">
-      <span className="mr-2 text-sm leading-snug">{numIssues}</span>
-      <FontAwesomeIcon icon={faComment} />
+    <div
+      className="mt-1 flex w-10 flex-row items-center justify-end text-gray-500 dark:text-gray-400"
+      aria-label={`${numIssues} comments`}
+    >
+      <span className="mr-2 text-sm leading-snug" aria-hidden="true">
+        {numIssues}
+      </span>
+      <FontAwesomeIcon icon={faComment} aria-hidden="true" />
     </div>
   );
 };
@@ -35,7 +40,8 @@ export const IssueItem = ({ issue }: IssueItemProps) => {
           href={issue.url}
           rel="noopener noreferrer"
           target="_blank"
-          title="Open issue on GitHub"
+          title={`Open issue #${issue.number} on GitHub`}
+          aria-label={`Open issue #${issue.number}: ${issue.title} on GitHub`}
         >
           {issue.title.split(" ").map((word, i) => {
             if (word.length > 15) {
