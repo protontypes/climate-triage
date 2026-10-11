@@ -10,7 +10,7 @@ import {
   RepositorySortMethod
 } from "@/types/types";
 import { getData } from "app/data-loader";
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useCallback, useEffect, useMemo, useState } from "react";
 
 type AppDataContextType = AppData & {
   filterRepositoriesByTag: (tag: string) => Repository[];
@@ -38,13 +38,22 @@ const DEFAULT_VALUE: AppDataContextType = {
   filterRepositoriesByCategory: () => []
 };
 
-function getMostRecentIssue(repository: Repository): Issue {
+function getMostRecentIssue(repository: Repository): Issue | undefined {
+  if (repository.issues.length === 0) {
+    return undefined;
+  }
   const sortedIssues = [...repository.issues].sort((a, b) => {
     const dateA = new Date(a.created_at).getTime();
     const dateB = new Date(b.created_at).getTime();
     return dateB - dateA;
   });
   return sortedIssues[0];
+}
+
+// Sort key for the "recent issues" method. Repositories without issues
+// fall back to their creation date instead of crashing on undefined.
+function getIssueSortDate(repository: Repository): string {
+  return getMostRecentIssue(repository)?.created_at ?? repository.created_at;
 }
 
 const AppDataContext = createContext<AppDataContextType>(DEFAULT_VALUE);
@@ -75,130 +84,161 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     setRepositories(repositories);
   }, [data]);
 
-  const updateRepositorySortMethod = (
-    sortMethod: RepositorySortMethod,
-    sortDirection: RepositorySortDirection
-  ) => {
-    let nextSortDirection: RepositorySortDirection;
-    if (sortMethod === repositorySortMethod) {
-      switch (sortDirection) {
-        case RepositorySortDirection.NONE:
-          nextSortDirection = RepositorySortDirection.DESCENDING;
+  const updateRepositoriesOnSortChange = useCallback(
+    (sortMethod: RepositorySortMethod, order: RepositorySortDirection) => {
+      let updatedRepositories: Repository[] = [...allRepositories];
+
+      switch (sortMethod) {
+        case RepositorySortMethod.ISSUE_AGE:
+          updatedRepositories = updatedRepositories.sort((a, b) => {
+            const newestIssueA = getIssueSortDate(a);
+            const newestIssueB = getIssueSortDate(b);
+            if (order === RepositorySortDirection.DESCENDING) {
+              return new Date(newestIssueB).getTime() - new Date(newestIssueA).getTime();
+            } else if (order === RepositorySortDirection.ASCENDING) {
+              return new Date(newestIssueA).getTime() - new Date(newestIssueB).getTime();
+            } else {
+              return 0;
+            }
+          });
           break;
-        case RepositorySortDirection.DESCENDING:
-          nextSortDirection = RepositorySortDirection.ASCENDING;
+        case RepositorySortMethod.PROJECT_AGE:
+          updatedRepositories = updatedRepositories.sort((a, b) => {
+            const newestIssueA = a.created_at;
+            const newestIssueB = b.created_at;
+            if (order === RepositorySortDirection.DESCENDING) {
+              return new Date(newestIssueB).getTime() - new Date(newestIssueA).getTime();
+            } else if (order === RepositorySortDirection.ASCENDING) {
+              return new Date(newestIssueA).getTime() - new Date(newestIssueB).getTime();
+            } else {
+              return 0;
+            }
+          });
           break;
-        case RepositorySortDirection.ASCENDING:
+        case RepositorySortMethod.STARS:
+          updatedRepositories = updatedRepositories.sort((a, b) => {
+            if (order === RepositorySortDirection.DESCENDING) {
+              return b.stars - a.stars;
+            } else if (order === RepositorySortDirection.ASCENDING) {
+              return a.stars - b.stars;
+            } else {
+              return 0;
+            }
+          });
+          break;
+        case RepositorySortMethod.DOWNLOADS:
+          updatedRepositories = updatedRepositories.sort((a, b) => {
+            if (order === RepositorySortDirection.DESCENDING) {
+              return b.monthly_downloads - a.monthly_downloads;
+            } else if (order === RepositorySortDirection.ASCENDING) {
+              return a.monthly_downloads - b.monthly_downloads;
+            } else {
+              return 0;
+            }
+          });
+          break;
         default:
-          nextSortDirection = RepositorySortDirection.NONE;
           break;
       }
-    } else {
-      nextSortDirection = RepositorySortDirection.DESCENDING;
-    }
-    setRepositorySortMethod(sortMethod);
-    setRepositorySortDirection(nextSortDirection);
-    updateRepositoriesOnSortChange(sortMethod, nextSortDirection);
-  };
+      setRepositories(updatedRepositories);
+    },
+    [allRepositories]
+  );
 
-  const updateRepositoriesOnSortChange = (sortMethod: RepositorySortMethod, order) => {
-    let updatedRepositories: Repository[] = [...allRepositories];
+  const updateRepositorySortMethod = useCallback(
+    (sortMethod: RepositorySortMethod, sortDirection: RepositorySortDirection) => {
+      let nextSortDirection: RepositorySortDirection;
+      if (sortMethod === repositorySortMethod) {
+        switch (sortDirection) {
+          case RepositorySortDirection.NONE:
+            nextSortDirection = RepositorySortDirection.DESCENDING;
+            break;
+          case RepositorySortDirection.DESCENDING:
+            nextSortDirection = RepositorySortDirection.ASCENDING;
+            break;
+          case RepositorySortDirection.ASCENDING:
+          default:
+            nextSortDirection = RepositorySortDirection.NONE;
+            break;
+        }
+      } else {
+        nextSortDirection = RepositorySortDirection.DESCENDING;
+      }
+      setRepositorySortMethod(sortMethod);
+      setRepositorySortDirection(nextSortDirection);
+      updateRepositoriesOnSortChange(sortMethod, nextSortDirection);
+    },
+    [repositorySortMethod, updateRepositoriesOnSortChange]
+  );
 
-    switch (sortMethod) {
-      case RepositorySortMethod.ISSUE_AGE:
-        updatedRepositories = updatedRepositories.sort((a, b) => {
-          const newestIssueA = getMostRecentIssue(a).created_at;
-          const newestIssueB = getMostRecentIssue(b).created_at;
-          if (order === "Descending") {
-            return new Date(newestIssueB).getTime() - new Date(newestIssueA).getTime();
-          } else if (order === "Ascending") {
-            return new Date(newestIssueA).getTime() - new Date(newestIssueB).getTime();
-          } else {
-            return 0;
-          }
+  const filterRepositoriesByTag = useCallback(
+    (tag: string) => {
+      return repositories.filter((repository) => repository.tags?.some((t) => t.id === tag));
+    },
+    [repositories]
+  );
+
+  const filterRepositoriesByQuery = useCallback(
+    (query: string) => {
+      if (query.length >= 3) {
+        // Filter repositories based on query
+        const filtered = allRepositories.filter((repository) => {
+          const { name, owner, issues } = repository;
+          const searchText = `${name} ${owner} ${issues.map((issue) => issue.title)}`.toLowerCase();
+          return searchText.includes(query.toLowerCase());
         });
-        break;
-      case RepositorySortMethod.PROJECT_AGE:
-        updatedRepositories = updatedRepositories.sort((a, b) => {
-          const newestIssueA = a.created_at;
-          const newestIssueB = b.created_at;
-          if (order === "Descending") {
-            return new Date(newestIssueB).getTime() - new Date(newestIssueA).getTime();
-          } else if (order === "Ascending") {
-            return new Date(newestIssueA).getTime() - new Date(newestIssueB).getTime();
-          } else {
-            return 0;
-          }
-        });
-        break;
-      case RepositorySortMethod.STARS:
-        updatedRepositories = updatedRepositories.sort((a, b) => {
-          if (order === "Descending") {
-            return b.stars - a.stars;
-          } else if (order === "Ascending") {
-            return a.stars - b.stars;
-          } else {
-            return 0;
-          }
-        });
-        break;
-      case RepositorySortMethod.DOWNLOADS:
-        updatedRepositories = updatedRepositories.sort((a, b) => {
-          if (order === "Descending") {
-            return b.monthly_downloads - a.monthly_downloads;
-          } else if (order === "Ascending") {
-            return a.monthly_downloads - b.monthly_downloads;
-          } else {
-            return 0;
-          }
-        });
-        break;
-      default:
-        break;
-    }
-    setRepositories(updatedRepositories);
-  };
 
-  const filterRepositoriesByTag = (tag: string) => {
-    return repositories.filter((repository) => repository.tags?.some((t) => t.id === tag));
-  };
+        setRepositories(filtered);
+      } else {
+        setRepositories(allRepositories);
+      }
+    },
+    [allRepositories]
+  );
 
-  const filterRepositoriesByQuery = (query: string) => {
-    if (query.length >= 3) {
-      // Filter repositories based on query
-      const filtered = allRepositories.filter((repository) => {
-        const { name, owner, issues } = repository;
-        const searchText = `${name} ${owner} ${issues.map((issue) => issue.title)}`.toLowerCase();
-        return searchText.includes(query.toLowerCase());
-      });
+  const filterRepositoriesByLanguage = useCallback(
+    (languageId: string) => {
+      return repositories.filter((repository) => repository.language.id === languageId);
+    },
+    [repositories]
+  );
 
-      setRepositories(filtered);
-    } else {
-      setRepositories(allRepositories);
-    }
-  };
-
-  const filterRepositoriesByLanguage = (languageId: string) => {
-    return repositories.filter((repository) => repository.language.id === languageId);
-  };
-
-  const filterRepositoriesByCategory = (categoryId: string) => {
-    return repositories.filter((repository) => repository.category.id === categoryId);
-  };
-  const value = {
-    languages: data.languages,
-    categories: data.categories,
-    repositories,
-    repositorySortMethod,
-    repositorySortDirection,
-    tags: data.tags,
-    query,
-    updateRepositorySortMethod,
-    filterRepositoriesByTag,
-    filterRepositoriesByQuery,
-    filterRepositoriesByLanguage,
-    filterRepositoriesByCategory
-  };
+  const filterRepositoriesByCategory = useCallback(
+    (categoryId: string) => {
+      return repositories.filter((repository) => repository.category.id === categoryId);
+    },
+    [repositories]
+  );
+  const value = useMemo(
+    () => ({
+      languages: data.languages,
+      categories: data.categories,
+      repositories,
+      repositorySortMethod,
+      repositorySortDirection,
+      tags: data.tags,
+      query,
+      updateRepositorySortMethod,
+      filterRepositoriesByTag,
+      filterRepositoriesByQuery,
+      filterRepositoriesByLanguage,
+      filterRepositoriesByCategory
+    }),
+    [
+      data.languages,
+      data.categories,
+      repositories,
+      repositorySortMethod,
+      repositorySortDirection,
+      data.tags,
+      query,
+      updateRepositorySortMethod,
+      filterRepositoriesByTag,
+      filterRepositoriesByQuery,
+      filterRepositoriesByLanguage,
+      filterRepositoriesByCategory
+    ]
+  );
 
   return <AppDataContext.Provider value={value}>{children}</AppDataContext.Provider>;
 };
