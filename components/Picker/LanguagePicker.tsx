@@ -65,7 +65,7 @@ export const LanguagePicker = ({
           ["max-h-full"]: !isCollapsed
         })}
       >
-        {languages
+        {[...languages]
           .sort((a, b) => b.count - a.count)
           .map((language) => {
             const isActive = onLanguagePage && language.id === activeTagId;
