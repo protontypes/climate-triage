@@ -1,4 +1,10 @@
-import { CountableCategory, CountableLanguage, CountableTag, Repository, Tag } from "@/types/types";
+import type {
+  CountableCategory,
+  CountableLanguage,
+  CountableTag,
+  Repository,
+  Tag
+} from "@/types/types";
 
 /**
  * Returns an array of languages with a count of how many repositories use them.

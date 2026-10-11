@@ -1,9 +1,9 @@
-/* eslint-disable prettier/prettier */
-// @ts-check
-const { fontFamily } = require("tailwindcss/defaultTheme");
+import forms from "@tailwindcss/forms";
+import typography from "@tailwindcss/typography";
+import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
-/** @type {import("tailwindcss/types").Config } */
-module.exports = {
+export default {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,tsx}",
@@ -106,5 +106,5 @@ module.exports = {
       })
     }
   },
-  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")]
-};
+  plugins: [forms, typography]
+} satisfies Config;

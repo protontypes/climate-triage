@@ -1,9 +1,9 @@
 "use client";
 
-import { Tag } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import type { Tag } from "@/types/types";
 import config from "../app/config.mts";
 import { useAppData } from "../hooks/useAppData";
 

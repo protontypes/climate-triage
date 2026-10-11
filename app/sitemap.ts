@@ -1,6 +1,9 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 import config from "./config.mts";
 import { getData } from "./data-loader";
+
+// Required with `output: "export"`: Next 15+ no longer assumes metadata routes are static.
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = config.meta.siteUrl;

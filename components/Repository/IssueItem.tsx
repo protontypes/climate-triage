@@ -1,8 +1,7 @@
 import { faComment } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { Issue } from "@/types/types";
 import Link from "next/link";
+import type { Issue } from "@/types/types";
 
 type IssueItemProps = {
   issue: Issue;
@@ -14,6 +13,7 @@ type IssueCommentNumProps = {
 
 const IssueCommentNum = ({ numIssues }: IssueCommentNumProps) => {
   return (
+    // biome-ignore lint/a11y/useAriaPropsSupportedByRole: pre-existing, screen readers ignore aria-label on a plain div
     <div
       className="mt-1 flex w-10 flex-row items-center justify-end text-gray-500 dark:text-gray-400"
       aria-label={`${numIssues} comments`}
@@ -45,8 +45,10 @@ export const IssueItem = ({ issue }: IssueItemProps) => {
         >
           {issue.title.split(" ").map((word, i) => {
             if (word.length > 15) {
+              // biome-ignore lint/suspicious/noArrayIndexKey: words can repeat and never reorder
               return <span key={i} className="break-all">{`${word} `}</span>;
             } else {
+              // biome-ignore lint/suspicious/noArrayIndexKey: words can repeat and never reorder
               return <span key={i} className="break-keep">{`${word} `}</span>;
             }
           })}

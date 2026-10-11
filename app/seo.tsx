@@ -1,11 +1,11 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import config from "./config.mts";
 
 interface PageSEOProps {
   title: string;
   description?: string;
   image?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: passes arbitrary Metadata fields through
   [key: string]: any;
 }
 

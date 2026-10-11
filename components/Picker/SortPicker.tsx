@@ -1,7 +1,7 @@
-import { RepositorySortDirection, RepositorySortMethod } from "@/types/types";
 import { faCaretDown, faCaretUp, faShuffle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
+import { RepositorySortDirection, type RepositorySortMethod } from "@/types/types";
 import { SectionTitle } from "../SectionTitle";
 
 type SortPickerProps = {
@@ -37,8 +37,8 @@ export const SortPicker = ({
               aria-pressed={isActive}
               onClick={() => onSortMethodSelect(sortOption, sortDirection)}
               className={classNames("group m-1 inline-block rounded-sm border px-2 py-1", {
-                ["active-pill"]: isActive,
-                ["border-silver-100 transition-all hover:border-primary hover:text-primary"]:
+                "active-pill": isActive,
+                "border-silver-100 transition-all hover:border-primary hover:text-primary":
                   !isActive
               })}
             >

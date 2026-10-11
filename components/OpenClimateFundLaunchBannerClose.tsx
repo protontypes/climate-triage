@@ -3,7 +3,7 @@
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function OpenClimateFundLaunchBannerClose(): JSX.Element {
+export default function OpenClimateFundLaunchBannerClose(): React.JSX.Element {
   const onClose = () => {
     const element = document.getElementById("launch-banner");
     if (element) {

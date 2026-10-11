@@ -1,4 +1,4 @@
-import { Repository } from "@/types/types";
+import type { Repository } from "@/types/types";
 
 type RepositoryDescriptionProps = {
   repositoryDescription: Repository["description"];

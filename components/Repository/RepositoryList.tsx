@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCallback, useMemo, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import { Repository } from "types/types";
+import type { Repository } from "@/types/types";
 import { REPOSITORY_SORT_OPTIONS } from "../../constants";
 import { useAppData } from "../../hooks/useAppData";
 import { SortPicker } from "../Picker/SortPicker";
@@ -66,7 +66,7 @@ export const RepositoryList = ({ languageId, categoryId, tagId }: RepositoryList
 
   const loadMore = useCallback(() => {
     setItems((prev) => prev + itemsPerScroll);
-  }, [itemsPerScroll]);
+  }, []);
 
   return (
     <section aria-label="Repositories" className="grow md:max-w-sm lg:max-w-none">

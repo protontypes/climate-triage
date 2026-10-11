@@ -1,15 +1,15 @@
+import type { Metadata } from "next";
+import { getData } from "@/app/data-loader";
 import { Layout } from "@/components/Layout";
 import { RepositoryList } from "@/components/Repository/RepositoryList";
-import { getData } from "app/data-loader";
-import { Metadata } from "next";
 
 export async function generateMetadata({
   params
 }: {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }): Promise<Metadata | undefined> {
   const data = getData();
-  const slug = decodeURI(params.category);
+  const slug = decodeURI((await params).category);
   const category = data.categories.find((l) => l.id === slug);
 
   return {
@@ -18,10 +18,11 @@ export async function generateMetadata({
   };
 }
 
-export default function Page({ params }: { params: { category: string } }) {
+export default async function Page({ params }: { params: Promise<{ category: string }> }) {
+  const { category } = await params;
   return (
     <Layout>
-      <RepositoryList categoryId={params.category} />
+      <RepositoryList categoryId={category} />
     </Layout>
   );
 }

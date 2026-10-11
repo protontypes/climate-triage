@@ -1,4 +1,4 @@
-import { Issue, Repository } from "@/types/types";
+import type { Issue, Repository } from "@/types/types";
 
 import { IssueItem } from "./IssueItem";
 
@@ -13,12 +13,10 @@ type IssueListProps = {
 
 export const IssuesList = ({ issues, repositoryDetails }: IssueListProps) => {
   return (
-    <>
-      <ol className="border-t border-silver-100 px-5 py-3 text-base leading-loose">
-        {issues.map((issue) => (
-          <IssueItem issue={issue} key={issue.id} />
-        ))}
-      </ol>
-    </>
+    <ol className="border-t border-silver-100 px-5 py-3 text-base leading-loose">
+      {issues.map((issue) => (
+        <IssueItem issue={issue} key={issue.id} />
+      ))}
+    </ol>
   );
 };
