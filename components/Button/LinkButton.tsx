@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import type React from "react";
 
 type LinkButtonProps = {
   title: string;

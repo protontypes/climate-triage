@@ -22,6 +22,7 @@ export const SearchBar = () => {
   };
 
   return (
+    // biome-ignore lint/a11y/useSemanticElements: role="search" is equivalent to <search> and supported more widely
     <div className="relative mt-4 flex rounded-md" role="search">
       <label htmlFor="repository-search" className="sr-only">
         Search repositories

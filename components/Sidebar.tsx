@@ -1,8 +1,8 @@
 "use client";
 
-import useWindowSize from "@/hooks/useWindowSize";
 import { useParams, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import useWindowSize from "@/hooks/useWindowSize";
 import { useAppData } from "../hooks/useAppData";
 import { AboutSection } from "./AboutSection";
 import { LinkButton } from "./Button/LinkButton";
@@ -75,14 +75,14 @@ export const Sidebar = () => {
         <CategoryPicker
           categories={categories}
           activeTagId={activeCategoryId}
-          onCategoryPage={pageType == "category"}
+          onCategoryPage={pageType === "category"}
           isCollapsedDefault={width < 768} // Collapse for mobile, not for desktop
         />
         <LanguagePicker
           languages={languages}
           activeTagId={activeLanguageId}
           isCollapsedDefault={width < 768} // Collapse for mobile, not for desktop
-          onLanguagePage={pageType == "language"}
+          onLanguagePage={pageType === "language"}
         />
 
         {/* <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageType == "tag"} /> */}

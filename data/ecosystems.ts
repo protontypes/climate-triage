@@ -1,5 +1,5 @@
+import fs from "node:fs/promises";
 import type { Project } from "@/types/apiTypes";
-import fs from "fs/promises";
 
 // A trimmed copy of the API response, so PR builds don't call ecosyste.ms. See data/fixtures/README.md.
 const SAMPLE_FILE = "data/fixtures/ecosystems-sample.json";

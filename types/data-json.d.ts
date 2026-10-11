@@ -2,6 +2,7 @@
 // type when it hasn't been generated yet, so typechecking doesn't need the network.
 declare module "*/data/data.json" {
   import type { Data } from "@/types/types";
+
   const data: Data;
   export default data;
 }

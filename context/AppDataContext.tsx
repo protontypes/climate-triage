@@ -1,16 +1,18 @@
 // AppDataContext.tsx
+
+import type React from "react";
+import { createContext, useCallback, useEffect, useMemo, useState } from "react";
+import { getData } from "@/app/data-loader";
 import {
-  AppData,
-  CountableCategory,
-  CountableLanguage,
-  CountableTag,
-  Issue,
-  Repository,
+  type AppData,
+  type CountableCategory,
+  type CountableLanguage,
+  type CountableTag,
+  type Issue,
+  type Repository,
   RepositorySortDirection,
   RepositorySortMethod
 } from "@/types/types";
-import { getData } from "app/data-loader";
-import React, { createContext, useCallback, useEffect, useMemo, useState } from "react";
 
 type AppDataContextType = AppData & {
   filterRepositoriesByTag: (tag: string) => Repository[];
@@ -231,7 +233,6 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
       repositorySortMethod,
       repositorySortDirection,
       data.tags,
-      query,
       updateRepositorySortMethod,
       filterRepositoriesByTag,
       filterRepositoriesByQuery,

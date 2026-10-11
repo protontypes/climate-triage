@@ -1,4 +1,4 @@
-import { Repository } from "@/types/types";
+import type { Repository } from "@/types/types";
 import { RepositoryIssueNumberIndicator } from "./RepositoryIssueNumberIndicator";
 import { RepositoryLinkTitle } from "./RepositoryLinkTitle";
 

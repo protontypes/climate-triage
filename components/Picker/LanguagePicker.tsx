@@ -1,11 +1,12 @@
-import { CountableLanguage } from "@/types/types";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
 import { useEffect, useState } from "react";
+import type { CountableLanguage } from "@/types/types";
 import { SectionTitle } from "../SectionTitle";
 import ActiveTagButton from "./ActiveTagButton";
 import { PickerItem } from "./PickerItem";
+
 type LanguagePickerProps = {
   activeTagId: string | string[] | undefined;
   languages: CountableLanguage[];
@@ -22,6 +23,7 @@ export const LanguagePicker = ({
   const [isCollapsed, setIsCollapsed] = useState<boolean>(isCollapsedDefault);
 
   // Automatically collapse the sidebar after redirection
+  // biome-ignore lint/correctness/useExhaustiveDependencies: the extra deps change on navigation, which is what re-collapses it
   useEffect(() => {
     setIsCollapsed(isCollapsedDefault);
   }, [isCollapsedDefault, onLanguagePage, activeTagId]);
@@ -48,8 +50,8 @@ export const LanguagePicker = ({
             className={classNames(
               "mx-2 mt-[3px] text-gray-900 transition-transform duration-300 ease-in-out dark:text-silver-500",
               {
-                ["rotate-0"]: isCollapsed,
-                ["rotate-180"]: !isCollapsed
+                "rotate-0": isCollapsed,
+                "rotate-180": !isCollapsed
               }
             )}
           />
@@ -61,8 +63,8 @@ export const LanguagePicker = ({
       <div
         id="language-picker-panel"
         className={classNames("-mx-1 mt-2 overflow-hidden duration-300 ease-in-out", {
-          ["max-h-0 sm:max-h-20"]: isCollapsed,
-          ["max-h-full"]: !isCollapsed
+          "max-h-0 sm:max-h-20": isCollapsed,
+          "max-h-full": !isCollapsed
         })}
       >
         {[...languages]
@@ -72,8 +74,8 @@ export const LanguagePicker = ({
             return (
               <PickerItem
                 className={classNames("group m-1 inline-block rounded-sm border px-2 py-1", {
-                  ["active-pill"]: isActive,
-                  ["border-silver-100 transition-all hover:border-primary hover:text-primary"]:
+                  "active-pill": isActive,
+                  "border-silver-100 transition-all hover:border-primary hover:text-primary":
                     !isActive
                 })}
                 href={isActive ? "/" : `/language/${language.id}`}

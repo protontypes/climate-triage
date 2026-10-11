@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import type React from "react";
 import { AppDataProvider } from "../context/AppDataContext";
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
