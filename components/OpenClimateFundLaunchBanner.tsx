@@ -1,10 +1,10 @@
-import config from "@/app/config.mts";
 import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import config from "@/app/config.mts";
 import LaunchBannerClose from "./LaunchBannerClose";
 
-export default function OpenClimateFundLaunchBanner(): JSX.Element {
+export default function OpenClimateFundLaunchBanner(): React.JSX.Element {
   return (
     <div
       id="launch-banner"

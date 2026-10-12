@@ -1,29 +1,46 @@
 // searchbar.tsx
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppData } from "../../hooks/useAppData";
+
+const SEARCH_DEBOUNCE_MS = 200;
 
 export const SearchBar = () => {
   const [query, setQuery] = useState("");
   const { filterRepositoriesByQuery } = useAppData();
 
+  // Debounce filtering: it rebuilds a search string per repository,
+  // so avoid running it on every keystroke.
+  useEffect(() => {
+    const timer = setTimeout(() => filterRepositoriesByQuery(query), SEARCH_DEBOUNCE_MS);
+    return () => clearTimeout(timer);
+  }, [query, filterRepositoriesByQuery]);
+
   const handleSearch = (searchQuery: string) => {
     setQuery(searchQuery);
-    filterRepositoriesByQuery(searchQuery);
   };
 
   return (
-    <div className="relative mt-4 flex rounded-md">
+    // biome-ignore lint/a11y/useSemanticElements: role="search" is equivalent to <search> and supported more widely
+    <div className="relative mt-4 flex rounded-md" role="search">
+      <label htmlFor="repository-search" className="sr-only">
+        Search repositories
+      </label>
       <input
-        type="text"
+        id="repository-search"
+        type="search"
         className="block w-full rounded-md bg-transparent px-4 py-3 pl-11 text-sm text-gray-900 dark:text-silver-500"
         placeholder="Search in name, description, tags..."
         value={query}
         onChange={(e) => handleSearch(e.target.value)}
       />
       <div className="pointer-events-none absolute inset-y-0 left-0 z-20 flex items-center pl-4">
-        <FontAwesomeIcon icon={faSearch} className={"text-gray-900 dark:text-silver-500"} />
+        <FontAwesomeIcon
+          icon={faSearch}
+          className={"text-gray-900 dark:text-silver-500"}
+          aria-hidden="true"
+        />
       </div>
     </div>
   );

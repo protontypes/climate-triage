@@ -1,0 +1,2137 @@
+[
+  {
+    "id": 136,
+    "name": "GasModels.jl",
+    "description": "A Julia/JuMP Package for Gas Network Optimization.",
+    "url": "https://github.com/lanl-ansi/GasModels.jl",
+    "language": "Julia",
+    "category": "Energy Storage",
+    "has_new_issues": false,
+    "monthly_downloads": 623,
+    "repository": {
+      "owner": "lanl-ansi",
+      "stargazers_count": 82,
+      "license": "other",
+      "pushed_at": "2026-09-24T21:12:16.000Z",
+      "topics": [
+        "gas-flow",
+        "gas-network-formulations",
+        "network",
+        "optimization"
+      ],
+      "created_at": "2016-08-29T16:01:10.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "4747498008",
+        "number": 347,
+        "title": "Generalizing adding missing values in solution files",
+        "labels": [
+          "enhancement",
+          "help wanted",
+          "complex"
+        ],
+        "comments_count": 2,
+        "created_at": "2026-06-25T21:23:09.000Z",
+        "html_url": "https://github.com/lanl-ansi/GasModels.jl/issues/347"
+      },
+      {
+        "uuid": "4448469894",
+        "number": 321,
+        "title": "Variable temperature",
+        "labels": [
+          "help wanted",
+          "complex",
+          "formulation update"
+        ],
+        "comments_count": 2,
+        "created_at": "2026-05-14T18:54:31.000Z",
+        "html_url": "https://github.com/lanl-ansi/GasModels.jl/issues/321"
+      }
+    ]
+  },
+  {
+    "id": 181,
+    "name": "DPsim",
+    "description": "A solver library for dynamic power system simulation.",
+    "url": "https://github.com/sogno-platform/dpsim",
+    "language": "C++",
+    "category": "Energy Systems",
+    "has_new_issues": false,
+    "monthly_downloads": 441,
+    "repository": {
+      "owner": "sogno-platform",
+      "stargazers_count": 140,
+      "license": "mpl-2.0",
+      "pushed_at": "2026-09-21T09:49:15.000Z",
+      "topics": [
+        "dynamic-phasors",
+        "electromagnetic-transient",
+        "emt",
+        "power-systems",
+        "powerflow",
+        "quasi-stationary",
+        "real-time",
+        "simulation"
+      ],
+      "created_at": "2020-01-29T08:49:59.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "2359689940",
+        "number": 307,
+        "title": "Merge MnaSolver and MnaSolverDirect classes",
+        "labels": [
+          "help wanted",
+          "refactor"
+        ],
+        "comments_count": 1,
+        "created_at": "2024-06-18T11:59:40.000Z",
+        "html_url": "https://github.com/sogno-platform/dpsim/issues/307"
+      },
+      {
+        "uuid": "2651764528",
+        "number": 326,
+        "title": "Logger not used correctly",
+        "labels": [
+          "bug",
+          "good first issue"
+        ],
+        "comments_count": 5,
+        "created_at": "2024-11-12T10:38:52.000Z",
+        "html_url": "https://github.com/sogno-platform/dpsim/issues/326"
+      },
+      {
+        "uuid": "2338277604",
+        "number": 300,
+        "title": "Log at debug level",
+        "labels": [
+          "documentation",
+          "enhancement",
+          "help wanted",
+          "software-team"
+        ],
+        "comments_count": 1,
+        "created_at": "2024-06-06T13:32:27.000Z",
+        "html_url": "https://github.com/sogno-platform/dpsim/issues/300"
+      }
+    ]
+  },
+  {
+    "id": 188,
+    "name": "PowSyBl",
+    "description": "An open source framework written in Java, that makes it easy to write complex software for power systems simulations and analysis.",
+    "url": "https://github.com/powsybl/powsybl-core",
+    "language": "Java",
+    "category": "Energy Systems",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "powsybl",
+      "stargazers_count": 187,
+      "license": "mpl-2.0",
+      "pushed_at": "2026-10-02T15:44:42.000Z",
+      "topics": [
+        "cim",
+        "energy-system",
+        "extensible",
+        "groovy",
+        "java",
+        "modular",
+        "power-system-simulation",
+        "power-systems",
+        "powsybl"
+      ],
+      "created_at": "2017-09-29T14:51:18.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "420003205",
+        "number": 687,
+        "title": "Generalize the use of ToolOptions utility in Tools",
+        "labels": [
+          "enhancement",
+          "good first issue"
+        ],
+        "comments_count": 1,
+        "created_at": "2019-03-12T14:01:49.000Z",
+        "html_url": "https://github.com/powsybl/powsybl-core/issues/687"
+      },
+      {
+        "uuid": "5423622484",
+        "number": 4097,
+        "title": "Change `LoadingLimits.getTemporaryLimits` to return a `List` instead of a `Collection`",
+        "labels": [
+          "good first issue",
+          "IIDM",
+          "Breaking Change",
+          "Refactoring",
+          "Custom IIDM impl"
+        ],
+        "comments_count": 2,
+        "created_at": "2026-09-11T11:11:01.000Z",
+        "html_url": "https://github.com/powsybl/powsybl-core/issues/4097"
+      },
+      {
+        "uuid": "4597714856",
+        "number": 3941,
+        "title": "[TimeSeries] split handle non-successive chunks inconsistently",
+        "labels": [
+          "bug",
+          "good first issue",
+          "Time series"
+        ],
+        "comments_count": 9,
+        "created_at": "2026-06-05T14:33:34.000Z",
+        "html_url": "https://github.com/powsybl/powsybl-core/issues/3941"
+      }
+    ]
+  },
+  {
+    "id": 221,
+    "name": "OpenSTEF",
+    "description": "A Python package which is used to make short term forecasts for the energy sector.",
+    "url": "https://github.com/OpenSTEF/openstef",
+    "language": "Python",
+    "category": "Energy Systems",
+    "has_new_issues": false,
+    "monthly_downloads": 76692,
+    "repository": {
+      "owner": "OpenSTEF",
+      "stargazers_count": 169,
+      "license": "mpl-2.0",
+      "pushed_at": "2026-10-02T08:36:19.000Z",
+      "topics": [
+        "data-science",
+        "energy",
+        "energy-forecasting",
+        "forecasting",
+        "machine-learning",
+        "python",
+        "time-series"
+      ],
+      "created_at": "2021-02-09T08:48:47.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "3363560749",
+        "number": 654,
+        "title": "[OpenSTEF 4.0] Add support for IterativeImputer for feature imputation",
+        "labels": [
+          "good first issue",
+          "OpenSTEF 4.0",
+          "to refine"
+        ],
+        "comments_count": 0,
+        "created_at": "2025-08-28T14:30:49.000Z",
+        "html_url": "https://github.com/OpenSTEF/openstef/issues/654"
+      },
+      {
+        "uuid": "3445258809",
+        "number": 683,
+        "title": "[OpenSTEF 4.0] Create adapter for sklearn transforms",
+        "labels": [
+          "good first issue",
+          "OpenSTEF 4.0"
+        ],
+        "comments_count": 2,
+        "created_at": "2025-09-23T13:14:27.000Z",
+        "html_url": "https://github.com/OpenSTEF/openstef/issues/683"
+      },
+      {
+        "uuid": "3422079051",
+        "number": 673,
+        "title": "[OpenSTEF 4.0] Isotonic Quantile Calibration (new feature see STEF confluence)",
+        "labels": [
+          "good first issue",
+          "OpenSTEF 4.0",
+          "to refine"
+        ],
+        "comments_count": 0,
+        "created_at": "2025-09-16T12:27:45.000Z",
+        "html_url": "https://github.com/OpenSTEF/openstef/issues/673"
+      }
+    ]
+  },
+  {
+    "id": 354,
+    "name": "stplanr",
+    "description": "A package for sustainable transport planning with R.",
+    "url": "https://github.com/ropensci/stplanr",
+    "language": "R",
+    "category": "Consumption",
+    "has_new_issues": false,
+    "monthly_downloads": 1143,
+    "repository": {
+      "owner": "ropensci",
+      "stargazers_count": 443,
+      "license": "other",
+      "pushed_at": "2025-04-28T10:38:23.000Z",
+      "topics": [
+        "cycle",
+        "cycling",
+        "desire-lines",
+        "origin-destination",
+        "peer-reviewed",
+        "pubic-transport",
+        "r",
+        "r-package",
+        "route-network",
+        "routes",
+        "routing",
+        "rstats",
+        "spatial",
+        "transport",
+        "transport-planning",
+        "transportation",
+        "walking"
+      ],
+      "created_at": "2015-01-30T08:34:49.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "518603993",
+        "number": 360,
+        "title": "sf method for line_midpoint fails",
+        "labels": [
+          "help wanted",
+          "good first issue",
+          "ro-hackathon-2025"
+        ],
+        "comments_count": 2,
+        "created_at": "2019-11-06T16:59:15.000Z",
+        "html_url": "https://github.com/ropensci/stplanr/issues/360"
+      },
+      {
+        "uuid": "511892282",
+        "number": 357,
+        "title": "Function that returns junction points",
+        "labels": [
+          "help wanted",
+          "good first issue",
+          "ro-hackathon-2025"
+        ],
+        "comments_count": 1,
+        "created_at": "2019-10-24T11:48:03.000Z",
+        "html_url": "https://github.com/ropensci/stplanr/issues/357"
+      },
+      {
+        "uuid": "462794870",
+        "number": 320,
+        "title": "Route network vignette",
+        "labels": [
+          "help wanted",
+          "good first issue",
+          "ro-hackathon-2025"
+        ],
+        "comments_count": 3,
+        "created_at": "2019-07-01T16:02:41.000Z",
+        "html_url": "https://github.com/ropensci/stplanr/issues/320"
+      }
+    ]
+  },
+  {
+    "id": 361,
+    "name": "CoopCycle",
+    "description": "A self-hosted platform to order meals in your neighborhood and get them delivered by bike couriers.",
+    "url": "https://github.com/coopcycle/coopcycle-web",
+    "language": "PHP",
+    "category": "Consumption",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "coopcycle",
+      "stargazers_count": 601,
+      "license": "other",
+      "pushed_at": "2026-10-05T20:38:49.000Z",
+      "topics": [
+        "apiplatform",
+        "coop",
+        "delivery",
+        "delivery-app",
+        "foodtech",
+        "platformcoop",
+        "symfony"
+      ],
+      "created_at": "2016-11-29T12:10:32.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "1940789334",
+        "number": 3809,
+        "title": "In order to look pro, i want the red banner to be the cooperatives´ color with their logo",
+        "labels": [
+          "B2B Customer Interface",
+          "help wanted",
+          "Local Commerce",
+          "Let's Make CoopCycle Fun",
+          "Customer Service"
+        ],
+        "comments_count": 0,
+        "created_at": "2023-10-12T21:02:16.000Z",
+        "html_url": "https://github.com/coopcycle/coopcycle-web/issues/3809"
+      }
+    ]
+  },
+  {
+    "id": 415,
+    "name": "A/B Street",
+    "description": "A traffic simulation game exploring how small changes to roads affect cyclists, transit users, pedestrians, and drivers.",
+    "url": "https://github.com/a-b-street/abstreet",
+    "language": "Rust",
+    "category": "Consumption",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "a-b-street",
+      "stargazers_count": 8185,
+      "license": "apache-2.0",
+      "pushed_at": "2025-09-10T09:20:24.000Z",
+      "topics": [
+        "game",
+        "openstreetmap",
+        "seattle",
+        "simulation",
+        "traffic-simulation"
+      ],
+      "created_at": "2018-06-04T00:44:43.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "726921059",
+        "number": 372,
+        "title": "Project: public transit",
+        "labels": [
+          "good first issue"
+        ],
+        "comments_count": 21,
+        "created_at": "2020-10-21T23:04:55.000Z",
+        "html_url": "https://github.com/a-b-street/abstreet/issues/372"
+      },
+      {
+        "uuid": "902943387",
+        "number": 666,
+        "title": "Add more startup flags / URL parameters",
+        "labels": [
+          "good first issue"
+        ],
+        "comments_count": 3,
+        "created_at": "2021-05-26T21:38:04.000Z",
+        "html_url": "https://github.com/a-b-street/abstreet/issues/666"
+      },
+      {
+        "uuid": "1932879023",
+        "number": 1122,
+        "title": "Mac builds broken",
+        "labels": [
+          "good first issue"
+        ],
+        "comments_count": 10,
+        "created_at": "2023-10-09T11:42:13.000Z",
+        "html_url": "https://github.com/a-b-street/abstreet/issues/1122"
+      }
+    ]
+  },
+  {
+    "id": 581,
+    "name": "PlantCV",
+    "description": "Plant phenotyping using computer vision.",
+    "url": "https://github.com/danforthcenter/plantcv",
+    "language": "Python",
+    "category": "Biosphere",
+    "has_new_issues": false,
+    "monthly_downloads": 4431,
+    "repository": {
+      "owner": "danforthcenter",
+      "stargazers_count": 834,
+      "license": "mpl-2.0",
+      "pushed_at": "2026-10-03T03:37:48.000Z",
+      "topics": [
+        "bioinformatics",
+        "image-analysis",
+        "plant-phenotyping",
+        "plantcv",
+        "science"
+      ],
+      "created_at": "2014-03-14T18:24:23.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "2595214290",
+        "number": 1610,
+        "title": "Fatal error handling in `pcv.transform.detect_color_card` ",
+        "labels": [
+          "help wanted"
+        ],
+        "comments_count": 0,
+        "created_at": "2024-10-17T16:29:46.000Z",
+        "html_url": "https://github.com/danforthcenter/plantcv/issues/1610"
+      },
+      {
+        "uuid": "3365056351",
+        "number": 1773,
+        "title": "UserWarning: Sending large graph",
+        "labels": [
+          "help wanted"
+        ],
+        "comments_count": 2,
+        "created_at": "2025-08-29T00:36:23.000Z",
+        "html_url": "https://github.com/danforthcenter/plantcv/issues/1773"
+      },
+      {
+        "uuid": "2669416009",
+        "number": 1635,
+        "title": "Improve datatype checks",
+        "labels": [
+          "enhancement",
+          "help wanted",
+          "update",
+          "good first issue/PR"
+        ],
+        "comments_count": 2,
+        "created_at": "2024-11-18T18:04:41.000Z",
+        "html_url": "https://github.com/danforthcenter/plantcv/issues/1635"
+      }
+    ]
+  },
+  {
+    "id": 622,
+    "name": "rGEDI",
+    "description": "An R Package for NASA's Global Ecosystem Dynamics Investigation (GEDI) Data Visualization and Processing.",
+    "url": "https://github.com/carlos-alberto-silva/rGEDI",
+    "language": "R",
+    "category": "Biosphere",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "carlos-alberto-silva",
+      "stargazers_count": 186,
+      "license": null,
+      "pushed_at": "2026-03-27T00:50:54.000Z",
+      "topics": [],
+      "created_at": "2020-01-25T14:15:11.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "1843671727",
+        "number": 57,
+        "title": "Package ‘rGEDI’ was removed from the CRAN repository.",
+        "labels": [
+          "help wanted"
+        ],
+        "comments_count": 4,
+        "created_at": "2023-08-09T16:58:29.000Z",
+        "html_url": "https://github.com/carlos-alberto-silva/rGEDI/issues/57"
+      }
+    ]
+  },
+  {
+    "id": 633,
+    "name": "Wildbook",
+    "description": "Blends structured wildlife research with artificial intelligence, citizen science, and computer vision to speed population analysis and develop new insights to help fight extinction.",
+    "url": "https://github.com/WildMeOrg/Wildbook",
+    "language": "Java",
+    "category": "Biosphere",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "WildMeOrg",
+      "stargazers_count": 143,
+      "license": "gpl-2.0",
+      "pushed_at": "2026-10-01T14:50:17.000Z",
+      "topics": [
+        "cloud",
+        "conservation",
+        "docker",
+        "java",
+        "nonprofit",
+        "opensearch",
+        "postgresql",
+        "reactjs",
+        "tomcat"
+      ],
+      "created_at": "2016-07-12T22:09:20.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "2589579726",
+        "number": 834,
+        "title": "Count of sightings on individual page",
+        "labels": [
+          "enhancement",
+          "good first issue"
+        ],
+        "comments_count": 0,
+        "created_at": "2024-10-15T18:42:45.000Z",
+        "html_url": "https://github.com/WildMeOrg/Wildbook/issues/834"
+      },
+      {
+        "uuid": "2562657559",
+        "number": 815,
+        "title": "Incorrect error message shown in Manage Occurrence Assignment",
+        "labels": [
+          "bug",
+          "good first issue"
+        ],
+        "comments_count": 6,
+        "created_at": "2024-10-02T21:19:37.000Z",
+        "html_url": "https://github.com/WildMeOrg/Wildbook/issues/815"
+      },
+      {
+        "uuid": "4394197156",
+        "number": 1569,
+        "title": "Add zoom to Gallery View in React search results",
+        "labels": [
+          "enhancement",
+          "good first issue",
+          "opensearch"
+        ],
+        "comments_count": 0,
+        "created_at": "2026-05-06T20:25:39.000Z",
+        "html_url": "https://github.com/WildMeOrg/Wildbook/issues/1569"
+      }
+    ]
+  },
+  {
+    "id": 758,
+    "name": "Mission Support System",
+    "description": "A collaboration server to plan atmospheric research flights.",
+    "url": "https://github.com/Open-MSS/MSS",
+    "language": "Python",
+    "category": "Atmosphere",
+    "has_new_issues": false,
+    "monthly_downloads": 9,
+    "repository": {
+      "owner": "Open-MSS",
+      "stargazers_count": 80,
+      "license": "apache-2.0",
+      "pushed_at": "2026-09-30T13:28:08.000Z",
+      "topics": [
+        "conda-forge",
+        "flight-planning",
+        "mission-support-system",
+        "python"
+      ],
+      "created_at": "2020-12-03T21:52:50.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "2959800636",
+        "number": 2750,
+        "title": "Missed call to __init__ of the super class",
+        "labels": [
+          "bug",
+          "good first issue"
+        ],
+        "comments_count": 11,
+        "created_at": "2025-03-31T08:24:40.000Z",
+        "html_url": "https://github.com/Open-MSS/MSS/issues/2750"
+      }
+    ]
+  },
+  {
+    "id": 774,
+    "name": "ESMValTool",
+    "description": "A community diagnostic and performance metrics tool for routine evaluation of Earth system models in World Climate Research Programme.",
+    "url": "https://github.com/ESMValGroup/ESMValTool",
+    "language": "Python",
+    "category": "Climate Change",
+    "has_new_issues": false,
+    "monthly_downloads": 452,
+    "repository": {
+      "owner": "ESMValGroup",
+      "stargazers_count": 276,
+      "license": "apache-2.0",
+      "pushed_at": "2026-10-01T14:11:44.000Z",
+      "topics": [],
+      "created_at": "2017-01-26T14:15:37.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "3710836367",
+        "number": 4280,
+        "title": "How to get OBS data with different frequencies that are not hourly, daily or monthly?",
+        "labels": [
+          "enhancement",
+          "help wanted",
+          "documentation",
+          "observations"
+        ],
+        "comments_count": 9,
+        "created_at": "2025-12-09T13:06:54.000Z",
+        "html_url": "https://github.com/ESMValGroup/ESMValTool/issues/4280"
+      },
+      {
+        "uuid": "5498280698",
+        "number": 4608,
+        "title": "Advanced masking",
+        "labels": [
+          "help wanted",
+          "question",
+          "Data"
+        ],
+        "comments_count": 2,
+        "created_at": "2026-09-18T10:01:49.000Z",
+        "html_url": "https://github.com/ESMValGroup/ESMValTool/issues/4608"
+      },
+      {
+        "uuid": "3634877061",
+        "number": 4245,
+        "title": "Broken links in documentation",
+        "labels": [
+          "documentation",
+          "good first issue"
+        ],
+        "comments_count": 5,
+        "created_at": "2025-11-17T20:11:56.000Z",
+        "html_url": "https://github.com/ESMValGroup/ESMValTool/issues/4245"
+      }
+    ]
+  },
+  {
+    "id": 775,
+    "name": "The Flexible Modeling System",
+    "description": "A software framework for supporting the efficient development, construction, execution, and scientific interpretation of atmospheric, oceanic, and climate system models.",
+    "url": "https://github.com/NOAA-GFDL/FMS",
+    "language": "Fortran",
+    "category": "Climate Change",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "NOAA-GFDL",
+      "stargazers_count": 121,
+      "license": "other",
+      "pushed_at": "2026-09-28T21:36:47.000Z",
+      "topics": [
+        "climate",
+        "climate-model",
+        "fms",
+        "fortran",
+        "gfdl",
+        "infrastructure",
+        "netcdf"
+      ],
+      "created_at": "2014-04-17T16:49:09.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "373508045",
+        "number": 54,
+        "title": "Eliminate remaining uses of Cray pointers",
+        "labels": [
+          "help wanted",
+          "suggestion"
+        ],
+        "comments_count": 8,
+        "created_at": "2018-10-24T14:19:26.000Z",
+        "html_url": "https://github.com/NOAA-GFDL/FMS/issues/54"
+      },
+      {
+        "uuid": "2658713148",
+        "number": 1613,
+        "title": "Field table yaml documentation",
+        "labels": [
+          "enhancement",
+          "help wanted",
+          "documentation"
+        ],
+        "comments_count": 0,
+        "created_at": "2024-11-14T12:48:09.000Z",
+        "html_url": "https://github.com/NOAA-GFDL/FMS/issues/1613"
+      },
+      {
+        "uuid": "1009913406",
+        "number": 827,
+        "title": "Make FMS Tests accessible via CMake",
+        "labels": [
+          "enhancement",
+          "help wanted"
+        ],
+        "comments_count": 3,
+        "created_at": "2021-09-28T15:40:07.000Z",
+        "html_url": "https://github.com/NOAA-GFDL/FMS/issues/827"
+      }
+    ]
+  },
+  {
+    "id": 776,
+    "name": "global-workflow",
+    "description": "Global Superstructure/Workflow currently supporting the Finite-Volume on a Cubed-Sphere Global Forecast System.",
+    "url": "https://github.com/NOAA-EMC/global-workflow",
+    "language": "Shell",
+    "category": "Climate Change",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "NOAA-EMC",
+      "stargazers_count": 101,
+      "license": "lgpl-3.0",
+      "pushed_at": "2026-10-02T14:54:25.000Z",
+      "topics": [
+        "gdas",
+        "gefs",
+        "gfs",
+        "jedi",
+        "s2s",
+        "sfs",
+        "ufs"
+      ],
+      "created_at": "2019-12-16T13:38:50.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "1538533398",
+        "number": 1244,
+        "title": "Clean up parm/parm_wave directory and script input files",
+        "labels": [
+          "help wanted"
+        ],
+        "comments_count": 4,
+        "created_at": "2023-01-18T19:01:49.000Z",
+        "html_url": "https://github.com/NOAA-EMC/global-workflow/issues/1244"
+      },
+      {
+        "uuid": "2026401972",
+        "number": 2122,
+        "title": "Upgrade to Intel LLVM Compilers",
+        "labels": [
+          "help wanted",
+          "Epic",
+          "enhancement"
+        ],
+        "comments_count": 0,
+        "created_at": "2023-12-05T14:55:06.000Z",
+        "html_url": "https://github.com/NOAA-EMC/global-workflow/issues/2122"
+      }
+    ]
+  },
+  {
+    "id": 838,
+    "name": "ARTS",
+    "description": "A radiative transfer model for the millimeter and sub-millimeter spectral range.",
+    "url": "https://github.com/atmtools/arts",
+    "language": "C++",
+    "category": "Atmosphere",
+    "has_new_issues": false,
+    "monthly_downloads": 42,
+    "repository": {
+      "owner": "atmtools",
+      "stargazers_count": 94,
+      "license": "other",
+      "pushed_at": "2026-10-06T08:01:42.000Z",
+      "topics": [
+        "atmospheric-science",
+        "cpp",
+        "radiative-transfer"
+      ],
+      "created_at": "2012-10-29T12:51:17.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "788978228",
+        "number": 291,
+        "title": "Eigenvalue decomposition derivatives needed",
+        "labels": [
+          "enhancement",
+          "help wanted"
+        ],
+        "comments_count": 5,
+        "created_at": "2021-01-19T12:22:24.000Z",
+        "html_url": "https://github.com/atmtools/arts/issues/291"
+      }
+    ]
+  },
+  {
+    "id": 845,
+    "name": "Open-Meteo",
+    "description": "Global weather API for non-commercial use with hourly weather forecast.",
+    "url": "https://github.com/open-meteo/open-meteo",
+    "language": "Swift",
+    "category": "Atmosphere",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "open-meteo",
+      "stargazers_count": 6279,
+      "license": "agpl-3.0",
+      "pushed_at": "2026-09-30T14:37:21.000Z",
+      "topics": [
+        "weather",
+        "weather-api",
+        "weather-forecast"
+      ],
+      "created_at": "2021-06-24T09:48:38.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "1325405198",
+        "number": 78,
+        "title": "Heights in feet",
+        "labels": [
+          "enhancement",
+          "good first issue"
+        ],
+        "comments_count": 0,
+        "created_at": "2022-08-02T07:25:06.000Z",
+        "html_url": "https://github.com/open-meteo/open-meteo/issues/78"
+      },
+      {
+        "uuid": "3751075286",
+        "number": 1636,
+        "title": "Option to display snow_depth in centimeters instead of meters",
+        "labels": [
+          "good first issue"
+        ],
+        "comments_count": 0,
+        "created_at": "2025-12-21T12:02:23.000Z",
+        "html_url": "https://github.com/open-meteo/open-meteo/issues/1636"
+      }
+    ]
+  },
+  {
+    "id": 932,
+    "name": "OpenAQ Data Ingest Pipeline",
+    "description": "A tool to collect data for OpenAQ platform.",
+    "url": "https://github.com/openaq/openaq-fetch",
+    "language": "JavaScript",
+    "category": "Natural Resources",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "openaq",
+      "stargazers_count": 92,
+      "license": "mit",
+      "pushed_at": "2026-08-24T15:57:54.000Z",
+      "topics": [
+        "air-quality"
+      ],
+      "created_at": "2015-10-26T23:41:23.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "275631353",
+        "number": 420,
+        "title": "Trentino (Italy) data",
+        "labels": [
+          "help wanted",
+          "new data"
+        ],
+        "comments_count": 3,
+        "created_at": "2017-11-21T08:55:57.000Z",
+        "html_url": "https://github.com/openaq/openaq-fetch/issues/420"
+      },
+      {
+        "uuid": "254202442",
+        "number": 367,
+        "title": "Update India location names",
+        "labels": [
+          "help wanted"
+        ],
+        "comments_count": 2,
+        "created_at": "2017-08-31T03:45:11.000Z",
+        "html_url": "https://github.com/openaq/openaq-fetch/issues/367"
+      },
+      {
+        "uuid": "288331428",
+        "number": 449,
+        "title": "Lombardy (Italy) data",
+        "labels": [
+          "help wanted",
+          "new data"
+        ],
+        "comments_count": 1,
+        "created_at": "2018-01-13T14:01:34.000Z",
+        "html_url": "https://github.com/openaq/openaq-fetch/issues/449"
+      }
+    ]
+  },
+  {
+    "id": 956,
+    "name": "Next Gen Water Modeling Framework",
+    "description": "This framework includes an encapsulation strategy which focuses on the hydrologic data first, and then builds a functional abstraction of hydrologic behavior.",
+    "url": "https://github.com/NOAA-OWP/ngen",
+    "language": "C++",
+    "category": "Natural Resources",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "NOAA-OWP",
+      "stargazers_count": 97,
+      "license": "apache-2.0",
+      "pushed_at": "2026-09-28T18:22:12.000Z",
+      "topics": [],
+      "created_at": "2020-02-19T19:52:57.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "2360475677",
+        "number": 837,
+        "title": "Update `pybind11` submodule to include support for `numpy>=2.0`",
+        "labels": [
+          "enhancement",
+          "help wanted",
+          "Compatibility Issues",
+          "build"
+        ],
+        "comments_count": 1,
+        "created_at": "2024-06-18T18:41:52.000Z",
+        "html_url": "https://github.com/NOAA-OWP/ngen/issues/837"
+      },
+      {
+        "uuid": "4838211677",
+        "number": 999,
+        "title": "Preprocessor directive implementations should be abstracted out of core code",
+        "labels": [
+          "enhancement",
+          "good first issue",
+          "help wanted"
+        ],
+        "comments_count": 0,
+        "created_at": "2026-07-08T14:07:39.000Z",
+        "html_url": "https://github.com/NOAA-OWP/ngen/issues/999"
+      }
+    ]
+  },
+  {
+    "id": 1008,
+    "name": "pySTEPS",
+    "description": "An open-source and community-driven Python library for probabilistic precipitation nowcasting, i.e. short-term ensemble prediction systems.",
+    "url": "https://github.com/pySTEPS/pysteps",
+    "language": "Python",
+    "category": "Natural Resources",
+    "has_new_issues": false,
+    "monthly_downloads": 12909,
+    "repository": {
+      "owner": "pySTEPS",
+      "stargazers_count": 588,
+      "license": "bsd-3-clause",
+      "pushed_at": "2026-09-22T13:34:25.000Z",
+      "topics": [
+        "advection",
+        "ensemble-prediction",
+        "forecast-verification",
+        "hydrology",
+        "nowcasting",
+        "optical-flow",
+        "precipitation",
+        "rainfall",
+        "rainfall-prediction",
+        "stochastic-processes",
+        "weather",
+        "weather-radar"
+      ],
+      "created_at": "2018-07-09T09:32:49.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "2897551804",
+        "number": 463,
+        "title": "Extra axes added when plotting precipitation field with map",
+        "labels": [
+          "good first issue"
+        ],
+        "comments_count": 1,
+        "created_at": "2025-03-05T14:51:29.000Z",
+        "html_url": "https://github.com/pySTEPS/pysteps/issues/463"
+      }
+    ]
+  },
+  {
+    "id": 1129,
+    "name": "Integrated Valuation of Ecosystem Services and Tradeoffs",
+    "description": "A family of tools for quantifying the values of natural capital in clear, credible, and practical ways.",
+    "url": "https://github.com/natcap/invest",
+    "language": "Python",
+    "category": "Sustainable Development",
+    "has_new_issues": false,
+    "monthly_downloads": 2508,
+    "repository": {
+      "owner": "natcap",
+      "stargazers_count": 256,
+      "license": "apache-2.0",
+      "pushed_at": "2026-09-29T18:38:13.000Z",
+      "topics": [
+        "ecosystem-services",
+        "geospatial",
+        "gis"
+      ],
+      "created_at": "2020-01-29T22:22:07.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "3074566862",
+        "number": 1930,
+        "title": "Forest Carbon inconsistency in data projection requirements",
+        "labels": [
+          "good first issue"
+        ],
+        "comments_count": 0,
+        "created_at": "2025-05-19T17:33:35.000Z",
+        "html_url": "https://github.com/natcap/invest/issues/1930"
+      },
+      {
+        "uuid": "3172696902",
+        "number": 2056,
+        "title": "CBC test data datastack is extremely outdated",
+        "labels": [
+          "good first issue"
+        ],
+        "comments_count": 0,
+        "created_at": "2025-06-24T17:09:17.000Z",
+        "html_url": "https://github.com/natcap/invest/issues/2056"
+      },
+      {
+        "uuid": "2603576179",
+        "number": 1655,
+        "title": "Workbench: changing parameters from a previous run does not change \"model complete\" state",
+        "labels": [
+          "good first issue",
+          "workbench"
+        ],
+        "comments_count": 5,
+        "created_at": "2024-10-21T20:20:16.000Z",
+        "html_url": "https://github.com/natcap/invest/issues/1655"
+      }
+    ]
+  },
+  {
+    "id": 1130,
+    "name": "The REgional Model of INvestments and Development",
+    "description": "A modular open source multi-regional model incorporating the economy, the climate system and a detailed representation of the energy sector.",
+    "url": "https://github.com/remindmodel/remind",
+    "language": "GAMS",
+    "category": "Sustainable Development",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "remindmodel",
+      "stargazers_count": 148,
+      "license": "other",
+      "pushed_at": "2026-10-08T13:14:30.000Z",
+      "topics": [],
+      "created_at": "2019-12-06T15:42:32.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "2907281339",
+        "number": 2029,
+        "title": "q37_emiPrc is defined with a too large scope (not urgent)",
+        "labels": [
+          "good first issue",
+          "code cleaning",
+          "minor"
+        ],
+        "comments_count": 1,
+        "created_at": "2025-03-10T13:30:21.000Z",
+        "html_url": "https://github.com/remindmodel/remind/issues/2029"
+      }
+    ]
+  },
+  {
+    "id": 1170,
+    "name": "openEO",
+    "description": "Provides intuitive programming libraries to process a wide variety of earth observation datasets.",
+    "url": "https://github.com/Open-EO/openeo-python-client",
+    "language": "Python",
+    "category": "Sustainable Development",
+    "has_new_issues": false,
+    "monthly_downloads": 32418,
+    "repository": {
+      "owner": "Open-EO",
+      "stargazers_count": 219,
+      "license": "apache-2.0",
+      "pushed_at": "2026-10-02T14:31:50.000Z",
+      "topics": [
+        "earth-observation",
+        "openeo",
+        "python",
+        "remote-sensing"
+      ],
+      "created_at": "2017-10-06T13:40:18.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "1903100059",
+        "number": 476,
+        "title": "autogenerated job description",
+        "labels": [
+          "good first issue",
+          "feature request",
+          "nice-to-have"
+        ],
+        "comments_count": 2,
+        "created_at": "2023-09-19T14:16:55.000Z",
+        "html_url": "https://github.com/Open-EO/openeo-python-client/issues/476"
+      },
+      {
+        "uuid": "3006265938",
+        "number": 763,
+        "title": "more flexible job manager end state",
+        "labels": [
+          "good first issue",
+          "low hanging fruit",
+          "technical debt",
+          "job manager"
+        ],
+        "comments_count": 0,
+        "created_at": "2025-04-19T07:27:15.000Z",
+        "html_url": "https://github.com/Open-EO/openeo-python-client/issues/763"
+      },
+      {
+        "uuid": "557580614",
+        "number": 111,
+        "title": "Clean up examples",
+        "labels": [
+          "good first issue",
+          "clean up",
+          "usability",
+          "low hanging fruit"
+        ],
+        "comments_count": 3,
+        "created_at": "2020-01-30T15:46:05.000Z",
+        "html_url": "https://github.com/Open-EO/openeo-python-client/issues/111"
+      }
+    ]
+  },
+  {
+    "id": 1343,
+    "name": "SOLECTRUS",
+    "description": "An alternative photovoltaic dashboard that visualizes the yield and consumption.",
+    "url": "https://github.com/solectrus/solectrus",
+    "language": "Ruby",
+    "category": "Renewable Energy",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "solectrus",
+      "stargazers_count": 166,
+      "license": "agpl-3.0",
+      "pushed_at": "2026-10-06T18:11:23.000Z",
+      "topics": [
+        "homelab",
+        "influxdb",
+        "monitoring",
+        "photovoltaic",
+        "photovoltaics",
+        "photovoltaics-dashboard",
+        "self-hosted"
+      ],
+      "created_at": "2020-12-19T18:28:37.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "2988450404",
+        "number": 4185,
+        "title": "Datenübertrag alte Datenbank",
+        "labels": [
+          "help wanted"
+        ],
+        "comments_count": 0,
+        "created_at": "2025-04-11T11:55:09.000Z",
+        "html_url": "https://github.com/solectrus/solectrus/issues/4185"
+      },
+      {
+        "uuid": "3016722965",
+        "number": 4245,
+        "title": "Historische Daten nach Umzug",
+        "labels": [
+          "help wanted"
+        ],
+        "comments_count": 0,
+        "created_at": "2025-04-24T10:07:18.000Z",
+        "html_url": "https://github.com/solectrus/solectrus/issues/4245"
+      },
+      {
+        "uuid": "3313698636",
+        "number": 4594,
+        "title": "Wärmepumpe konfigurieren / fehlerhafte Berechnung erzeugter Wärme?",
+        "labels": [
+          "help wanted"
+        ],
+        "comments_count": 0,
+        "created_at": "2025-08-12T10:56:56.000Z",
+        "html_url": "https://github.com/solectrus/solectrus/issues/4594"
+      }
+    ]
+  },
+  {
+    "id": 3037,
+    "name": "CATS: the Climate-Aware Task Scheduler",
+    "description": "A lightweight Python-based tool that calculates the optimal time to run a compute job to minimise its carbon intensity enabling environmentally-conscious scheduling.",
+    "url": "https://github.com/GreenScheduler/cats",
+    "language": "Python",
+    "category": "Emissions",
+    "has_new_issues": false,
+    "monthly_downloads": 116,
+    "repository": {
+      "owner": "GreenScheduler",
+      "stargazers_count": 81,
+      "license": "mit",
+      "pushed_at": "2026-10-01T11:40:18.000Z",
+      "topics": [
+        "carbon",
+        "carbon-footprint",
+        "climate",
+        "computing",
+        "electricity",
+        "electricity-consumption",
+        "energy",
+        "energy-consumption",
+        "job-scheduler",
+        "scheduling"
+      ],
+      "created_at": "2023-05-04T09:16:56.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "3643227835",
+        "number": 169,
+        "title": "Handle API connection failure more elegantly than traceback",
+        "labels": [
+          "enhancement",
+          "good first issue"
+        ],
+        "comments_count": 2,
+        "created_at": "2025-11-19T15:17:10.000Z",
+        "html_url": "https://github.com/GreenScheduler/cats/issues/169"
+      },
+      {
+        "uuid": "4185567321",
+        "number": 188,
+        "title": "`at` or `schtasks create` on Windows",
+        "labels": [
+          "enhancement",
+          "good first issue"
+        ],
+        "comments_count": 0,
+        "created_at": "2026-04-01T09:40:22.000Z",
+        "html_url": "https://github.com/GreenScheduler/cats/issues/188"
+      },
+      {
+        "uuid": "2963492655",
+        "number": 133,
+        "title": "Optionally include carbon intensity reduction figure in output",
+        "labels": [
+          "enhancement",
+          "good first issue"
+        ],
+        "comments_count": 0,
+        "created_at": "2025-04-01T13:40:00.000Z",
+        "html_url": "https://github.com/GreenScheduler/cats/issues/133"
+      }
+    ]
+  },
+  {
+    "id": 3732,
+    "name": "reemission",
+    "description": "A Python library and a command line interface tool for estimating CO2, CH4 and N2O emissions from water reservoirs.",
+    "url": "https://github.com/tomjanus/reemission",
+    "language": "Python",
+    "category": "Emissions",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "tomjanus",
+      "stargazers_count": 8,
+      "license": "gpl-3.0",
+      "pushed_at": "2025-11-29T11:08:20.000Z",
+      "topics": [
+        "climate",
+        "greenhouse-gas-emissions",
+        "hydropower",
+        "water-resources"
+      ],
+      "created_at": "2021-10-30T19:45:13.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "1811624157",
+        "number": 28,
+        "title": "CH4 emission profiles seem suspicious",
+        "labels": [
+          "bug",
+          "help wanted"
+        ],
+        "comments_count": 1,
+        "created_at": "2023-07-19T10:10:24.000Z",
+        "html_url": "https://github.com/tomjanus/reemission/issues/28"
+      },
+      {
+        "uuid": "2312341282",
+        "number": 47,
+        "title": "Test if the software deals properly with latex installations under Windows",
+        "labels": [
+          "help wanted",
+          "testing"
+        ],
+        "comments_count": 1,
+        "created_at": "2024-05-23T08:51:51.000Z",
+        "html_url": "https://github.com/tomjanus/reemission/issues/47"
+      }
+    ]
+  },
+  {
+    "id": 3791,
+    "name": "ODINN.jl",
+    "description": "Global glacier model using Universal Differential Equations for climate-glacier interactions.",
+    "url": "https://github.com/ODINN-SciML/ODINN.jl",
+    "language": "Julia",
+    "category": "Cryosphere",
+    "has_new_issues": false,
+    "monthly_downloads": 18,
+    "repository": {
+      "owner": "ODINN-SciML",
+      "stargazers_count": 93,
+      "license": "mit",
+      "pushed_at": "2026-10-06T16:13:50.000Z",
+      "topics": [
+        "climate",
+        "cryosphere",
+        "differential-equations",
+        "glaciers",
+        "julia",
+        "scientific-machine-learning",
+        "sciml"
+      ],
+      "created_at": "2021-03-17T16:12:29.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "3014207165",
+        "number": 307,
+        "title": "Move plots related to the training in the post-processing and store relevant information in memory",
+        "labels": [
+          "good first issue"
+        ],
+        "comments_count": 2,
+        "created_at": "2025-04-23T14:17:36.000Z",
+        "html_url": "https://github.com/ODINN-SciML/ODINN.jl/issues/307"
+      }
+    ]
+  },
+  {
+    "id": 16396,
+    "name": "huawei_solar",
+    "description": "This integration exposes the information and functions made available by Huawei Solar inverters directly via one of its Modbus interfaces in Home Assistant.",
+    "url": "https://github.com/wlcrs/huawei_solar",
+    "language": "Python",
+    "category": "Renewable Energy",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "wlcrs",
+      "stargazers_count": 934,
+      "license": "agpl-3.0",
+      "pushed_at": "2026-09-29T18:47:29.000Z",
+      "topics": [
+        "home-assistant",
+        "home-assistant-integration",
+        "huawei",
+        "huawei-solar",
+        "modbus",
+        "modbus-rtu",
+        "modbus-tcp",
+        "solar-energy"
+      ],
+      "created_at": "2021-10-20T15:12:45.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "2824264722",
+        "number": 912,
+        "title": "[Feature request]: add support for SDongle registers",
+        "labels": [
+          "enhancement",
+          "help wanted",
+          "on-hold"
+        ],
+        "comments_count": 8,
+        "created_at": "2025-01-31T19:42:30.000Z",
+        "html_url": "https://github.com/wlcrs/huawei_solar/issues/912"
+      },
+      {
+        "uuid": "4027614388",
+        "number": 1265,
+        "title": "[Bug]: Timestamps don't match",
+        "labels": [
+          "bug",
+          "help wanted",
+          "on-hold"
+        ],
+        "comments_count": 8,
+        "created_at": "2026-03-05T11:21:57.000Z",
+        "html_url": "https://github.com/wlcrs/huawei_solar/issues/1265"
+      }
+    ]
+  },
+  {
+    "id": 17011,
+    "name": "SalishSeaNowcast",
+    "description": "A collection of Python modules associated with running the SalishSeaCast ocean models system of daily nowcasts and forecasts.",
+    "url": "https://github.com/SalishSeaCast/SalishSeaNowcast",
+    "language": "Python",
+    "category": "Hydrosphere",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "SalishSeaCast",
+      "stargazers_count": 7,
+      "license": "apache-2.0",
+      "pushed_at": "2026-09-14T19:07:01.000Z",
+      "topics": [
+        "automation",
+        "ocean-modelling",
+        "oceanography",
+        "salishsea",
+        "salishseacast",
+        "ubc-moad"
+      ],
+      "created_at": "2020-02-01T01:41:43.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "2895528275",
+        "number": 341,
+        "title": "Add a water level comparison figure for Darrel Bay",
+        "labels": [
+          "enhancement",
+          "help wanted",
+          "Figures"
+        ],
+        "comments_count": 0,
+        "created_at": "2025-03-04T21:55:36.000Z",
+        "html_url": "https://github.com/SalishSeaCast/SalishSeaNowcast/issues/341"
+      }
+    ]
+  },
+  {
+    "id": 19753,
+    "name": "pvlib-python",
+    "description": "A set of documented functions for simulating the performance of photovoltaic energy systems.",
+    "url": "https://github.com/pvlib/pvlib-python",
+    "language": "Python",
+    "category": "Renewable Energy",
+    "has_new_issues": false,
+    "monthly_downloads": 1289794,
+    "repository": {
+      "owner": "pvlib",
+      "stargazers_count": 1678,
+      "license": "bsd-3-clause",
+      "pushed_at": "2026-10-01T17:35:28.000Z",
+      "topics": [
+        "photovoltaic",
+        "python",
+        "renewable-energy",
+        "renewables",
+        "solar-energy"
+      ],
+      "created_at": "2015-02-17T00:21:33.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "528340635",
+        "number": 825,
+        "title": "Consistent names for reference kwargs",
+        "labels": [
+          "documentation",
+          "api",
+          "good first issue"
+        ],
+        "comments_count": 8,
+        "created_at": "2019-11-25T21:14:53.000Z",
+        "html_url": "https://github.com/pvlib/pvlib-python/issues/825"
+      },
+      {
+        "uuid": "692446765",
+        "number": 1043,
+        "title": "Add examples for run_model methods, add docstrings for ModelChain constants",
+        "labels": [
+          "documentation",
+          "easy",
+          "good first issue"
+        ],
+        "comments_count": 1,
+        "created_at": "2020-09-03T22:26:30.000Z",
+        "html_url": "https://github.com/pvlib/pvlib-python/issues/1043"
+      },
+      {
+        "uuid": "2808164514",
+        "number": 2366,
+        "title": "Intro tutorial: different results for Procedural and Object oriented examples",
+        "labels": [
+          "bug",
+          "documentation",
+          "easy",
+          "good first issue"
+        ],
+        "comments_count": 0,
+        "created_at": "2025-01-23T23:41:37.000Z",
+        "html_url": "https://github.com/pvlib/pvlib-python/issues/2366"
+      }
+    ]
+  },
+  {
+    "id": 19865,
+    "name": "cellpy",
+    "description": "Extract and tweak data from electro-chemical tests of battery cells.",
+    "url": "https://github.com/jepegit/cellpy",
+    "language": "Python",
+    "category": "Energy Storage",
+    "has_new_issues": false,
+    "monthly_downloads": 1890,
+    "repository": {
+      "owner": "jepegit",
+      "stargazers_count": 110,
+      "license": "mit",
+      "pushed_at": "2026-10-06T12:23:49.000Z",
+      "topics": [
+        "battery",
+        "chemistry",
+        "data-analysis",
+        "electrochemistry",
+        "opensource",
+        "physics"
+      ],
+      "created_at": "2015-12-17T11:33:35.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "435534190",
+        "number": 125,
+        "title": "A more complete set of files for testing",
+        "labels": [
+          "help wanted",
+          "builds and CI",
+          "documentation",
+          "v2"
+        ],
+        "comments_count": 1,
+        "created_at": "2019-04-21T18:17:37.000Z",
+        "html_url": "https://github.com/jepegit/cellpy/issues/125"
+      },
+      {
+        "uuid": "2378091014",
+        "number": 315,
+        "title": "Allow specification of values to be summarised in the _make_summary()-method",
+        "labels": [
+          "enhancement",
+          "good first issue",
+          "code improvements",
+          "v2"
+        ],
+        "comments_count": 1,
+        "created_at": "2024-06-27T12:57:50.000Z",
+        "html_url": "https://github.com/jepegit/cellpy/issues/315"
+      },
+      {
+        "uuid": "997124767",
+        "number": 187,
+        "title": "Add support for biologic mpt files",
+        "labels": [
+          "enhancement",
+          "good first issue",
+          "v2"
+        ],
+        "comments_count": 1,
+        "created_at": "2021-09-15T14:02:48.000Z",
+        "html_url": "https://github.com/jepegit/cellpy/issues/187"
+      }
+    ]
+  },
+  {
+    "id": 20232,
+    "name": "OpenGHG",
+    "description": "A cloud platform for greenhouse gas data analysis and collaboration.",
+    "url": "https://github.com/openghg/openghg",
+    "language": "Python",
+    "category": "Emissions",
+    "has_new_issues": false,
+    "monthly_downloads": 2242,
+    "repository": {
+      "owner": "openghg",
+      "stargazers_count": 46,
+      "license": "apache-2.0",
+      "pushed_at": "2026-10-05T16:20:27.000Z",
+      "topics": [
+        "analysis",
+        "cloud",
+        "collaboration",
+        "data-science",
+        "greenhouse-gas"
+      ],
+      "created_at": "2020-09-30T14:35:48.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "1704166255",
+        "number": 646,
+        "title": "Tidy documentation",
+        "labels": [
+          "documentation",
+          "help wanted",
+          "tidy",
+          "umbrella"
+        ],
+        "comments_count": 5,
+        "created_at": "2023-05-10T15:18:12.000Z",
+        "html_url": "https://github.com/openghg/openghg/issues/646"
+      }
+    ]
+  },
+  {
+    "id": 20405,
+    "name": "icepyx",
+    "description": "Python tools for obtaining and working with ICESat-2 data.",
+    "url": "https://github.com/icesat2py/icepyx",
+    "language": "Python",
+    "category": "Cryosphere",
+    "has_new_issues": false,
+    "monthly_downloads": 473,
+    "repository": {
+      "owner": "icesat2py",
+      "stargazers_count": 259,
+      "license": "bsd-3-clause",
+      "pushed_at": "2026-09-07T22:00:04.000Z",
+      "topics": [
+        "closember",
+        "community-driven",
+        "hacktoberfest",
+        "icesat-2",
+        "python3"
+      ],
+      "created_at": "2019-06-20T23:49:26.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "562832312",
+        "number": 15,
+        "title": "interacting with the file system using pathlib instead of os.path",
+        "labels": [
+          "enhancement",
+          "good first issue"
+        ],
+        "comments_count": 1,
+        "created_at": "2020-02-10T21:15:58.000Z",
+        "html_url": "https://github.com/icesat2py/icepyx/issues/15"
+      },
+      {
+        "uuid": "3087168198",
+        "number": 688,
+        "title": "Unintended `AttributeError` when attempting to download granules before an order",
+        "labels": [
+          "bug",
+          "good first issue"
+        ],
+        "comments_count": 0,
+        "created_at": "2025-05-23T18:12:01.000Z",
+        "html_url": "https://github.com/icesat2py/icepyx/issues/688"
+      },
+      {
+        "uuid": "3339657767",
+        "number": 703,
+        "title": "[v2 Harmony] read tutorial needs updating",
+        "labels": [
+          "bug",
+          "good first issue"
+        ],
+        "comments_count": 2,
+        "created_at": "2025-08-20T22:00:13.000Z",
+        "html_url": "https://github.com/icesat2py/icepyx/issues/703"
+      }
+    ]
+  },
+  {
+    "id": 20446,
+    "name": "HydroShare",
+    "description": "A collaborative website for better access to data and models in the hydrologic sciences.",
+    "url": "https://github.com/hydroshare/hydroshare",
+    "language": "Python",
+    "category": "Hydrosphere",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "hydroshare",
+      "stargazers_count": 199,
+      "license": "bsd-3-clause",
+      "pushed_at": "2026-10-02T17:28:33.000Z",
+      "topics": [
+        "collaboration",
+        "django",
+        "django-rest-framework",
+        "docker",
+        "hydro",
+        "hydrologic-database",
+        "hydrologic-modeling",
+        "hydrologic-networks",
+        "hydrologic-sciences",
+        "hydrology",
+        "hydrology-stormwater-analysis",
+        "hydroshare",
+        "irods",
+        "javascript",
+        "nginx",
+        "postgresql",
+        "python",
+        "solr"
+      ],
+      "created_at": "2014-10-02T02:19:41.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "2412052095",
+        "number": 5550,
+        "title": "elements overflow from mobile nav bar",
+        "labels": [
+          "bug",
+          "Cosmetic",
+          "good-first-issue"
+        ],
+        "comments_count": 1,
+        "created_at": "2024-07-16T21:11:08.000Z",
+        "html_url": "https://github.com/hydroshare/hydroshare/issues/5550"
+      },
+      {
+        "uuid": "481013611",
+        "number": 3524,
+        "title": "Repeated file upload validation error is left in a JSON-type format when displayed to the user.",
+        "labels": [
+          "Resource Landing Page",
+          "Cosmetic",
+          "enhancement",
+          "good-first-issue",
+          "Pages and General HS Components",
+          "blocked"
+        ],
+        "comments_count": 5,
+        "created_at": "2019-08-15T06:32:08.000Z",
+        "html_url": "https://github.com/hydroshare/hydroshare/issues/3524"
+      },
+      {
+        "uuid": "1239998950",
+        "number": 4624,
+        "title": "Remove redundant horizontal scroll bar below additional metadata on resource landing page",
+        "labels": [
+          "Resource Landing Page",
+          "Cosmetic",
+          "good-first-issue",
+          "Pages and General HS Components"
+        ],
+        "comments_count": 0,
+        "created_at": "2022-05-18T13:50:01.000Z",
+        "html_url": "https://github.com/hydroshare/hydroshare/issues/4624"
+      }
+    ]
+  },
+  {
+    "id": 20466,
+    "name": "argopy",
+    "description": "A global network of nearly 4000 autonomous probes measuring pressure, temperature and salinity from the surface to 2000m depth every 10 days.",
+    "url": "https://github.com/euroargodev/argopy",
+    "language": "Python",
+    "category": "Hydrosphere",
+    "has_new_issues": false,
+    "monthly_downloads": 6769,
+    "repository": {
+      "owner": "euroargodev",
+      "stargazers_count": 231,
+      "license": "eupl-1.2",
+      "pushed_at": "2026-10-05T15:24:17.000Z",
+      "topics": [
+        "argo",
+        "argo-data",
+        "argo-floats",
+        "oceanography",
+        "python"
+      ],
+      "created_at": "2020-03-17T16:14:32.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "755529914",
+        "number": 72,
+        "title": "TEOS-10 Accessor Improvement Suggestions",
+        "labels": [
+          "enhancement",
+          "good first issue",
+          "help wanted",
+          "argo-core",
+          "stale"
+        ],
+        "comments_count": 12,
+        "created_at": "2020-12-02T18:55:59.000Z",
+        "html_url": "https://github.com/euroargodev/argopy/issues/72"
+      },
+      {
+        "uuid": "1755333459",
+        "number": 279,
+        "title": "New method to interpolate dataset on theta surface",
+        "labels": [
+          "enhancement",
+          "good first issue",
+          "help wanted",
+          "stale"
+        ],
+        "comments_count": 2,
+        "created_at": "2023-06-13T17:09:49.000Z",
+        "html_url": "https://github.com/euroargodev/argopy/issues/279"
+      },
+      {
+        "uuid": "3814075309",
+        "number": 574,
+        "title": "Improve performances for pre-processors",
+        "labels": [
+          "good first issue",
+          "performance",
+          "internals"
+        ],
+        "comments_count": 4,
+        "created_at": "2026-01-14T17:07:59.000Z",
+        "html_url": "https://github.com/euroargodev/argopy/issues/574"
+      }
+    ]
+  },
+  {
+    "id": 46029,
+    "name": "Activity Browser",
+    "description": "An open source and free software for Life Cycle Assessment extending the brightway2 framework.",
+    "url": "https://github.com/LCA-ActivityBrowser/activity-browser",
+    "language": "JavaScript",
+    "category": "Industrial Ecology",
+    "has_new_issues": false,
+    "monthly_downloads": 896,
+    "repository": {
+      "owner": "LCA-ActivityBrowser",
+      "stargazers_count": 208,
+      "license": "lgpl-3.0",
+      "pushed_at": "2026-08-31T08:18:47.000Z",
+      "topics": [
+        "brightway2",
+        "lca",
+        "lifecycleassessment",
+        "pyside2",
+        "pyside6",
+        "python"
+      ],
+      "created_at": "2017-04-19T17:10:57.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "2547559663",
+        "number": 1372,
+        "title": "Excel export broken on MacOS",
+        "labels": [
+          "bug",
+          "help needed"
+        ],
+        "comments_count": 3,
+        "created_at": "2024-09-25T10:10:42.000Z",
+        "html_url": "https://github.com/LCA-ActivityBrowser/activity-browser/issues/1372"
+      },
+      {
+        "uuid": "1044767581",
+        "number": 681,
+        "title": "Show and edit database descriptions",
+        "labels": [
+          "feature",
+          "good first issue"
+        ],
+        "comments_count": 0,
+        "created_at": "2021-11-04T13:33:06.000Z",
+        "html_url": "https://github.com/LCA-ActivityBrowser/activity-browser/issues/681"
+      }
+    ]
+  },
+  {
+    "id": 76489,
+    "name": "ecobalyse",
+    "description": "Ecobalyse makes it possible to understand and calculate the ecological impacts of the products distributed in France.",
+    "url": "https://github.com/mtes-mct/ecobalyse",
+    "language": "Elm",
+    "category": "Industrial Ecology",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "MTES-MCT",
+      "stargazers_count": 51,
+      "license": "mit",
+      "pushed_at": "2026-10-08T13:45:52.000Z",
+      "topics": [
+        "carbon-emissions",
+        "carbon-footprint",
+        "environment",
+        "environmental-footprint",
+        "simulation"
+      ],
+      "created_at": "2021-08-18T15:18:29.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "4523443345",
+        "number": 2346,
+        "title": "[BUG] Bugs in food packagings",
+        "labels": [
+          "bug",
+          "good first issue",
+          "food"
+        ],
+        "comments_count": 1,
+        "created_at": "2026-05-26T10:23:42.000Z",
+        "html_url": "https://github.com/MTES-MCT/ecobalyse/issues/2346"
+      }
+    ]
+  },
+  {
+    "id": 80277,
+    "name": "PyBaMM",
+    "description": "Fast and flexible physics-based battery models in Python.",
+    "url": "https://github.com/pybamm-team/pybamm",
+    "language": "Python",
+    "category": "Energy Storage",
+    "has_new_issues": false,
+    "monthly_downloads": 54254,
+    "repository": {
+      "owner": "pybamm-team",
+      "stargazers_count": 1673,
+      "license": "bsd-3-clause",
+      "pushed_at": "2026-10-02T16:16:22.000Z",
+      "topics": [
+        "batteries",
+        "battery-models",
+        "hacktoberfest",
+        "pybamm",
+        "python",
+        "simulation",
+        "solvers"
+      ],
+      "created_at": "2018-10-31T10:26:29.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "1333077384",
+        "number": 2221,
+        "title": "BaseBatterySubmodel",
+        "labels": [
+          "difficulty: easy",
+          "priority: low",
+          "hacktoberfest"
+        ],
+        "comments_count": 2,
+        "created_at": "2022-08-09T10:54:19.000Z",
+        "html_url": "https://github.com/pybamm-team/PyBaMM/issues/2221"
+      },
+      {
+        "uuid": "2586505259",
+        "number": 4512,
+        "title": "Use `numpy.typing.NDArray` instead of `np.ndarray`",
+        "labels": [
+          "difficulty: easy",
+          "priority: low",
+          "hacktoberfest"
+        ],
+        "comments_count": 0,
+        "created_at": "2024-10-14T16:20:07.000Z",
+        "html_url": "https://github.com/pybamm-team/PyBaMM/issues/4512"
+      },
+      {
+        "uuid": "2055834702",
+        "number": 3662,
+        "title": "Too many failing checks / implement smarter CI",
+        "labels": [
+          "feature",
+          "difficulty: easy",
+          "difficulty: medium",
+          "priority: medium",
+          "hacktoberfest"
+        ],
+        "comments_count": 11,
+        "created_at": "2023-12-25T19:20:56.000Z",
+        "html_url": "https://github.com/pybamm-team/PyBaMM/issues/3662"
+      }
+    ]
+  },
+  {
+    "id": 123976,
+    "name": "FESOM2",
+    "description": "Multi-resolution ocean general circulation model that solves the equations of motion describing the ocean and sea ice using finite-element and finite-volume methods on unstructured computational grids.",
+    "url": "https://github.com/fesom/fesom2",
+    "language": "Fortran",
+    "category": "Cryosphere",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "FESOM",
+      "stargazers_count": 70,
+      "license": "gpl-3.0",
+      "pushed_at": "2026-10-06T14:15:10.000Z",
+      "topics": [],
+      "created_at": "2018-07-02T10:50:34.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "3875973831",
+        "number": 850,
+        "title": "Investigate model stability under zstar vertical coordinates at higher resolutions",
+        "labels": [
+          "bug",
+          "enhancement",
+          "help wanted"
+        ],
+        "comments_count": 1,
+        "created_at": "2026-01-30T14:30:34.000Z",
+        "html_url": "https://github.com/fesom/fesom2/issues/850"
+      }
+    ]
+  },
+  {
+    "id": 306204,
+    "name": "Deep Waste",
+    "description": "AI powered recycling app that classifies waste and promotes eco-friendly disposal with rewards.",
+    "url": "https://github.com/sumn2u/deep-waste-app",
+    "language": "HTML",
+    "category": "Industrial Ecology",
+    "has_new_issues": false,
+    "monthly_downloads": 0,
+    "repository": {
+      "owner": "sumn2u",
+      "stargazers_count": 65,
+      "license": "bsd-3-clause",
+      "pushed_at": "2026-05-30T11:00:08.000Z",
+      "topics": [
+        "community-project",
+        "deep-learning",
+        "eco-friendly",
+        "enviroment",
+        "flutter",
+        "flutter-apps",
+        "garbage-classification",
+        "github",
+        "hacktoberfest",
+        "image-classification",
+        "learn",
+        "machine-learning",
+        "open-source",
+        "open-source-project",
+        "pr-welcome",
+        "recycle",
+        "recycling",
+        "student-vscode",
+        "travis"
+      ],
+      "created_at": "2023-01-16T01:01:58.000Z"
+    },
+    "issues": [
+      {
+        "uuid": "2405906396",
+        "number": 6,
+        "title": "Add Support for Internationalization (i18n)",
+        "labels": [
+          "up for grabs",
+          "hacktoberfest"
+        ],
+        "comments_count": 2,
+        "created_at": "2024-07-12T15:54:47.000Z",
+        "html_url": "https://github.com/sumn2u/deep-waste-app/issues/6"
+      }
+    ]
+  }
+]

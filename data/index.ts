@@ -1,5 +1,5 @@
-import { Data, Repository } from "@/types/types";
 import slugify from "slugify";
+import type { Data, Repository } from "@/types/types";
 import { GetAllProjects } from "./ecosystems";
 import { getFilteredCategories, getFilteredLanguages, getFilteredTags } from "./shared";
 import { writeDataFile } from "./utils";
@@ -8,9 +8,9 @@ function formatStars(stars: number): string {
   if (stars < 1000) {
     return stars.toString();
   } else if (stars < 1000000) {
-    return (stars / 1000).toFixed(1) + "K";
+    return `${(stars / 1000).toFixed(1)}K`;
   } else {
-    return (stars / 1000000).toFixed(1) + "M";
+    return `${(stars / 1000000).toFixed(1)}M`;
   }
 }
 
@@ -28,7 +28,8 @@ const main = async () => {
     "⚠️ This command must be run from the root of the project directory with `pnpm prebuild`"
   );
   try {
-    const repositories = (await GetAllProjects()).map(
+    const sample = process.argv.includes("--sample");
+    const repositories = (await GetAllProjects({ sample })).map(
       ({
         id,
         name,

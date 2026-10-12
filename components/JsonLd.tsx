@@ -1,5 +1,5 @@
 import Script from "next/script";
-import { Graph } from "schema-dts";
+import type { Graph } from "schema-dts";
 import config from "../app/config.mts";
 
 const jsonLdGraph: Graph = {
@@ -38,6 +38,7 @@ export const JsonLd = () => {
     <Script
       id="json-ld"
       type="application/ld+json"
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD from our own static config
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(jsonLdGraph)
       }}

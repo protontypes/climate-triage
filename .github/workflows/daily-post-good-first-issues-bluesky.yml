@@ -5,6 +5,8 @@ on:
   schedule:
     - cron: "0 12 * * *" # Runs daily at 12:00 PM UTC
 
+permissions: {}
+
 jobs:
   post_good_first_issue:
     runs-on: ubuntu-latest

@@ -2,11 +2,21 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { useEffect, useState } from "react";
 
-import { Repository } from "@/types/types";
+import type { Repository } from "@/types/types";
 import { IssuesList } from "./IssueList";
 import { RepositoryDescription } from "./RepositoryDescription";
 import { RepositoryItemTopBar } from "./RepositoryItemTopBar";
 import { RepositoryMetadata } from "./RepositoryMetadata";
+
+dayjs.extend(relativeTime);
+
+const useLastModified = (date: string) => {
+  const [lastModified, setLastModified] = useState("");
+
+  useEffect(() => setLastModified(dayjs(date).fromNow()), [date]);
+
+  return lastModified;
+};
 
 type RepositoryItemProps = {
   repository: Repository;
@@ -15,14 +25,6 @@ type RepositoryItemProps = {
 export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
   const [isIssueOpen, setIsIssueOpen] = useState(false);
 
-  dayjs.extend(relativeTime);
-  const useLastModified = (date: string) => {
-    const [lastModified, setLastModified] = useState("");
-
-    useEffect(() => setLastModified(dayjs(date).fromNow()), [date]);
-
-    return lastModified;
-  };
   const lastModified = useLastModified(repository.last_modified);
 
   return (
@@ -32,7 +34,7 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
         isIssueOpen ? "border-primary" : "border-silver-100"
       }`}
     >
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+      {/* biome-ignore lint/a11y: pre-existing, the card toggle is not keyboard operable yet */}
       <div
         className="cursor-pointer rounded-md px-5 py-3 transition-all hover:bg-stone-100 dark:hover:bg-black-300"
         onClick={() => setIsIssueOpen(!isIssueOpen)}

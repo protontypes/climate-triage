@@ -1,11 +1,13 @@
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk } from "next/font/google";
-import React from "react";
+import type React from "react";
 
 import { TopBar } from "@/components/TopBar";
 import "@/styles/globals.scss";
 import config from "./config.mts";
+
+const socialBannerUrl = `${config.meta.siteUrl}${config.meta.socialBanner}`;
 
 // Fontawesome and TailwindCSS related settings
 const space_grotesk = Space_Grotesk({
@@ -24,14 +26,21 @@ export const metadata: Metadata = {
   openGraph: {
     title: config.meta.title,
     description: config.meta.description,
-    url: "./",
+    url: config.meta.siteUrl,
     siteName: config.meta.title,
-    images: [config.meta.socialBanner],
+    images: [
+      {
+        url: socialBannerUrl,
+        width: 1200,
+        height: 630,
+        alt: config.meta.title
+      }
+    ],
     locale: "en_US",
     type: "website"
   },
   alternates: {
-    canonical: "./"
+    canonical: config.meta.siteUrl
   },
   robots: {
     index: true,
@@ -46,8 +55,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: config.meta.title,
+    description: config.meta.description,
     card: "summary_large_image",
-    images: [config.meta.socialBanner]
+    images: [socialBannerUrl]
   },
   creator: config.author.name,
   publisher: config.author.name,
@@ -62,7 +72,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1
+  themeColor: "#2563eb"
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

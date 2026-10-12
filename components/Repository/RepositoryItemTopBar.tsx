@@ -1,4 +1,4 @@
-import { Repository } from "@/types/types";
+import type { Repository } from "@/types/types";
 import { RepositoryIssueNumberIndicator } from "./RepositoryIssueNumberIndicator";
 import { RepositoryLinkTitle } from "./RepositoryLinkTitle";
 
@@ -28,7 +28,10 @@ export const RepositoryItemTopBar = ({
         repositoryUrl={repositoryUrl}
       />
       <div className="flex flex-1 items-center justify-end">
-        <div className={`size-2 rounded-full ${repositoryHasNewIssues ? "bg-primary" : ""}`}></div>
+        <div
+          aria-hidden="true"
+          className={`size-2 rounded-full ${repositoryHasNewIssues ? "bg-primary" : ""}`}
+        ></div>
       </div>
       <RepositoryIssueNumberIndicator numberOfIssues={repositoryNumIssues} />
     </div>

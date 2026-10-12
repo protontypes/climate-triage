@@ -1,7 +1,7 @@
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true"
-});
-const withMDX = require("@next/mdx")();
+import createMDX from "@next/mdx";
+import type { NextConfig } from "next";
+
+const withMDX = createMDX();
 
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
@@ -15,7 +15,7 @@ const ContentSecurityPolicy = `
   frame-src ;
 `;
 
-const securityHeaders = [
+const securityHeaders: { key: string; value: string }[] = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
   {
     key: "Content-Security-Policy",
@@ -56,34 +56,26 @@ const securityHeaders = [
 const isProd = process.env.NODE_ENV === "production";
 const prodBaseUrl = ""; // /climate-triage without custom domain
 
-/**
- * @type {import('next').NextConfig}
- */
-module.exports = () => {
-  const plugins = [withBundleAnalyzer, withMDX];
-  return plugins.reduce((acc, next) => next(acc), {
-    reactStrictMode: true,
-    output: "export",
-    basePath: isProd ? prodBaseUrl : "",
-    assetPrefix: isProd ? prodBaseUrl : "",
-    pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-    eslint: {
-      dirs: ["."]
-    },
-    images: {
-      domains: [],
-      unoptimized: true
-    },
-    compiler: {
-      removeConsole: true
-    }
-    // async headers() {
-    //   return [
-    //     {
-    //       source: "/(.*)",
-    //       headers: securityHeaders
-    //     }
-    //   ];
-    // }
-  });
+const config: NextConfig = {
+  reactStrictMode: true,
+  output: "export",
+  basePath: isProd ? prodBaseUrl : "",
+  assetPrefix: isProd ? prodBaseUrl : "",
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  images: {
+    unoptimized: true
+  },
+  compiler: {
+    removeConsole: true
+  }
+  // async headers() {
+  //   return [
+  //     {
+  //       source: "/(.*)",
+  //       headers: securityHeaders
+  //     }
+  //   ];
+  // }
 };
+
+export default withMDX(config);

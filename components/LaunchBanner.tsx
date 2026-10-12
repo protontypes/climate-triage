@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import LaunchBannerClose from "./LaunchBannerClose";
 
-export default function LaunchBanner(): JSX.Element {
+export default function LaunchBanner(): React.JSX.Element {
   return (
     <div
       id="launch-banner"
