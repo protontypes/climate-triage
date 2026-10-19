@@ -85,11 +85,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <script
           defer
-          data-domain="climatetriage.com"
-          src="https://plausible.io/js/script.js"
-        ></script>
-        <script
-          defer
           src="https://cloud.umami.is/script.js"
           data-website-id="8ef78ec6-24ca-4940-bfdc-ee8e79b8ed3f"
         ></script>
