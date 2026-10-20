@@ -188,6 +188,8 @@ export const dummyRepositories: Repository[] = [
       { display: "machine-learning", id: "machine-learning" }
     ],
     monthly_downloads: 0,
+    open_issues_count: 226,
+    total_committers: 37,
     created_at: ""
   },
   {
@@ -230,6 +232,8 @@ export const dummyRepositories: Repository[] = [
       { display: "wind", id: "wind" }
     ],
     monthly_downloads: 0,
+    open_issues_count: 27,
+    total_committers: 10,
     created_at: ""
   },
   {
@@ -311,6 +315,8 @@ export const dummyRepositories: Repository[] = [
     ],
     tags: [],
     monthly_downloads: 0,
+    open_issues_count: 174,
+    total_committers: 37,
     created_at: ""
   },
   {
@@ -397,6 +403,8 @@ export const dummyRepositories: Repository[] = [
       { display: "map", id: "map" }
     ],
     monthly_downloads: 0,
+    open_issues_count: 52,
+    total_committers: 14,
     created_at: ""
   },
   {
@@ -450,6 +458,8 @@ export const dummyRepositories: Repository[] = [
       { display: "sr15", id: "sr15" }
     ],
     monthly_downloads: 0,
+    open_issues_count: 15,
+    total_committers: 1,
     created_at: ""
   },
   {
@@ -504,6 +514,8 @@ export const dummyRepositories: Repository[] = [
       { display: "drawdown", id: "drawdown" }
     ],
     monthly_downloads: 0,
+    open_issues_count: 0,
+    total_committers: 1,
     created_at: ""
   },
   {
@@ -618,6 +630,8 @@ export const dummyRepositories: Repository[] = [
       { display: "noaa", id: "noaa" }
     ],
     monthly_downloads: 0,
+    open_issues_count: 311,
+    total_committers: 30,
     created_at: ""
   },
   {
@@ -722,6 +736,8 @@ export const dummyRepositories: Repository[] = [
       { display: "remote-sensing", id: "remote-sensing" }
     ],
     monthly_downloads: 0,
+    open_issues_count: 171,
+    total_committers: 63,
     created_at: ""
   },
   {
@@ -766,6 +782,8 @@ export const dummyRepositories: Repository[] = [
     ],
     tags: [{ display: "pytorch", id: "pytorch" }],
     monthly_downloads: 0,
+    open_issues_count: 35,
+    total_committers: 13,
     created_at: ""
   },
   {
@@ -823,6 +841,8 @@ export const dummyRepositories: Repository[] = [
       { display: "python", id: "python" }
     ],
     monthly_downloads: 0,
+    open_issues_count: 3,
+    total_committers: 7,
     created_at: ""
   }
 ];

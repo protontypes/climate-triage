@@ -19,7 +19,7 @@ const levelLabels: Record<HealthLevel, string> = {
 
 export const RepositoryHealthBadge = ({ score, level }: RepositoryHealthBadgeProps) => (
   <span
-    title={`Health score ${score}/100 (${levelLabels[level]}): based on open issues and recent activity`}
+    title={`Health score ${score}/100 (${levelLabels[level]}): based on open issues per developer and recent activity`}
     className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${levelStyles[level]}`}
   >
     health: {score} · {levelLabels[level]}
