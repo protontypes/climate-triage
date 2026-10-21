@@ -24,12 +24,16 @@ export interface HealthScore {
  *   issue backlog is not a project in trouble.
  *
  * The workload penalty is halved for projects that pushed within the last
- * 30 days. The ecosyste.ms `commit_stats` lag the repository HEAD on 241 of
- * the 243 projects that carry them, and the committer count they report is
+ * 30 days. The ecosyste.ms `commit_stats` lag the repository HEAD on 245 of
+ * the 248 projects that carry them, and the committer count they report is
  * systematically lower than the one GitHub reports, because only commits
  * already parsed at sync time are counted. On an active project that
  * undercount turns a well-staffed repo into a false alarm; on a quiet one it
  * is the signal that matters.
+ *
+ * The upstream data problems are tracked in ecosyste-ms/ost#1005 (stale
+ * `last_synced_commit`), #1006 (`total_committers` undercount) and #1007
+ * (stale `pushed_at`). Once they are fixed the halving can go away.
  */
 export const getHealthScore = (repository: Repository, now: number = Date.now()): HealthScore => {
   const openIssues = repository.open_issues_count ?? 0;
@@ -72,7 +76,7 @@ export const getHealthScore = (repository: Repository, now: number = Date.now())
 /**
  * Penalty for open issues per developer. The bands come from the live
  * ecosyste.ms dataset for the openclimateaction set: the median project sits
- * at 2.9 open issues per committer and the 90th percentile at 9.8. A project
+ * at 2.9 open issues per committer and the 90th percentile at 9.9. A project
  * with 190 open issues and a single committer carries 190 issues alone, and
  * that is the case the metric exists to surface.
  */
