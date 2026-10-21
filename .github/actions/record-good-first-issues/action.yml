@@ -1,0 +1,70 @@
+name: Record the posted issues
+description: >-
+  Records the issues that were posted successfully in the state file and
+  releases the issues that failed, so a failed post is tried again on the next
+  run. The reservations of the other runs are kept, they are the ones that
+  protect against a run that crashed after the post.
+
+inputs:
+  state-path:
+    description: The path of the file with the uuids of the posted issues.
+    required: true
+  cache-prefix:
+    description: The prefix of the cache key that holds the state file.
+    required: true
+  selection:
+    description: The JSON array with the issues that were selected for this run.
+    required: true
+  posted-dir:
+    description: The directory with one file per posted issue, named after its uuid.
+    required: false
+    default: posted
+
+runs:
+  using: composite
+  steps:
+    # The state of the run that selected the issues holds the reservations.
+    - name: Restore the posted issues
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ${{ inputs.state-path }}
+        key: ${{ inputs.cache-prefix }}-${{ github.run_id }}-${{ github.run_attempt }}-selected
+        restore-keys: |
+          ${{ inputs.cache-prefix }}-
+
+    - name: Write the selection
+      shell: bash
+      env:
+        SELECTION: ${{ inputs.selection }}
+      run: printf '%s' "$SELECTION" >"$RUNNER_TEMP/selection.json"
+
+    - name: Record the posted issues
+      shell: bash
+      env:
+        SCRIPT: ${{ github.workspace }}/.github/scripts/so-me-posts.sh
+        STATE_PATH: ${{ inputs.state-path }}
+        POSTED_DIR: ${{ inputs.posted-dir }}
+      run: |
+        set -euo pipefail
+        # The uuids are file names, they are not globs.
+        set -f
+        mkdir -p "$(dirname "$STATE_PATH")"
+        posted_ids=()
+        if [[ -d "$POSTED_DIR" ]]; then
+          while IFS= read -r uuid; do
+            posted_ids+=("$uuid")
+          done < <(find "$POSTED_DIR" -name '*.txt' -exec basename {} .txt \; | sort)
+        fi
+        if [[ "${#posted_ids[@]}" -eq 0 ]]; then
+          echo "No post succeeded, the reservations of the selection are released."
+          bash "$SCRIPT" record "$STATE_PATH" "$RUNNER_TEMP/selection.json"
+        else
+          echo "Recorded ${posted_ids[*]} as posted."
+          bash "$SCRIPT" record "$STATE_PATH" "$RUNNER_TEMP/selection.json" "${posted_ids[@]}"
+        fi
+
+    - name: Save the posted issues
+      uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ${{ inputs.state-path }}
+        key: ${{ inputs.cache-prefix }}-${{ github.run_id }}-${{ github.run_attempt }}-posted

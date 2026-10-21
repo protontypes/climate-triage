@@ -35,6 +35,10 @@ jobs:
       - id: install
         run: pnpm install --frozen-lockfile
 
+      # The shell script of the daily bots is not covered by biome, shellcheck
+      # is part of the image of the runner.
+      - run: shellcheck .github/scripts/*.sh
+
       # Fix locally with `pnpm lint:fix`.
       - run: pnpm lint
 

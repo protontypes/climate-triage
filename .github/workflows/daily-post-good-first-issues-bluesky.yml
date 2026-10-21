@@ -2,60 +2,60 @@ name: Daily Post Good First Issues to BlueSky
 
 on:
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Select the issues and report them, without posting them.
+        type: boolean
+        default: false
   schedule:
     - cron: "0 12 * * *" # Runs daily at 12:00 PM UTC
 
-permissions: {}
+permissions:
+  contents: read
+
+# A run that is still posting waits for the other one, so the state of the
+# posted issues is not overwritten.
+concurrency:
+  group: daily-post-good-first-issues-bluesky
+  cancel-in-progress: false
+
+env:
+  # The uuids of the issues that were posted, one state file per platform.
+  STATE_PATH: .so-me-state/posted.json
+  CACHE_PREFIX: so-me-posted-bluesky
 
 jobs:
   prepare_posts:
     runs-on: ubuntu-latest
     outputs:
-      posts: ${{ steps.build.outputs.posts }}
-      count: ${{ steps.build.outputs.count }}
+      posts: ${{ steps.select.outputs.posts }}
+      count: ${{ steps.select.outputs.count }}
     steps:
-      - name: Fetch Good First Issues
-        run: |
-          set -euo pipefail
-          if ! curl -fsSL "https://ost.ecosyste.ms/api/v1/issues?recent=true" -o issues.json; then
-            echo "Failed to fetch issues API. Exiting with failure."
-            exit 1
-          fi
-          if ! jq empty issues.json; then
-            echo "issues.json is not valid JSON. Exiting with failure."
-            exit 1
-          fi
-          echo "Fetched $(jq length issues.json) issues."
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
-      - name: Prepare Posts
-        id: build
-        env:
-          POST_INTRO: "A new good first issue available for contribution: "
-          default_hashtags: " #climate #sustainability #opensource #opensustain #goodfirstissue #goodfirstissues"
-        run: |
-          set -euo pipefail
-          # Keep the full message within the Bluesky 300-character limit by
-          # trimming the title; the issue URL and hashtags are never cut.
-          jq -c --arg intro "$POST_INTRO" --arg hashtags "$default_hashtags" '
-            [.[] | select(.labels[] | if type == "object" then .name else . end == "good first issue")
-            | (.project.language // "unknown") as $lang
-            | (.project.name // "unknown") as $name
-            | .html_url as $url
-            | (" (" + $lang + ") - " + $name + " ") as $middle
-            | (280 - (($intro + $middle + $url + $hashtags) | length)) as $budget
-            | { text: ($intro + .title[0:(if $budget > 10 then $budget else 10 end)] + $middle + $url + $hashtags), url: $url }
-          ]' issues.json > posts.json
+      - name: Select the posts
+        id: select
+        uses: ./.github/actions/select-good-first-issues
+        with:
+          state-path: ${{ env.STATE_PATH }}
+          cache-prefix: ${{ env.CACHE_PREFIX }}
 
-          count=$(jq length posts.json)
-          echo "Prepared $count posts:"
-          cat posts.json
-          echo "posts=$(jq -c . posts.json)" >> "$GITHUB_OUTPUT"
-          echo "count=$count" >> "$GITHUB_OUTPUT"
+      - name: Report the dry run
+        if: ${{ inputs.dry_run }}
+        run: |
+          echo "::notice::Dry run: the selected issues are not posted."
+          echo "Dry run: the selected issues are not posted." >> "$GITHUB_STEP_SUMMARY"
 
   post_to_bluesky:
     needs: prepare_posts
-    if: needs.prepare_posts.outputs.count != '0'
+    if: ${{ needs.prepare_posts.result == 'success' && needs.prepare_posts.outputs.count != '0' && !inputs.dry_run }}
     runs-on: ubuntu-latest
+    # A run that waits for the API does not have to hold the concurrency group
+    # for hours.
+    timeout-minutes: 15
     strategy:
       fail-fast: false
       max-parallel: 1
@@ -72,3 +72,51 @@ jobs:
           link-preview-url: ${{ matrix.post.url }}
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
           password: ${{ secrets.BLUESKY_PASSWORD }}
+
+      # Only a post that succeeded is recorded, a failed one is tried again on
+      # the next run. The uuid comes from the selection, it is a file name
+      # that is safe to use.
+      - name: Record the posted issue
+        env:
+          UUID: ${{ matrix.post.uuid }}
+        run: |
+          set -euo pipefail
+          mkdir -p posted
+          printf '%s\n' "$UUID" >"posted/$UUID.txt"
+
+      - name: Upload the posted issue
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: posted-${{ matrix.post.uuid }}
+          path: posted/${{ matrix.post.uuid }}.txt
+          retention-days: 1
+
+  record_posts:
+    needs: [prepare_posts, post_to_bluesky]
+    # The issues that were posted are recorded even when a post failed, the
+    # reservations of the run are released for the ones that failed. The job
+    # also runs for a dry run, the reservations of the selection are released
+    # there as well, so the issues are selected again by the next run.
+    if: ${{ !cancelled() && needs.prepare_posts.result == 'success' && needs.prepare_posts.outputs.count != '0' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # A download that fails fails the run: without the artifacts it is not
+      # known which issues were posted, and the state would be wrong.
+      - name: Download the posted issues
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: posted-*
+          merge-multiple: true
+          path: posted
+
+      - name: Record the posted issues
+        uses: ./.github/actions/record-good-first-issues
+        with:
+          state-path: ${{ env.STATE_PATH }}
+          cache-prefix: ${{ env.CACHE_PREFIX }}
+          selection: ${{ needs.prepare_posts.outputs.posts }}
