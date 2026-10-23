@@ -42,7 +42,16 @@ const main = async () => {
         issues,
         monthly_downloads
       }) => {
-        const { owner, stargazers_count, license, pushed_at, topics, created_at } = repository;
+        const {
+          owner,
+          stargazers_count,
+          license,
+          pushed_at,
+          topics,
+          created_at,
+          open_issues_count,
+          commit_stats
+        } = repository;
         return {
           id: id.toString(),
           owner,
@@ -78,7 +87,9 @@ const main = async () => {
             display: slugger(t),
             id: t
           })),
-          monthly_downloads: monthly_downloads
+          monthly_downloads: monthly_downloads,
+          open_issues_count: open_issues_count,
+          total_committers: commit_stats?.total_committers ?? null
         } as Repository;
       }
     );

@@ -13,7 +13,8 @@
     "prebuild": "tsx data/index.ts",
     "prebuild:sample": "tsx data/index.ts --sample",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "verify:health": "tsx scripts/verify-live-health.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
