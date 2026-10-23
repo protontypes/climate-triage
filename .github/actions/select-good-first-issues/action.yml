@@ -1,0 +1,125 @@
+name: Select the good first issues
+description: >-
+  Fetches the good first issues from the ecosyste.ms API, restores the issues
+  that were posted already and selects the ones to post. The selection is
+  reserved before it is posted, so a run that crashes after the post does not
+  post the same issue again.
+
+inputs:
+  state-path:
+    description: The path of the file with the uuids of the posted issues.
+    required: true
+  cache-prefix:
+    description: The prefix of the cache key that holds the state file.
+    required: true
+  issues-url:
+    description: >-
+      The url of the issues API. The API does not support a "recent" filter,
+      the newest issues are selected by their creation date instead. The page
+      holds the newest 300 issues, that is about a year of them, so the window
+      of a week is always covered.
+    required: false
+    default: "https://ost.ecosyste.ms/api/v1/issues?sort=created_at&order=desc&per_page=300"
+  lookback-days:
+    description: How many days back the issues are selected.
+    required: false
+    default: "7"
+  max-posts:
+    description: >-
+      The maximum number of issues that are posted per run. The API gets about
+      six new issues a week, so most runs post less than the maximum.
+    required: false
+    default: "3"
+  max-text-length:
+    description: The maximum length of the post text.
+    required: false
+    default: "280"
+  post-intro:
+    description: The text that introduces the issue.
+    required: false
+    default: "A new good first issue available for contribution: "
+  hashtags:
+    description: The hashtags that are appended to every post.
+    required: false
+    default: " #climate #sustainability #opensource #opensustain #goodfirstissue #goodfirstissues"
+
+outputs:
+  posts:
+    description: The JSON array with the selected issues.
+    value: ${{ steps.select.outputs.posts }}
+  count:
+    description: The number of selected issues.
+    value: ${{ steps.select.outputs.count }}
+
+runs:
+  using: composite
+  steps:
+    # The issues API does not support a "recent" filter, the newest issues are
+    # selected by their creation date instead.
+    - name: Fetch the issues
+      shell: bash
+      env:
+        ISSUES_URL: ${{ inputs.issues-url }}
+      run: |
+        set -euo pipefail
+        # --max-time keeps a hanging request from blocking the run, --retry
+        # survives a hiccup of the API.
+        if ! curl -fsSL --max-time 60 --retry 3 --retry-delay 5 "$ISSUES_URL" -o issues.json; then
+          echo "::error::Failed to fetch the issues API."
+          exit 1
+        fi
+        if ! jq -e 'type == "array"' issues.json >/dev/null 2>&1; then
+          echo "::error::The issues API did not return a JSON array."
+          exit 1
+        fi
+        total=$(jq 'length' issues.json)
+        echo "Fetched $total issues."
+        if [[ "$total" -eq 0 ]]; then
+          echo "::warning::The issues API returned no records, so nothing can be posted. The API or the query is probably broken."
+          echo "The issues API returned no records - nothing was posted." >> "$GITHUB_STEP_SUMMARY"
+        fi
+
+    - name: Restore the posted issues
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ${{ inputs.state-path }}
+        # The run attempt is part of the key, a re-run of the same run gets its
+        # own cache entry instead of failing on the one of the first attempt.
+        key: ${{ inputs.cache-prefix }}-${{ github.run_id }}-${{ github.run_attempt }}-selected
+        restore-keys: |
+          ${{ inputs.cache-prefix }}-
+
+    - name: Select the posts
+      id: select
+      shell: bash
+      env:
+        SCRIPT: ${{ github.workspace }}/.github/scripts/so-me-posts.sh
+        STATE_PATH: ${{ inputs.state-path }}
+        LOOKBACK_DAYS: ${{ inputs.lookback-days }}
+        MAX_POSTS: ${{ inputs.max-posts }}
+        MAX_TEXT_LENGTH: ${{ inputs.max-text-length }}
+        POST_INTRO: ${{ inputs.post-intro }}
+        HASHTAGS: ${{ inputs.hashtags }}
+      run: |
+        set -euo pipefail
+        mkdir -p "$(dirname "$STATE_PATH")"
+        count=$(bash "$SCRIPT" select issues.json "$STATE_PATH" posts.json)
+        echo "Selected $count posts:"
+        cat posts.json
+        if [[ "$count" -eq 0 ]]; then
+          echo "::notice::No new good first issues to post."
+          echo "No new good first issues to post." >> "$GITHUB_STEP_SUMMARY"
+        fi
+        # The selection is reserved before it is posted, so a run that crashes
+        # after the post does not post the same issue again.
+        bash "$SCRIPT" reserve "$STATE_PATH" posts.json
+        echo "posts=$(jq -c . posts.json)" >> "$GITHUB_OUTPUT"
+        echo "count=$count" >> "$GITHUB_OUTPUT"
+
+    # The reservation is saved before the issues are posted, so it survives a
+    # run that crashes halfway through.
+    - name: Save the reserved issues
+      uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ${{ inputs.state-path }}
+        key: ${{ inputs.cache-prefix }}-${{ github.run_id }}-${{ github.run_attempt }}-selected
