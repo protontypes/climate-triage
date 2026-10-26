@@ -1,8 +1,8 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.6.3/schema.json",
   "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
   "files": {
-    "includes": ["**", "!data/data.json", "!data/fixtures", "!public"]
+    "includes": ["**", "!data/data.json", "!data/fixtures", "!public", "!pnpm-lock.yaml"]
   },
   "formatter": {
     "indentStyle": "space",
@@ -10,6 +10,7 @@
     "lineWidth": 100,
     "lineEnding": "auto"
   },
+  "css": { "parser": { "tailwindDirectives": true } },
   "javascript": {
     "formatter": {
       "trailingCommas": "none"

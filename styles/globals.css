@@ -1,0 +1,111 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans:
+    var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --color-primary: #2563eb;
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  --color-primary-950: #172554;
+
+  --color-azure: #61d0ff;
+  --color-azure-100: #003146;
+  --color-azure-200: #00638d;
+  --color-azure-300: #0094d3;
+  --color-azure-400: #1bbaff;
+  --color-azure-500: #61d0ff;
+  --color-azure-600: #81d9ff;
+  --color-azure-700: #a0e3ff;
+  --color-azure-800: #c0ecff;
+  --color-azure-900: #dff6ff;
+
+  --color-green: #47f6ad;
+  --color-green-100: #033c24;
+  --color-green-200: #067949;
+  --color-green-300: #09b56d;
+  --color-green-400: #0bf292;
+  --color-green-500: #47f6ad;
+  --color-green-600: #6bf8bd;
+  --color-green-700: #90face;
+  --color-green-800: #b5fcde;
+  --color-green-900: #dafdef;
+
+  --color-black: #101620;
+  --color-black-100: #030406;
+  --color-black-200: #06080c;
+  --color-black-300: #090d12;
+  --color-black-400: #0c1118;
+  --color-black-500: #101620;
+  --color-black-600: #2e3f5c;
+  --color-black-700: #4e6a9a;
+  --color-black-800: #849ac1;
+  --color-black-900: #c1cde0;
+
+  --color-silver: #e6edf3;
+  --color-silver-100: #1f3140;
+  --color-silver-200: #3e6180;
+  --color-silver-300: #6791b6;
+  --color-silver-400: #a7bfd5;
+  --color-silver-500: #e6edf3;
+  --color-silver-600: #ecf1f6;
+  --color-silver-700: #f1f5f8;
+  --color-silver-800: #f5f8fa;
+  --color-silver-900: #fafcfd;
+}
+
+/* Tailwind v4 defaults borders to currentColor; keep the v3 gray-200 default. */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #2e3f5c;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary;
+  border-radius: 2px;
+}
+
+.active-pill {
+  @apply border-primary font-semibold text-primary;
+
+  > span {
+    @apply text-primary;
+  }
+}
+
+#sidebar {
+  @apply w-full flex-none font-sans;
+
+  @media (min-width: 768px) {
+    @apply relative;
+    max-width: 24rem;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 28rem;
+  }
+}

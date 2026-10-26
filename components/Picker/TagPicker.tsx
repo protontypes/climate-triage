@@ -74,7 +74,7 @@ export const TagPicker = ({
           type="button"
           className={`${
             !isShowLessVisible ? "md:hidden" : "md:inline-block"
-          } active-pill group mb-2 ml-2 hidden cursor-pointer rounded-sm border px-2 py-1 transition-all hover:bg-primary hover:text-white`}
+          } active-pill group mb-2 ml-2 hidden cursor-pointer rounded-xs border px-2 py-1 transition-all hover:bg-primary hover:text-white`}
           onClick={handleShowLess}
         >
           Show Less
@@ -96,7 +96,7 @@ export const TagPicker = ({
             const isActive = onTagPage && tag.id === activeTagId;
             return (
               <PickerItem
-                className={classNames("group m-1 inline-block rounded-sm border px-2 py-1", {
+                className={classNames("group m-1 inline-block rounded-xs border px-2 py-1", {
                   "active-pill": isActive,
                   "border-silver-100 transition-all hover:border-primary hover:text-primary":
                     !isActive

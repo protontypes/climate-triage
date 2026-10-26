@@ -74,7 +74,7 @@ export const CategoryPicker = ({
             const isActive = onCategoryPage && category.id === activeTagId;
             return (
               <PickerItem
-                className={classNames("group m-1 inline-block rounded-sm border px-2 py-1", {
+                className={classNames("group m-1 inline-block rounded-xs border px-2 py-1", {
                   "active-pill": isActive,
                   "border-silver-100 transition-all hover:border-primary hover:text-primary":
                     !isActive
