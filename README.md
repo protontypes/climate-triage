@@ -24,10 +24,10 @@ To set up and run ClimateTriage locally, follow these steps:
    pnpm install
    ```
 
-2. **Prebuild the Project**:
+2. **Prebuild the Project** (from the committed sample; `pnpm prebuild` fetches live data instead):
 
    ```bash
-   pnpm prebuild
+   pnpm prebuild:sample
    ```
 
 3. **Start the Development Server:**:

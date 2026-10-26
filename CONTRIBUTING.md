@@ -1,102 +1,66 @@
 # Contributing Guidelines
 
-This documentation contains a set of guidelines to help you during the contribution process.
-We are happy to welcome all the contributions from anyone willing to improve/add new scripts to this project. Thank you for helping out and remember,
-**no contribution is too small.**
+Thanks for helping out. **No contribution is too small.**
 
-# Submitting Contributions👩‍💻👨‍💻
+## Step 1 : Pick something to work on
 
-Below you will find the process and workflow used to review and merge your changes.
-## Step 1 : Find an issue
+- Small fixes and improvements can go straight to a PR. Describe the problem in the PR.
+- Features, new data sources, metrics and anything over roughly 100 lines need an issue first. Propose your approach there and wait for a maintainer to agree before building it.
+- Comment on the issue when you start, and check open PRs, so nobody does the same work twice.
 
-- Take a look at the Existing Issues or create your **own** Issues!
-- Wait for the Issue to be assigned to you after which you can start working on it.
-- Note : Every change in this project should/must have an associated issue.
+## Step 2 : Set up
 
-img1
+Fork the repository, then:
 
-## Step 2 : Fork the Project
-
-- Fork this Repository. This will create a Local Copy of this Repository on your Github Profile. Keep a reference to the original project in `upstream` remote.
 ```
-$ git clone https://github.com/protontypes/climate-triage/
-$ cd climate-triage
-$ git remote add upstream https://github.com/protontypes/climate-triage/
+git clone https://github.com/<your-username>/climate-triage
+cd climate-triage
+git remote add upstream https://github.com/protontypes/climate-triage
+pnpm install            # also installs the pre-commit hook
+pnpm prebuild:sample    # builds the data from a committed sample, no API calls
+pnpm dev
 ```
 
-- If you have already forked the project, update your copy before working.
-```
-$ git remote update
-$ git checkout <branch-name>
-$ git rebase upstream/<branch-name>
-```
-## Step 3 : Branch
+The Node version is in `.nvmrc`. `pnpm prebuild` fetches live data from ecosyste.ms instead. You rarely need it.
 
-Create a new branch. Use its name to identify the issue your addressing.
-```
-# It will create a new branch with name Branch_Name and switch to that branch 
-$ git checkout -b branch_name
-```
-## Step 4 : Work on the issue assigned
+## Step 3 : Make your change
 
-- Work on the issue(s) assigned to you.
-- Add all the files/folders needed.
-- After you've made changes or made your contribution to the project add changes to the branch you've just created by:
-```
-# To add all new files to branch Branch_Name
-$ git add .
-```
-## Step 4.5 : Pre-commit hook (lint-staged)
+- Branch from an up-to-date `main`: `git fetch upstream && git switch -c my-fix upstream/main`.
+- Keep the PR to one concern. Leave unrelated reformatting, refactors and dependency bumps for another PR.
+- Every commit runs [Biome](https://biomejs.dev) on the staged files. If it blocks the commit, fix what it reports and commit again. If the hook didn't install, run `pnpm exec husky`.
+- Before pushing, run what CI runs:
 
-- After your first `pnpm install`, the `prepare` script (`husky`) installs the Git pre-commit hook from `.husky/pre-commit`.
-- Every `git commit` runs [lint-staged](https://github.com/lint-staged/lint-staged), which runs [Biome](https://biomejs.dev) (`biome check --write`) on the staged files and stages the fixes.
-- If Biome finds something it can't fix, the commit is blocked. Fix the reported errors, stage the fixes, and commit again.
-- If the hook does not run (e.g. you cloned but skipped `pnpm install`), enable it manually with:
-```
-pnpm exec husky
-```
-
-- CI runs the full checks on every PR. To run them locally first:
 ```
 pnpm lint        # or `pnpm lint:fix` to auto-fix what Biome can
 pnpm typecheck
 pnpm test
 ```
-## Step 5 : Commit
 
-- To commit give a descriptive message for the convenience of reveiwer by:
-```
-# This message get associated with all files you have changed
-$ git commit -m "message"
-```
+## Step 4 : Open a pull request
 
-- **NOTE**: A PR should have only one commit. Multiple commits should be squashed.
-## Step 6 : Work Remotely
+- Use a title like `fix: debounce repository search` (or `feat:`, `docs:`, `ci:`).
+- Fill in the PR template. A few sentences on what was wrong, what changed and what you ran is usually enough.
+- No need to squash commits. We squash when merging. If `main` moves and conflicts, rebase onto it.
 
-- Now you are ready to your work to the remote repository.
-- When your work is ready and complies with the project conventions, upload your changes to your fork:
+## Writing PRs, issues and comments ✍️
 
-```
-# To push your work to your remote repository
-$ git push -u origin Branch_Name
-```
+Reviewers read every word, so keep it short.
 
-## Step 7 : Pull Request
+- Lead with the point. The first sentence says what changed, or what you're asking.
+- Say things once. Don't repeat the diff, the issue or the template headings back.
+- Describe what you found and decided, not every step you took to get there.
+- Add more detail only where the reasoning isn't obvious from the code.
 
-- Go to your repository in browser and click on compare and pull requests. Then add a title and description to your pull request that explains your contribution.
+## Using AI tools 🤖
 
-- Voila! Your Pull Request has been submitted and will be reviewed by the moderators and merged.🥳
+AI coding tools are welcome. The bar for a PR is the same however it was written.
 
-## Need more help?🤔
+- **You are the author.** You have read every line of the diff, run the checks, and can answer review comments yourself. Please don't paste AI output into replies unedited.
+- **Edit what it writes.** AI tools make long descriptions cheap to write but not to read. Trim them to the points above before posting.
+- **Point your agent at [AGENTS.md](AGENTS.md).** It holds this project's working rules for agents. Claude Code, Codex, Cursor and others read it automatically.
 
-You can refer to the following articles on basics of Git and Github and also contact the Project Mentors, in case you are stuck:
-- [Forking a Repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
-- [Cloning a Repo](https://help.github.com/en/desktop/contributing-to-projects/creating-an-issue-or-pull-request)
-- [How to create a Pull Request](https://opensource.com/article/19/7/create-pull-request-github)
-- [Getting started with Git and GitHub](https://towardsdatascience.com/getting-started-with-git-and-github-6fcd0f2d4ac6)
-- [Learn GitHub from Scratch](https://lab.github.com/githubtraining/introduction-to-github)
+PRs that skip these steps may be closed with a short reason and a pointer to where to continue. That isn't a judgement on you, and you're welcome to pick the work up again.
 
+## Need more help? 🤔
 
-## Tip from us😇
-
-It always takes time to understand and learn. So, do not worry at all. We know **you have got this**!💪
+Ask on the issue, or see GitHub's guides to [forking a repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo) and [creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
