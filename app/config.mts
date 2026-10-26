@@ -9,6 +9,7 @@ const config = {
   },
   meta: {
     title: "ClimateTriage - Impactful open source contributions",
+    siteName: "ClimateTriage",
     logo: "ClimateTriage",
     description:
       "Launch your open source journey in climate and sustainability. Explore current Good First Issues from open source initiatives focused on protecting natural resources.",
@@ -17,7 +18,8 @@ const config = {
     locale: "en-US"
   },
   links: {
-    community: "https://discord.gg/JDUatGKxve"
+    community: "https://discord.gg/JDUatGKxve",
+    github: "https://github.com/protontypes/climate-triage"
   }
 };
 
