@@ -4,12 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import config from "@/app/config.mts";
 import { sponsors } from "@/data/sponsors";
-import OpenClimateFundLaunchBanner from "./OpenClimateFundLaunchBanner";
 import { SectionTitle } from "./SectionTitle";
 
 export const TopBar = () => (
   <>
-    <OpenClimateFundLaunchBanner />
+    {/* <OpenClimateFundLaunchBanner /> */}
     <div className="flex h-16 items-center justify-between bg-stone-50 px-6 py-3 transition-all hover:border-primary hover:text-primary dark:bg-black-400">
       <div className="flex items-center justify-between gap-3 sm:gap-5">
         <SectionTitle text="Sponsored by" />
