@@ -2,7 +2,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
 import { useEffect, useState } from "react";
-import type { CountableTag } from "@/types/types";
+import type { CountableTag } from "#types/types";
 import { ShowMoreButton } from "../Button/ShowMoreButton";
 import { SectionTitle } from "../SectionTitle";
 import ActiveTagButton from "./ActiveTagButton";

@@ -1,7 +1,7 @@
 import { faCaretDown, faCaretUp, faShuffle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
-import { RepositorySortDirection, type RepositorySortMethod } from "@/types/types";
+import { RepositorySortDirection, type RepositorySortMethod } from "#types/types";
 import { SectionTitle } from "../SectionTitle";
 
 type SortPickerProps = {

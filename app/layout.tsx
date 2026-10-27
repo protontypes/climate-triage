@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk } from "next/font/google";
 import type React from "react";
 
-import { TopBar } from "@/components/TopBar";
-import "@/styles/globals.css";
+import { TopBar } from "#components/TopBar";
+import "#styles/globals.css";
 import config from "./config.mts";
 
 const socialBannerUrl = `${config.meta.siteUrl}${config.meta.socialBanner}`;

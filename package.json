@@ -55,5 +55,45 @@
     "*": [
       "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
     ]
+  },
+  "imports": {
+    "#app/*": [
+      "./app/*",
+      "./app/*.ts",
+      "./app/*.tsx",
+      "./app/*/index.ts",
+      "./app/*/index.tsx"
+    ],
+    "#components/*": [
+      "./components/*",
+      "./components/*.ts",
+      "./components/*.tsx",
+      "./components/*/index.ts",
+      "./components/*/index.tsx"
+    ],
+    "#data/*": [
+      "./data/*",
+      "./data/*.ts",
+      "./data/*.tsx",
+      "./data/*/index.ts",
+      "./data/*/index.tsx"
+    ],
+    "#hooks/*": [
+      "./hooks/*",
+      "./hooks/*.ts",
+      "./hooks/*.tsx",
+      "./hooks/*/index.ts",
+      "./hooks/*/index.tsx"
+    ],
+    "#styles/*": [
+      "./styles/*"
+    ],
+    "#types/*": [
+      "./types/*",
+      "./types/*.ts",
+      "./types/*.tsx",
+      "./types/*/index.ts",
+      "./types/*/index.tsx"
+    ]
   }
 }

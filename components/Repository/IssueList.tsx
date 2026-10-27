@@ -1,4 +1,4 @@
-import type { Issue, Repository } from "@/types/types";
+import type { Issue, Repository } from "#types/types";
 
 import { IssueItem } from "./IssueItem";
 

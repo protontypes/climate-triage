@@ -2,7 +2,7 @@
 
 import { useParams, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import useWindowSize from "@/hooks/useWindowSize";
+import useWindowSize from "#hooks/useWindowSize";
 import { useAppData } from "../hooks/useAppData";
 import { AboutSection } from "./AboutSection";
 import { LinkButton } from "./Button/LinkButton";

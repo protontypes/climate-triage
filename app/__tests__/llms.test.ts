@@ -1,4 +1,4 @@
-import type { Data } from "@/types/types";
+import type { Data } from "#types/types";
 import { dummyRepositories } from "../../data/__tests__/test-data";
 import { buildLlmsTxt } from "../llms";
 

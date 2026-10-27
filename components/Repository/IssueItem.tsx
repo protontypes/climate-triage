@@ -1,7 +1,7 @@
 import { faComment } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import type { Issue } from "@/types/types";
+import type { Issue } from "#types/types";
 
 type IssueItemProps = {
   issue: Issue;

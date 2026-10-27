@@ -2,8 +2,8 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
-import config from "@/app/config.mts";
-import { sponsors } from "@/data/sponsors";
+import config from "#app/config.mts";
+import { sponsors } from "#data/sponsors";
 import { SectionTitle } from "./SectionTitle";
 
 export const TopBar = () => (
