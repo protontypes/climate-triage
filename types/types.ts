@@ -38,6 +38,8 @@ export interface Repository {
   category: Tag;
   monthly_downloads: number;
   created_at: string;
+  open_issues_count: number;
+  total_committers: number | null;
 }
 
 // Describes an Issue, which is a GitHub issue linked to a repository
