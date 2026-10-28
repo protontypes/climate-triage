@@ -1,5 +1,5 @@
 import Link from "next/link";
-import config from "@/app/config.mts";
+import config from "#app/config.mts";
 import { SectionTitle } from "./SectionTitle";
 
 export const AboutSection = () => {

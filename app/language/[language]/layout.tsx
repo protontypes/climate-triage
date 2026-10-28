@@ -1,4 +1,4 @@
-import { getData } from "@/app/data-loader";
+import { getData } from "#app/data-loader";
 
 // Generate segments for [language]
 export function generateStaticParams() {

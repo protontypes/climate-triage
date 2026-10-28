@@ -16,9 +16,6 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "allowImportingTsExtensions": true,
-    "paths": {
-      "@/*": ["./*"]
-    },
     "plugins": [
       {
         "name": "next"

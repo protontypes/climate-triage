@@ -1,4 +1,4 @@
-import type { Data } from "@/types/types";
+import type { Data } from "#types/types";
 import data from "../data/data.json";
 
 // Typed explicitly: otherwise TypeScript infers the type from whatever data.json currently

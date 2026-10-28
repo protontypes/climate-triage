@@ -2,7 +2,7 @@
 
 import type React from "react";
 import { createContext, useCallback, useEffect, useMemo, useState } from "react";
-import { getData } from "@/app/data-loader";
+import { getData } from "#app/data-loader";
 import {
   type AppData,
   type CountableCategory,
@@ -12,7 +12,7 @@ import {
   type Repository,
   RepositorySortDirection,
   RepositorySortMethod
-} from "@/types/types";
+} from "#types/types";
 
 type AppDataContextType = AppData & {
   filterRepositoriesByTag: (tag: string) => Repository[];

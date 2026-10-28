@@ -1,4 +1,4 @@
-import type { Data } from "@/types/types";
+import type { Data } from "#types/types";
 import config from "./config.mts";
 
 type CountedLink = { id: string; display: string; count: number };

@@ -1,5 +1,5 @@
 import slugify from "slugify";
-import type { Data, Repository } from "@/types/types";
+import type { Data, Repository } from "#types/types";
 import { GetAllProjects } from "./ecosystems";
 import { getFilteredCategories, getFilteredLanguages, getFilteredTags } from "./shared";
 import { writeDataFile } from "./utils";

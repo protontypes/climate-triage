@@ -1,4 +1,4 @@
-import type { Repository } from "@/types/types";
+import type { Repository } from "#types/types";
 import { getFilteredLanguages, getFilteredTags } from "../shared";
 import { dummyRepositories } from "./test-data";
 

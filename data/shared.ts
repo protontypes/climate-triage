@@ -4,7 +4,7 @@ import type {
   CountableTag,
   Repository,
   Tag
-} from "@/types/types";
+} from "#types/types";
 
 /**
  * Returns an array of languages with a count of how many repositories use them.
